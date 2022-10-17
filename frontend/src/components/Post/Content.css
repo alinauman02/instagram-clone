@@ -1,5 +1,20 @@
 .content {
-  background-color: black;
+  position: relative;
+}
+
+.content-img {
   width: auto;
-  height: 500px;
+  height: 446px;
+}
+
+.content-right-button {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+}
+
+.content-left-button {
+  position: absolute;
+  top: 50%;
+  left: 20%;
 }

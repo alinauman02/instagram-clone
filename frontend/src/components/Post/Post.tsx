@@ -8,7 +8,13 @@ export function Post() {
     <div className="post-card">
       <header>
         <ProfileListItem button="..." name="EJaz" icon={reactSvg} description="Quaidain"></ProfileListItem>
-        <Content />
+        <Content
+          content={[
+            { type: 'img', src: reactSvg },
+            { type: 'img', src: reactSvg },
+            { type: 'img', src: reactSvg },
+          ]}
+        />
       </header>
     </div>
   );
