@@ -1,9 +1,9 @@
 import './App.css';
-
+import { Post } from './components';
 function App() {
   return (
     <div>
-      <h1>Lets go!</h1>
+      <Post />
     </div>
   );
 }
