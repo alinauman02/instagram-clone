@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import './Content.css';
 import nextIcon from './../../assets/next-icon.svg';
-import backIcon from './../../assets/back-icon.svg';
+import { ReactComponent as BackIcon } from './../../assets/back-icon.svg';
 
 interface Content {
   type: 'img' | 'video';
@@ -34,7 +34,7 @@ export function Content({ content }: ContentProps) {
       )}
       {index > 0 && (
         <button className="content-left-button" onClick={backContent}>
-          <img className="change-icon-image" src={backIcon} alt="eakjf"></img>
+          <BackIcon />
         </button>
       )}
     </div>

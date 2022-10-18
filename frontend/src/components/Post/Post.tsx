@@ -2,7 +2,7 @@ import './Post.css';
 
 import reactSvg from './../../assets/react.svg';
 import reactSvg1 from './../../assets/next-icon.svg';
-import { ProfileListItem, Content } from 'components';
+import { ProfileListItem, Content, PostActions } from 'components';
 
 export function Post() {
   return (
@@ -17,6 +17,9 @@ export function Post() {
           ]}
         />
       </header>
+      <footer>
+        <PostActions></PostActions>
+      </footer>
     </div>
   );
 }
