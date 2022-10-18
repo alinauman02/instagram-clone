@@ -10,11 +10,17 @@
 .content-right-button {
   position: absolute;
   top: 50%;
-  left: 80%;
+  left: 85%;
+  border: none;
+  opacity: 0.3;
+  border-radius: 50%;
 }
 
 .content-left-button {
   position: absolute;
   top: 50%;
-  left: 20%;
+  left: 10%;
+  border: none;
+  opacity: 0.3;
+  border-radius: 50%;
 }

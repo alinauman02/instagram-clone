@@ -1,6 +1,7 @@
 import './Post.css';
 
 import reactSvg from './../../assets/react.svg';
+import reactSvg1 from './../../assets/next-icon.svg';
 import { ProfileListItem, Content } from 'components';
 
 export function Post() {
@@ -11,7 +12,7 @@ export function Post() {
         <Content
           content={[
             { type: 'img', src: reactSvg },
-            { type: 'img', src: reactSvg },
+            { type: 'img', src: reactSvg1 },
             { type: 'img', src: reactSvg },
           ]}
         />

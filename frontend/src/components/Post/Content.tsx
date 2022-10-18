@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import './Content.css';
 import nextIcon from './../../assets/next-icon.svg';
+import backIcon from './../../assets/back-icon.svg';
 
 interface Content {
   type: 'img' | 'video';
@@ -28,12 +29,12 @@ export function Content({ content }: ContentProps) {
       <img className="content-img" src={content[index].src} alt="eakjf"></img>
       {index < content.length - 1 && (
         <button onClick={nextContent} className="content-right-button">
-          <img src={nextIcon} alt="eakjf"></img>
+          <img className="change-icon-image" src={nextIcon} alt="eakjf"></img>
         </button>
       )}
       {index > 0 && (
         <button className="content-left-button" onClick={backContent}>
-          <img src={nextIcon} alt="eakjf"></img>
+          <img className="change-icon-image" src={backIcon} alt="eakjf"></img>
         </button>
       )}
     </div>
