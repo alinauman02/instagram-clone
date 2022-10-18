@@ -1,16 +1,24 @@
 import './PostActions.css';
 
-import like from './../../assets/like.svg';
-import comment from './../../assets/comment.svg';
-import paperPlane from './../../assets/paperplane.svg';
-import bookMark from './../../assets/bookmark.svg';
+import { ReactComponent as Comment } from './../../assets/comment.svg';
+import { ReactComponent as PaperPlane } from './../../assets/paperplane.svg';
+import { ReactComponent as BookMark } from './../../assets/bookmark.svg';
+import { ReactComponent as Like } from './../../assets/like.svg';
 export function PostActions() {
   return (
     <div className="flex-box">
-      <img className="action-icons" src={like} alt="like"></img>
-      <img className="action-icons" src={comment} alt="comment"></img>
-      <img className="action-icons" src={paperPlane} alt="paperPlane"></img>
-      <img className="action-icons bookmark-icon" src={bookMark} alt="paperPlane"></img>
+      <div className="action-icons">
+        <Like />
+      </div>
+      <div className="action-icons">
+        <Comment />
+      </div>
+      <div className="action-icons">
+        <PaperPlane />
+      </div>
+      <div className="action-icons bookmark-icon">
+        <BookMark />
+      </div>
     </div>
   );
 }

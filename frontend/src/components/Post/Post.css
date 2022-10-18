@@ -1,8 +1,50 @@
 .post-card {
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   width: 500px;
-  height: 700px;
-  margin-top: 200px;
-  margin-left: 400px;
+  height: auto;
+  margin-top: 50px;
+  margin-left: 600px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.post-description {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.gray {
+  color: gray;
+}
+
+.comment-form {
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comment-box {
+  border: none;
+  outline: none;
+  align-self: center;
+}
+
+.comment-emoji {
+  padding-top: 3px;
+  padding-right: 10px;
+}
+
+.post-button {
+  margin-left: auto;
+  border: none;
+  color: #999999;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.post-time {
+  font-size: small;
 }

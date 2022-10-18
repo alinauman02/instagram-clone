@@ -1,9 +1,10 @@
 import './App.css';
-import { Post } from './components';
+import { Post, Header } from './components';
 function App() {
   return (
     <div>
-      <Post />
+      <Header />
+      <Post name="Ejaz hussain" number={3} />
     </div>
   );
 }

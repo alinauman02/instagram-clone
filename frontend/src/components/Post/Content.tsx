@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import './Content.css';
-import nextIcon from './../../assets/next-icon.svg';
+import { ReactComponent as NextIcon } from './../../assets/next-icon.svg';
 import { ReactComponent as BackIcon } from './../../assets/back-icon.svg';
 
 interface Content {
@@ -29,7 +29,7 @@ export function Content({ content }: ContentProps) {
       <img className="content-img" src={content[index].src} alt="eakjf"></img>
       {index < content.length - 1 && (
         <button onClick={nextContent} className="content-right-button">
-          <img className="change-icon-image" src={nextIcon} alt="eakjf"></img>
+          <NextIcon />
         </button>
       )}
       {index > 0 && (

@@ -1,0 +1,14 @@
+.navbar {
+  margin-left: 80px;
+}
+
+.navbar-items {
+  margin-left: 20px;
+}
+
+.last-icon {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: black;
+}
