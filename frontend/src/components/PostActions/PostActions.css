@@ -6,4 +6,10 @@
 .action-icons {
   padding-left: 10px;
   padding-top: 10px;
+  border: none;
+}
+
+.action-icons:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }

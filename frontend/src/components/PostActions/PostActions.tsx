@@ -7,18 +7,18 @@ import { ReactComponent as Like } from './../../assets/like.svg';
 export function PostActions() {
   return (
     <div className="flex-box">
-      <div className="action-icons">
+      <button className="action-icons">
         <Like />
-      </div>
-      <div className="action-icons">
+      </button>
+      <button className="action-icons">
         <Comment />
-      </div>
-      <div className="action-icons">
+      </button>
+      <button className="action-icons">
         <PaperPlane />
-      </div>
-      <div className="action-icons bookmark-icon">
+      </button>
+      <button className="action-icons bookmark-icon">
         <BookMark />
-      </div>
+      </button>
     </div>
   );
 }
