@@ -24,3 +24,11 @@
   opacity: 0.3;
   border-radius: 50%;
 }
+.content {
+  width: auto;
+  border: 1px solid var(--white-shade-2);
+}
+
+.content-img {
+  width: 460px;
+}

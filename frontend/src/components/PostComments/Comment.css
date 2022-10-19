@@ -1,0 +1,45 @@
+.comment {
+  width: 460px;
+}
+
+.comment-icon {
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.comment-person {
+  font-weight: bold;
+}
+
+.comment-actions {
+  font-size: small;
+  color: gray;
+  margin-top: 5px;
+}
+
+.comment-mid {
+  align-self: center;
+}
+
+.comment-like {
+  padding: 10px;
+  margin-left: auto;
+  margin-top: 5px;
+}
+
+.reply-action {
+  border: none;
+  background-color: white;
+  color: gray;
+}
+
+.likes {
+  margin-right: 5px;
+}
+
+.time {
+  margin-right: 5px;
+}

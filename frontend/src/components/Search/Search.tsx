@@ -1,6 +1,6 @@
 import './Search.css';
 
-import { ReactComponent as SearchIcon } from './../../assets/search-icon.svg';
+import { ReactComponent as SearchIcon } from 'assets/icons/search-icon.svg';
 
 export function Search() {
   return (
@@ -8,7 +8,7 @@ export function Search() {
       <div className="search-icon">
         <SearchIcon />
       </div>
-      <form>
+      <form className="search-form">
         <input className="search-box" type="string" placeholder="search" />
       </form>
     </div>

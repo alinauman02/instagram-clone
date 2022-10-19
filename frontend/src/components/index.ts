@@ -5,3 +5,6 @@ export * from './PostActions/PostActions';
 export * from './Header/Header';
 export * from './Search/Search';
 export * from './Navbar/Navbar';
+export * from './PostComments/Comment'
+export * from './PostComments/PostComments'
+export * from './Profile/Profile'

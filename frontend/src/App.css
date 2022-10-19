@@ -1,13 +1,17 @@
 :root {
   --white-shade-0: white;
+  --white-shade-1: rgb(250, 250, 250);
+  --white-shade-2: rgb(219, 219, 219);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: var(--white-shade-0);
-  
+}
+
+.app-body {
+  background-color: var(--white-shade-1);
 }
 
 .flex-box {

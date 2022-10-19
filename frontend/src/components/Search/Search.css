@@ -1,13 +1,23 @@
 .search {
-  border: 1px solid gray;
+  background-color: var(--white-shade-2);
   border-radius: 6px;
   margin-left: 200px;
   width: 250px;
+  
+}
+
+.search-form {
+  background-color: var(--white-shade-2);
 }
 
 .search-icon {
   align-self: center;
   margin-left: 10px;
+  background-color: var(--white-shade-2);
+}
+
+.search-icon > svg {
+  background-color: var(--white-shade-2);
 }
 
 .search-box {
@@ -15,4 +25,5 @@
   margin-left: 15px;
   align-self: center;
   border: none;
+  background-color: var(--white-shade-2);
 }

@@ -1,9 +1,10 @@
 import './Post.css';
 
-import reactSvg from './../../assets/react.svg';
-import reactSvg1 from './../../assets/next-icon.svg';
-import { ProfileListItem, Content, PostActions } from 'components';
-import { ReactComponent as CommentEmoji } from './../../assets/comment-emoji.svg';
+import reactSvg from 'assets/icons/react.svg';
+import reactSvg1 from 'assets/icons/next-icon.svg';
+import { ProfileListItem, Content, PostActions, Comment } from 'components';
+import { ReactComponent as CommentEmoji } from 'assets/icons/comment-emoji.svg';
+
 interface PostProps {
   name: string;
   number: number;
@@ -21,7 +22,7 @@ export function Post({ name, number }: PostProps) {
           ]}
         />
       </header>
-      <footer>
+      <footer className="post-footer">
         <PostActions></PostActions>
         <p className="post-description">
           <span className="bold">{number} Likes</span>
@@ -35,6 +36,9 @@ export function Post({ name, number }: PostProps) {
         <p className="post-description post-time">
           <span className="gray">13 HOURS AGO</span>
         </p>
+        <div>
+          <Comment />
+        </div>
         <form className="flex-box comment-form">
           <div className="comment-emoji">
             <CommentEmoji />

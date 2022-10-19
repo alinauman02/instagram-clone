@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import './Content.css';
-import { ReactComponent as NextIcon } from './../../assets/next-icon.svg';
-import { ReactComponent as BackIcon } from './../../assets/back-icon.svg';
+import { ReactComponent as NextIcon } from 'assets/icons/next-icon.svg';
+import { ReactComponent as BackIcon } from 'assets/icons/back-icon.svg';
 
 interface Content {
   type: 'img' | 'video';

@@ -1,0 +1,55 @@
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: black;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.profile {
+  margin-top: 1000px;
+  align-self: center;
+  margin: 500px;
+}
+
+.profile-info {
+  margin-top: 30px;
+}
+
+.counts {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.followers-button {
+  border: none;
+  background-color: inherit;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.following-button {
+  border: none;
+  background-color: inherit;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.user-name {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.settings-profile-button {
+  border: none;
+  margin-left: 20px;
+}
+
+.profile-bio {
+  margin-top: 30px;
+}
+
+.name {
+  font-weight: bold;
+}
