@@ -1,16 +1,16 @@
 import './Profile.css';
 
-import { ReactComponent as IconInstagram } from 'assets/icons/instagram-icon.svg';
+import ProfilePic from 'assets/images/profile.jpeg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
+
 import { Gallery } from 'components';
 
 export function Profile() {
   return (
     <div className="profile">
       <header className="profile-header flex-box">
-        <div className="profile-pic">
-          <IconInstagram />
-        </div>
+        <img className="profile-pic" src={ProfilePic} alt="profile"></img>
+
         <div className="bio">
           <div className="flex-box">
             <div className="user-name">ejazbala028</div>
@@ -36,7 +36,7 @@ export function Profile() {
           </div>
         </div>
       </header>
-      <Gallery/>
+      <Gallery />
     </div>
   );
 }
