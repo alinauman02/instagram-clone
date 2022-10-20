@@ -1,0 +1,10 @@
+.gallery {
+  border-top: 1px solid var(--white-shade-2);
+  flex-wrap: wrap;
+  padding-top: 25px;
+}
+
+.gallery-items {
+  margin-left: 50px;
+  margin-top: 25px;
+}

@@ -1,16 +1,16 @@
 .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background-color: black;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 150px;
+  margin-right: 100px;
 }
 
 .profile {
   margin-top: 1000px;
   align-self: center;
-  margin: 500px;
+  margin: 400px;
 }
 
 .profile-info {
@@ -44,6 +44,7 @@
 .settings-profile-button {
   border: none;
   margin-left: 20px;
+  cursor: button;
 }
 
 .profile-bio {
@@ -52,4 +53,8 @@
 
 .name {
   font-weight: bold;
+}
+
+.profile-header {
+  margin-bottom: 150px;
 }

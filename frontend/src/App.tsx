@@ -5,8 +5,9 @@ function App() {
     <div className="app-body">
       <Header />
       <Post name="Ejaz hussain" number={3} />
-      <div>
-        <Profile/>
+      <div className='profile-div'>
+        <Profile />
+        
       </div>
     </div>
   );

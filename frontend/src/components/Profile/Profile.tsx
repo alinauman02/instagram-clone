@@ -2,6 +2,7 @@ import './Profile.css';
 
 import { ReactComponent as IconInstagram } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
+import { Gallery } from 'components';
 
 export function Profile() {
   return (
@@ -35,6 +36,7 @@ export function Profile() {
           </div>
         </div>
       </header>
+      <Gallery/>
     </div>
   );
 }

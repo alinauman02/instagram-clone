@@ -5,6 +5,8 @@ export * from './PostActions/PostActions';
 export * from './Header/Header';
 export * from './Search/Search';
 export * from './Navbar/Navbar';
-export * from './PostComments/Comment'
-export * from './PostComments/PostComments'
-export * from './Profile/Profile'
+export * from './PostComments/Comment';
+export * from './PostComments/PostComments';
+export * from './Profile/Profile';
+export * from './Profile/Gallery';
+export * from './Profile/GalleryItem';
