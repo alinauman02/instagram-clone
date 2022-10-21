@@ -12,10 +12,10 @@
 .create-post-header {
   border-color: black;
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
   border-bottom: 1px solid var(--white-shade-2);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: .8em;
+  padding-bottom: .8em;
 }
 
 .create-post-background {
@@ -39,16 +39,16 @@
 }
 
 .create-post-icon {
-  margin-left: 40px;
+  margin-left: 3rem;
 }
 
 .create-post-text {
-  margin-top: 20px;
+  margin-top: 1.5rem;
 }
 
 .create-post-button {
-  margin-top: 20px;
-  padding: 5px;
+  margin-top: 1.5rem;
+  padding: .6rem;
   border-radius: 7px;
   background-color: #4b83cd;
   border: none;

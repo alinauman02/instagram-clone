@@ -3,7 +3,7 @@
 }
 
 .comment-icon {
-  margin: 10px;
+  margin: 0.8rem;
   width: 30px;
   height: 30px;
   background-color: black;
@@ -11,13 +11,13 @@
 }
 
 .comment-person {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .comment-actions {
   font-size: small;
   color: gray;
-  margin-top: 5px;
+  margin-top: 0.4rem;
 }
 
 .comment-mid {
@@ -27,7 +27,7 @@
 .comment-like {
   padding: 10px;
   margin-left: auto;
-  margin-top: 5px;
+  margin-top: 0.4px;
 }
 
 .reply-action {
@@ -37,9 +37,9 @@
 }
 
 .likes {
-  margin-right: 5px;
+  margin-right: 0.4rem;
 }
 
 .time {
-  margin-right: 5px;
+  margin-right: 0.4rem;
 }

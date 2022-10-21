@@ -3,26 +3,30 @@
   border: 1px solid var(--white-shade-2);
   width: 500px;
   height: auto;
-  margin-top: 50px;
-  margin-left: 600px;
+  margin-top: 5rem;
+  margin-left: 33rem;
   background-color: var(--white-shade-0);
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .post-description {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
 }
 
 .gray {
   color: gray;
 }
 
+.post-time {
+  font-size: 10px;
+}
+
 .comment-form {
-  margin-top: 10px;
+  margin-top: .8rem;
   padding: 10px;
   border: 1px solid var(--white-shade-2);
 }
@@ -34,8 +38,8 @@
 }
 
 .comment-emoji {
-  padding-top: 3px;
-  padding-right: 10px;
+  padding-top: .3rempx;
+  padding-right: .8rem;
 }
 
 .post-button {
@@ -43,7 +47,8 @@
   border: none;
   color: #999999;
   padding-right: 10px;
-  font-weight: bold;
+  font-weight: 700;
+  background-color: white;
 }
 
 .post-time {

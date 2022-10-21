@@ -26,7 +26,7 @@ export function Post({ name, number }: PostProps) {
   return (
     <div className="post-card">
       <header>
-        <ProfileListItem button="..." name="EJaz" icon={reactSvg} description="Quaidain"></ProfileListItem>
+        <ProfileListItem button="..." name="Ejaz Hussain" icon={reactSvg} description="Quaidain"></ProfileListItem>
         <Content
           content={[
             { type: 'img', src: Image1 },
@@ -55,7 +55,7 @@ export function Post({ name, number }: PostProps) {
           <span className="gray">View all 40 comments</span>
         </p>
         <p className="post-description post-time">
-          <span className="gray">13 HOURS AGO</span>
+          <span className="post-time gray">13 HOURS AGO</span>
         </p>
         <div>
           <Comment />

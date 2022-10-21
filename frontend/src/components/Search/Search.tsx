@@ -9,7 +9,7 @@ export function Search() {
         <SearchIcon />
       </div>
       <form className="search-form">
-        <input className="search-box" type="string" placeholder="search" />
+        <input className="search-box" type="string" placeholder="Search" />
       </form>
     </div>
   );
