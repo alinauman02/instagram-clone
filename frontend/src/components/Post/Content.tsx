@@ -5,6 +5,7 @@ import { ReactComponent as BackIcon } from 'assets/icons/back-icon.svg';
 interface Content {
   type: 'img' | 'video';
   src: string;
+  id: number;
 }
 
 interface ContentProps {
@@ -21,7 +22,7 @@ export function Content({ content, currentContentIndex, changeContent }: Content
       <div className="flex-box content-dots">
         {content.map((item, itemIndex) => {
           const dotStyle = itemIndex === currentContentIndex ? 'content-dot-item' : 'content-dot-item inactive-dot';
-          return <div className={dotStyle} key={item.src}></div>;
+          return <div className={dotStyle} key={item.id}></div>;
         })}
       </div>
 

@@ -29,15 +29,15 @@ export function Post({ name, number }: PostProps) {
         <ProfileListItem button="..." name="Ejaz Hussain" icon={reactSvg} description="Quaidain"></ProfileListItem>
         <Content
           content={[
-            { type: 'img', src: Image1 },
-            { type: 'img', src: Image3 },
-            { type: 'img', src: Image2 },
-            { type: 'img', src: Image4 },
-            { type: 'img', src: Image5 },
-            { type: 'img', src: Image6 },
-            { type: 'img', src: Image1 },
-            { type: 'img', src: Image3 },
-            { type: 'img', src: Image2 },
+            { type: 'img', src: Image1, id: 1 },
+            { type: 'img', src: Image3, id: 2 },
+            { type: 'img', src: Image2, id: 3 },
+            { type: 'img', src: Image4, id: 4 },
+            { type: 'img', src: Image5, id: 5 },
+            { type: 'img', src: Image6, id: 6 },
+            { type: 'img', src: Image1, id: 7 },
+            { type: 'img', src: Image3, id: 8 },
+            { type: 'img', src: Image2, id: 9 },
           ]}
           changeContent={changeContent}
           currentContentIndex={currentContentIndex}
