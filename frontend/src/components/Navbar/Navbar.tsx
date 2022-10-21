@@ -1,15 +1,20 @@
-import './Navbar.css';
+import { useState } from 'react';
 
+import './Navbar.css';
 import { ReactComponent as Add } from 'assets/icons/add.svg';
 import { ReactComponent as Suggestions } from 'assets/icons/suggestions.svg';
 import { ReactComponent as Home } from 'assets/icons/home.svg';
 import { ReactComponent as Favorites } from 'assets/icons/favorites.svg';
 import { ReactComponent as Messenger } from 'assets/icons/messenger.svg';
 import DropDownMenu from './DropDownMenu';
-import { useState } from 'react';
 
-export function Navbar() {
+interface NavbarProps {
+  onCreatePostClick: () => void;
+}
+
+export function Navbar({ onCreatePostClick }: NavbarProps) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
+  
   return (
     <div className="navbar flex-box">
       <a className="navbar-items" href="@">
@@ -18,7 +23,7 @@ export function Navbar() {
       <a className="navbar-items" href="@">
         <Messenger />
       </a>
-      <button className="navbar-items">
+      <button onClick={onCreatePostClick} className="navbar-items">
         <Add />
       </button>
       <button className="navbar-items">

@@ -4,7 +4,11 @@ import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg
 import { ReactComponent as DownIcon } from 'assets/icons/down-icon.svg';
 import { Search, Navbar } from './../';
 
-export function Header() {
+interface HeaderProps {
+  onCreatePostClick: () => void;
+}
+
+export function Header({ onCreatePostClick }:HeaderProps) {
   return (
     <div className="header flex-box">
       <InstagramIcon />
@@ -12,7 +16,7 @@ export function Header() {
         <DownIcon />
       </div>
       <Search />
-      <Navbar />
+      <Navbar onCreatePostClick={onCreatePostClick}/>
     </div>
   );
 }
