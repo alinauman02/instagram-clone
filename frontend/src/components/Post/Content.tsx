@@ -11,29 +11,31 @@ interface Content {
 
 interface ContentProps {
   content: Content[];
+  currentContentIndex: number;
+  changeContent: (num: number) => void;
 }
 
-export function Content({ content }: ContentProps) {
-  const [index, setIndex] = useState(0);
-
-  const nextContent = () => {
-    setIndex(id => id + 1);
-  };
-
-  const backContent = () => {
-    setIndex(index => index - 1);
-  };
-
-  return content[index].type == 'img' ? (
+export function Content({ content, currentContentIndex, changeContent }: ContentProps) {
+  return content[currentContentIndex].type == 'img' ? (
     <div className="content">
-      <img className="content-img" src={content[index].src} alt="eakjf"></img>
-      {index < content.length - 1 && (
-        <button onClick={nextContent} className="content-right-button">
+      <img className="content-img" src={content[currentContentIndex].src} alt="eakjf"></img>
+      {/* {content.map((item, index) => (
+        <div key={item} className="efa"> daf</div>
+      ))} */}
+      <div className="flex-box content-dots">
+        {content.map((item, itemIndex) => {
+          const dotStyle = itemIndex === currentContentIndex ? 'content-dot-item' : 'content-dot-item inactive-dot';
+          return <div className={dotStyle} key={item.src}></div>;
+        })}
+      </div>
+
+      {currentContentIndex < content.length - 1 && (
+        <button onClick={() => changeContent(1)} className="content-right-button">
           <NextIcon />
         </button>
       )}
-      {index > 0 && (
-        <button className="content-left-button" onClick={backContent}>
+      {currentContentIndex > 0 && (
+        <button className="content-left-button" onClick={backContent => changeContent(-1)}>
           <BackIcon />
         </button>
       )}
