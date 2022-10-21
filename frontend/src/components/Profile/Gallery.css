@@ -1,6 +1,6 @@
 .gallery {
   border-top: 1px solid var(--white-shade-2);
   flex-wrap: wrap;
-  padding-top: 25px;
+  padding-top: 1.8em;
 }
 

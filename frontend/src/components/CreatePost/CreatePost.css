@@ -23,7 +23,7 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 138px 460px;
+  padding: 10em 34.5em;
   position: fixed;
   padding-right: auto;
   padding-bottom: auto;
@@ -35,7 +35,7 @@
   flex-wrap: wrap;
   align-content: center;
   flex-direction: column;
-  padding-top: 230px;
+  padding-top: 15em;
 }
 
 .create-post-icon {
