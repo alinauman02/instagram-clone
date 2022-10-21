@@ -8,7 +8,7 @@ interface HeaderProps {
   onCreatePostClick: () => void;
 }
 
-export function Header({ onCreatePostClick }:HeaderProps) {
+export function Header({ onCreatePostClick }: HeaderProps) {
   return (
     <div className="header flex-box">
       <InstagramIcon />
@@ -16,7 +16,7 @@ export function Header({ onCreatePostClick }:HeaderProps) {
         <DownIcon />
       </div>
       <Search />
-      <Navbar onCreatePostClick={onCreatePostClick}/>
+      <Navbar onCreatePostClick={onCreatePostClick} />
     </div>
   );
 }

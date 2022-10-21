@@ -1,9 +1,5 @@
-import "./PostComments.css"
+import './PostComments.css';
 
-export  function PostComments() {
-  return (
-    <div className="post-comment">
-        
-    </div>
-  )
+export function PostComments() {
+  return <div className="post-comment"></div>;
 }

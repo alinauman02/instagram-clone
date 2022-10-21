@@ -17,7 +17,7 @@
 }
 
 .list-button {
-  padding-left: .8em;
+  padding-left: 0.8em;
   padding-right: auto;
   padding-top: 1em;
   border: none;
@@ -29,8 +29,8 @@
 }
 
 .icon-div {
-  padding-left: .8em;
-  padding-right: .8em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
 }
 
 .dropdown-list-item {
@@ -50,7 +50,7 @@
 
 .last-dropdown-list-item {
   border-top: 1px solid var(--white-shade-2);
-  padding-left: .8em;
-  padding-bottom: .8em;
-  margin-top: .5rem;
+  padding-left: 0.8em;
+  padding-bottom: 0.8em;
+  margin-top: 0.5rem;
 }

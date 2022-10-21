@@ -8,7 +8,6 @@ import Image5 from 'assets/images/image5.jpg';
 import Image6 from 'assets/images/image6.jpg';
 import Image7 from 'assets/images/image7.jpg';
 
-
 export function Gallery() {
   return (
     <div className="gallery flex-box">
