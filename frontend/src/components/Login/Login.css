@@ -1,0 +1,81 @@
+.login {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card {
+  padding: 3em;
+  display: flex;
+  margin-top: 0.2rem;
+  align-self: center;
+  max-width: 350px;
+  padding: 1.5em;
+  border: 1px solid var(--white-shade-2);
+  width: 100%;
+  flex-direction: column;
+  margin-top: 0.8em;
+  margin-bottom: 1rem;
+}
+
+.instagram-icon {
+  width: 10.8em;
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+.login-form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+
+.login-or-line {
+  background-color: var(--white-shade-2);
+  height: 2px;
+  align-self: center;
+  width: 110px;
+}
+
+.login-or-text {
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+}
+
+.login-or {
+  margin-top: 2rem;
+  align-self: center;
+}
+
+.login-forgot {
+  align-self: center;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: rgb(0, 55, 107);
+}
+
+.signup-card {
+  padding: 3em;
+  display: flex;
+  margin-top: 0.2rem;
+  align-self: center;
+  max-width: 350px;
+  padding: 1.5em;
+  border: 1px solid var(--white-shade-2);
+  width: 100%;
+}
+
+.signup-text {
+  align-self: center;
+  font-size: 14px;
+}
+
+.signup-button {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: rgb(0, 55, 107);
+  background-color: white;
+}
