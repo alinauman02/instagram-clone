@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 import './Signup.css';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
-
 import { Input } from './Input';
 import { InputButton } from './InputButton';
+import { Login } from './Login';
 
 export function Signup() {
   return (
@@ -11,15 +13,13 @@ export function Signup() {
         <div className="instagram-icon">
           <InstagramIcon />
         </div>
-        <div className='signup-desc'>
-            Sign up to see photos and videos from your friends
-        </div>
+        <div className="signup-desc">Sign up to see photos and videos from your friends</div>
         <form className="signup-form ">
           <Input type="email" placeholder="Mobile Number or Email" name="email" />
           <Input type="name" placeholder="Full Name" name="name" />
           <Input type="number/email" placeholder="Username" name="username" />
           <Input type="password" placeholder="Password" name="password" />
-          <InputButton name="Sign up"/>
+          <InputButton name="Sign up" />
         </form>
         <div className="flex-box login-or">
           <div className="signup-or-line"></div>
@@ -28,8 +28,10 @@ export function Signup() {
         </div>
       </div>
       <div className="signup-card">
-        <div className="signup-text">dont have an account?</div>
-        <button className="signup-button">Sign up</button>
+        <div className="signup-text">Do have an account?</div>
+        <Link className="signup-button" to="login" element={Login}>
+          Log in
+        </Link>
       </div>
     </div>
   );

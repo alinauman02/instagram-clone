@@ -12,7 +12,7 @@ export function Login() {
         <div className="instagram-icon">
           <InstagramIcon />
         </div>
-        <form className="login-form ">
+        <form className="login-form" method="post" action="home">
           <Input type="number/email" placeholder="Phone number, username, or email" name="username" />
           <Input type="password" placeholder="Password" name="password" />
           <InputButton name="Log in" />
@@ -27,7 +27,7 @@ export function Login() {
           Forgot password?
         </a>
       </div>
-      <div className="signup-card">
+      <div className="signup-card flex-box">
         <div className="signup-text">dont have an account?</div>
         <button className="signup-button">Sign up</button>
       </div>

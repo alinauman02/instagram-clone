@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './DropDownMenu.css';
 
 import { ReactComponent as SavedIcon } from 'assets/icons/saved.svg';
@@ -52,7 +54,9 @@ export default function DropDownMenu() {
           </button>
         </li>
         <li className="dropdown-list-item last-dropdown-list-item">
-          <button className="list-button">Logout</button>
+          <Link className="list-button" to="login">
+            Logout
+          </Link>
         </li>
       </ul>
     </div>

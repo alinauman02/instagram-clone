@@ -7,7 +7,7 @@ import { ReactComponent as Home } from 'assets/icons/home.svg';
 import { ReactComponent as Favorites } from 'assets/icons/favorites.svg';
 import { ReactComponent as Messenger } from 'assets/icons/messenger.svg';
 import DropDownMenu from './DropDownMenu';
-
+import { Link } from 'react-router-dom';
 interface NavbarProps {
   onCreatePostClick: () => void;
 }
@@ -17,9 +17,9 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
 
   return (
     <div className="navbar flex-box">
-      <a className="navbar-items" href="@">
+      <Link className="navbar-items" to="/">
         <Home />
-      </a>
+      </Link>
       <a className="navbar-items" href="@">
         <Messenger />
       </a>
