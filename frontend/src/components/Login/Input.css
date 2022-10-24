@@ -1,0 +1,12 @@
+.input-box {
+  margin: 0.3rem;
+  padding: 0.5em;
+  border: 1px solid var(--white-shade-2);
+  border-radius: 2px;
+  width: 260px;
+}
+
+.input-field{
+    border:none;
+    outline:none;
+}
