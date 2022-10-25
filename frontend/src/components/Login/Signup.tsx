@@ -4,7 +4,6 @@ import './Signup.css';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
 import { InputButton } from './InputButton';
-import { Login } from './Login';
 
 export function Signup() {
   return (
@@ -29,7 +28,7 @@ export function Signup() {
       </div>
       <div className="signup-card">
         <div className="signup-text">Do have an account?</div>
-        <Link className="signup-button" to="login" element={Login}>
+        <Link className="signup-button" to="/login">
           Log in
         </Link>
       </div>
