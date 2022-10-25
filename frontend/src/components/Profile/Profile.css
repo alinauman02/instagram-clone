@@ -27,7 +27,7 @@
   background-color: inherit;
   margin-left: 0.4rem;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.1rem;
 }
 
 .following-button {
@@ -35,14 +35,14 @@
   background-color: inherit;
   margin-left: 0.4rem;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.1rem;
 }
 
 .user-name {
   margin-right: 1.6rem;
   font-weight: none;
 
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 .settings-profile-button {
@@ -58,7 +58,7 @@
 
 .name {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1.1rem;
 }
 
 .profile-header {
@@ -66,5 +66,5 @@
 }
 
 .bio {
-  font-size: 16px;
+  font-size: 1.1rem;
 }
