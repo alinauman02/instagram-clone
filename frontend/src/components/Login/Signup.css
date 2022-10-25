@@ -50,7 +50,7 @@
 }
 
 .signup-desc {
-  font-size: 14px;
+  font-size: .88rem;
   align-self: center;
   font-weight: bold;
   color: gray;
@@ -74,11 +74,11 @@
 }
 
 .login-text {
-  font-size: 14px;
+  font-size:  .88rem;
 }
 
 .login-link {
-  font-size: 14px;
+  font-size: .88rem;
   color: rgb(0, 55, 107);
   background-color: white;
   text-decoration: none;

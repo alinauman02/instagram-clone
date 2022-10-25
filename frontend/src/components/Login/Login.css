@@ -71,11 +71,11 @@
 }
 
 .signup-text {
-  font-size: 14px;
+  font-size: .88rem;
 }
 
 .signup-link {
-  font-size: 14px;
+  font-size: .88rem;
   color: rgb(0, 55, 107);
   background-color: white;
   text-decoration: none;
