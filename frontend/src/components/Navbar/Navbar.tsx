@@ -16,7 +16,7 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
 
   return (
-    <div className="navbar flex-box">
+    <nav className="navbar flex-box">
       <Link className="navbar-items" to="/home">
         <Home />
       </Link>
@@ -41,6 +41,6 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
         <Suggestions />
       </button>
       <div className="navbar-items-dropdown relative-item">{dropdownMenu && <DropDownMenu />}</div>
-    </div>
+    </nav>
   );
 }
