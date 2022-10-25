@@ -2,9 +2,9 @@ import './CreatePost.css';
 import { ReactComponent as CreatePostIcon } from 'assets/icons/create-post-icon.svg';
 
 interface CreatePostProps {
-  setCreatePostBox: (value: boolean) => void;
+  setCreatePostBoxVisibility: (value: boolean) => void;
 }
-export function CreatePost({ setCreatePostBox }: CreatePostProps) {
+export function CreatePost({ setCreatePostBoxVisibility }: CreatePostProps) {
   return (
     <div className="create-post-background">
       <div className="create-post">
@@ -18,7 +18,7 @@ export function CreatePost({ setCreatePostBox }: CreatePostProps) {
           <button
             className="create-post-button"
             onClick={() => {
-              setCreatePostBox(false);
+              setCreatePostBoxVisibility(false);
             }}
           >
             Select from computer

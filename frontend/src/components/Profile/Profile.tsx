@@ -11,7 +11,7 @@ export function Profile() {
   return (
     <div className="app-body">
       <Header onCreatePostClick={() => setShowCreatePostModal(true)} />
-      {showCreatePostModal && <CreatePost setCreatePostBox={setShowCreatePostModal} />}
+      {showCreatePostModal && <CreatePost setCreatePostBoxVisibility={setShowCreatePostModal} />}
 
       <div className="profile">
         <header className="profile-header flex-box">
