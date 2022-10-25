@@ -4,6 +4,7 @@ import { ReactComponent as CreatePostIcon } from 'assets/icons/create-post-icon.
 interface CreatePostProps {
   setCreatePostBoxVisibility: (value: boolean) => void;
 }
+
 export function CreatePost({ setCreatePostBoxVisibility }: CreatePostProps) {
   return (
     <div className="create-post-background">
