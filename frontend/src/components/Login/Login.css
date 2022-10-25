@@ -66,6 +66,8 @@
   padding: 1.5em;
   border: 1px solid var(--white-shade-2);
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup-text {
@@ -74,8 +76,6 @@
 
 .signup-link {
   font-size: 14px;
-  border: none;
-  outline: none;
   color: rgb(0, 55, 107);
   background-color: white;
   text-decoration: none;
