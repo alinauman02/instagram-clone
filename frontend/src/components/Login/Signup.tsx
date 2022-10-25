@@ -13,7 +13,7 @@ export function Signup() {
           <InstagramIcon />
         </div>
         <div className="signup-desc">Sign up to see photos and videos from your friends</div>
-        <form className="signup-form ">
+        <form className="signup-form" action="login">
           <Input type="email" placeholder="Mobile Number or Email" name="email" />
           <Input type="name" placeholder="Full Name" name="name" />
           <Input type="number/email" placeholder="Username" name="username" />
@@ -26,9 +26,9 @@ export function Signup() {
           <div className="signup-or-line"></div>
         </div>
       </div>
-      <div className="signup-card">
-        <div className="signup-text">Do have an account?</div>
-        <Link className="signup-button" to="/login">
+      <div className="login-option">
+        <div className="login-text">Do have an account?</div>
+        <Link className="login-link" to="/login">
           Log in
         </Link>
       </div>

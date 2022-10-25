@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import 'Home.css';
+import './Home.css';
 import { CreatePost, Header, Post } from 'components';
 
 export function Home() {

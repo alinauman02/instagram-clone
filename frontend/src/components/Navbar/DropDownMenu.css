@@ -54,3 +54,11 @@
   padding-bottom: 0.8em;
   margin-top: 0.5rem;
 }
+
+.list-link {
+  padding-left: 0.8em;
+  padding-right: auto;
+  padding-top: 1em;
+  border: none;
+  background-color: white;
+}

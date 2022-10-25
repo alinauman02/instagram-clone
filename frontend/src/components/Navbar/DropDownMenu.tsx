@@ -13,12 +13,12 @@ export default function DropDownMenu() {
     <div className="navbar-dropdown">
       <ul className="dropdown-list">
         <li className="dropdown-list-item">
-          <button className="list-button flex-box">
+          <Link className="list-link flex-box" to="/profile">
             <div className="icon-div">
               <ProfileIcon />
             </div>
             Profile
-          </button>
+          </Link>
         </li>
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
@@ -54,7 +54,7 @@ export default function DropDownMenu() {
           </button>
         </li>
         <li className="dropdown-list-item last-dropdown-list-item">
-          <Link className="list-button" to="login">
+          <Link className="list-link" to="/login">
             Logout
           </Link>
         </li>
