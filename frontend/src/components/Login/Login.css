@@ -57,10 +57,11 @@
   color: rgb(0, 55, 107);
 }
 
-.signup-card {
+.signup-option {
   padding: 2em;
   margin-top: 0.2rem;
   align-self: center;
+  display: flex;
   max-width: 350px;
   padding: 1.5em;
   border: 1px solid var(--white-shade-2);
@@ -68,11 +69,10 @@
 }
 
 .signup-text {
-  align-self: center;
   font-size: 14px;
 }
 
-.signup-button {
+.signup-link {
   font-size: 14px;
   border: none;
   outline: none;

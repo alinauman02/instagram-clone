@@ -59,3 +59,28 @@
   text-align: center;
   margin-bottom: 0.8rem;
 }
+
+.login-option {
+  padding: 2em;
+  margin-top: 0.2rem;
+  align-self: center;
+  display: flex;
+  max-width: 350px;
+  padding: 1.5em;
+  border: 1px solid var(--white-shade-2);
+  width: 100%;
+}
+
+.login-text {
+  font-size: 14px;
+}
+
+.login-link {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: rgb(0, 55, 107);
+  background-color: white;
+  border: none;
+  outline: none;
+}

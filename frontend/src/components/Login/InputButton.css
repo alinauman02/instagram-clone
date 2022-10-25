@@ -7,3 +7,6 @@
   margin: 0.5rem;
   padding: 0.5em;
 }
+.submit-button:hover {
+  cursor: pointer;
+}
