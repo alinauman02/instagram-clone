@@ -17,7 +17,7 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
 
   return (
     <div className="navbar flex-box">
-      <Link className="navbar-items" to="/">
+      <Link className="navbar-items" to="/home">
         <Home />
       </Link>
       <a className="navbar-items" href="@">

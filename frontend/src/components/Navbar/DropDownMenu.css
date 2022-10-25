@@ -53,12 +53,22 @@
   padding-left: 0.8em;
   padding-bottom: 0.8em;
   margin-top: 0.5rem;
+  padding-top: 0.8em;
+}
+
+.list-link-first {
+  padding-top: 1em;
 }
 
 .list-link {
+  padding: 0px;
+  margin: 0px;
   padding-left: 0.8em;
   padding-right: auto;
   padding-top: 1em;
   border: none;
-  background-color: white;
+  background-color: transparent;
+  text-decoration: none;
+  color: ButtonText;
+  font-weight: lighter;
 }
