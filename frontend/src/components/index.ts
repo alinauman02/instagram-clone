@@ -13,4 +13,5 @@ export * from './Profile/GalleryItem';
 export * from './CreatePost/CreatePost';
 export * from './Login/Login';
 export * from './Login/Input';
-export * from './Login/Signup'
+export * from './Login/Signup';
+export * from './Home/Home';
