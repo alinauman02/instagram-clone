@@ -1,6 +1,6 @@
 import './ProfileListItem.css';
 
-interface PorfileLIstItemProps {
+interface PorfileListItemProps {
   name: string;
   description: string;
   icon: string;
@@ -8,7 +8,7 @@ interface PorfileLIstItemProps {
   OnClick?: () => void;
 }
 
-export function ProfileListItem({ name, description, icon, button }: PorfileLIstItemProps) {
+export function ProfileListItem({ name, description, icon, button }: PorfileListItemProps) {
   return (
     <div className="flex-box profile-list-item">
       <img className="profile-icon" src={icon} alt="kjsaf"></img>
