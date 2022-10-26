@@ -1,9 +1,7 @@
-import { useState } from 'react';
-
 import './Profile.css';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
-import { CreatePost, Gallery, Header } from 'components';
+import { Gallery } from 'components';
 
 const { name, username, bio, posts, followers, following } = {
   name: 'Ejaz hussain',
