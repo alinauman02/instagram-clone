@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app-body">
       <Header onCreatePostClick={() => setShowCreatePostModal(true)} />
-      {showCreatePostModal && <CreatePost setCreatePostBox={setShowCreatePostModal} />}
+      {showCreatePostModal && <CreatePost setCreatePostBoxVisibility={setShowCreatePostModal} />}
       <Post name="Ejaz hussain" number={3} />
       <div className="profile-div">
         <Profile />
