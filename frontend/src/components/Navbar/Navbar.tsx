@@ -6,7 +6,7 @@ import { ReactComponent as IconSuggestions } from 'assets/icons/suggestions.svg'
 import { ReactComponent as IconHome } from 'assets/icons/home.svg';
 import { ReactComponent as IconFavorites } from 'assets/icons/favorites.svg';
 import { ReactComponent as IconMessenger } from 'assets/icons/messenger.svg';
-import DropDownMenu from './DropDownMenu';
+import AccountOptions from './AccountOptions';
 
 interface NavbarProps {
   onCreatePostClick: () => void;
@@ -14,7 +14,7 @@ interface NavbarProps {
 
 export function Navbar({ onCreatePostClick }: NavbarProps) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
-  
+
   return (
     <nav className="navbar flex-box">
       <a className="navbar-items" href="@">
@@ -40,7 +40,7 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
       >
         <IconSuggestions />
       </button>
-      <div className="navbar-items-dropdown relative-item">{dropdownMenu && <DropDownMenu />}</div>
+      <div className="navbar-items-dropdown relative-item">{dropdownMenu && <AccountOptions />}</div>
     </nav>
   );
 }

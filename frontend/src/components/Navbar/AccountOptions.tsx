@@ -1,11 +1,11 @@
-import './DropDownMenu.css';
+import './AccountOptions.css';
 import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { ReactComponent as IconProfile } from 'assets/icons/profile.svg';
 import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
 import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem.svg';
 
-export default function DropDownMenu() {
+export default function AccountOptions() {
   return (
     <div className="navbar-dropdown">
       <ul className="dropdown-list">
@@ -44,7 +44,6 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              {' '}
               <IconSwitchAccount />
             </div>
             Switch accounts

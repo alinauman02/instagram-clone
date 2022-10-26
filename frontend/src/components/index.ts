@@ -11,3 +11,4 @@ export * from './Profile/Profile';
 export * from './Profile/Gallery';
 export * from './Profile/GalleryItem';
 export * from './CreatePost/CreatePost';
+export * from './Navbar/AccountOptions';
