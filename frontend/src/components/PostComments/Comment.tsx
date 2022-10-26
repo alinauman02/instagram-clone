@@ -8,7 +8,7 @@ export function Comment() {
 
       <div className="comment-mid">
         <div>
-          <span className="comment-person">Ejaz hussain</span> The quick brown fox jumps over the lazy dog
+          <span className="reviewer-name">Ejaz hussain</span> The quick brown fox jumps over the lazy dog
         </div>
         <div className="comment-actions">
           <span className="time">19h</span>
