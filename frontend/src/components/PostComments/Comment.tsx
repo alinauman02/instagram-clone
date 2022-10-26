@@ -1,5 +1,4 @@
 import './Comment.css';
-
 import { ReactComponent as LikeComment } from 'assets/icons/like-comment.svg';
 
 export function Comment() {

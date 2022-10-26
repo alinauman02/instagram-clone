@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
 import './Post.css';
-
 import reactSvg from 'assets/icons/react.svg';
-import { ProfileListItem, Content, PostActions, Comment } from 'components';
-import { ReactComponent as CommentEmoji } from 'assets/icons/comment-emoji.svg';
+import { ProfileListItem, Content, PostActions, Comment, PostComments } from 'components';
 import Image1 from 'assets/images/image1.jpg';
 import Image2 from 'assets/images/image2.jpg';
 import Image3 from 'assets/images/image3.jpg';
@@ -16,6 +14,7 @@ interface PostProps {
   name: string;
   number: number;
 }
+
 export function Post({ name, number }: PostProps) {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
 
@@ -60,13 +59,7 @@ export function Post({ name, number }: PostProps) {
         <div>
           <Comment />
         </div>
-        <form className="flex-box comment-form">
-          <div className="comment-emoji">
-            <CommentEmoji />
-          </div>
-          <input className="comment-box" type="string" placeholder="Add a comment" />
-          <input type="submit" className="post-button" placeholder="post" value="Post" />
-        </form>
+        <PostComments />
       </footer>
     </div>
   );

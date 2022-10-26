@@ -14,7 +14,7 @@ interface NavbarProps {
 
 export function Navbar({ onCreatePostClick }: NavbarProps) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
-
+  
   return (
     <nav className="navbar flex-box">
       <a className="navbar-items" href="@">

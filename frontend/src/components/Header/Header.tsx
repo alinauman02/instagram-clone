@@ -1,5 +1,4 @@
 import './Header.css';
-
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as DownIcon } from 'assets/icons/down-icon.svg';
 import { Search, Navbar } from './../';

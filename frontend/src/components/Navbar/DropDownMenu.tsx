@@ -1,5 +1,4 @@
 import './DropDownMenu.css';
-
 import { ReactComponent as SavedIcon } from 'assets/icons/saved.svg';
 import { ReactComponent as SettingsIcon } from 'assets/icons/settings.svg';
 import { ReactComponent as ProfileIcon } from 'assets/icons/profile.svg';

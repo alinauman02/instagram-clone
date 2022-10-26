@@ -17,7 +17,6 @@ export function Profile() {
     <div className="profile">
       <header className="profile-header flex-box">
         <img className="profile-pic" src={ProfilePic} alt="profile"></img>
-
         <div className="bio">
           <div className="flex-box">
             <div className="user-name">{username}</div>
