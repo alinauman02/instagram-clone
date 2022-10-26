@@ -1,5 +1,5 @@
 import './Comment.css';
-import { ReactComponent as LikeComment } from 'assets/icons/like-comment.svg';
+import { ReactComponent as IconLikeComment } from 'assets/icons/like-comment.svg';
 
 export function Comment() {
   return (
@@ -17,7 +17,7 @@ export function Comment() {
         </div>
       </div>
       <div className="comment-like">
-        <LikeComment />
+        <IconLikeComment />
       </div>
     </div>
   );

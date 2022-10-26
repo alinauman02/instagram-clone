@@ -1,9 +1,9 @@
 import './DropDownMenu.css';
-import { ReactComponent as SavedIcon } from 'assets/icons/saved.svg';
-import { ReactComponent as SettingsIcon } from 'assets/icons/settings.svg';
-import { ReactComponent as ProfileIcon } from 'assets/icons/profile.svg';
-import { ReactComponent as SwitchAccountIcon } from 'assets/icons/switch-accounts.svg';
-import { ReactComponent as ReportProblemIcon } from 'assets/icons/report-problem.svg';
+import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
+import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
+import { ReactComponent as IconProfile } from 'assets/icons/profile.svg';
+import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
+import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem.svg';
 
 export default function DropDownMenu() {
   return (
@@ -12,7 +12,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <ProfileIcon />
+              <IconProfile />
             </div>
             Profile
           </button>
@@ -20,7 +20,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <SavedIcon />
+              <IconSaved />
             </div>
             Saved
           </button>
@@ -28,7 +28,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <SettingsIcon />
+              <IconSettings />
             </div>
             Settings
           </button>
@@ -36,7 +36,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <ReportProblemIcon />
+              <IconReportProblem />
             </div>
             Report a problem
           </button>
@@ -45,7 +45,7 @@ export default function DropDownMenu() {
           <button className="list-button flex-box">
             <div className="icon-div">
               {' '}
-              <SwitchAccountIcon />
+              <IconSwitchAccount />
             </div>
             Switch accounts
           </button>

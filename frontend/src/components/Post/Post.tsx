@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import './Post.css';
-import reactSvg from 'assets/icons/react.svg';
+import IconReactSvg from 'assets/icons/react.svg';
 import { ProfileListItem, Content, PostActions, Comment, PostComments } from 'components';
 import Image1 from 'assets/images/image1.jpg';
 import Image2 from 'assets/images/image2.jpg';
@@ -25,7 +25,7 @@ export function Post({ name, number }: PostProps) {
   return (
     <div className="post-card">
       <header>
-        <ProfileListItem button="..." name="Ejaz Hussain" icon={reactSvg} description="Quaidain"></ProfileListItem>
+        <ProfileListItem button="..." name="Ejaz Hussain" icon={IconReactSvg} description="Quaidain"></ProfileListItem>
         <Content
           content={[
             { type: 'img', src: Image1, id: 1 },

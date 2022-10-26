@@ -1,6 +1,6 @@
 import './Content.css';
-import { ReactComponent as NextIcon } from 'assets/icons/next-icon.svg';
-import { ReactComponent as BackIcon } from 'assets/icons/back-icon.svg';
+import { ReactComponent as IconNext } from 'assets/icons/next-icon.svg';
+import { ReactComponent as IconBack } from 'assets/icons/back-icon.svg';
 
 interface Content {
   type: 'img' | 'video';
@@ -28,12 +28,12 @@ export function Content({ content, currentContentIndex, changeContent }: Content
 
       {currentContentIndex < content.length - 1 && (
         <button onClick={() => changeContent(1)} className="content-right-button">
-          <NextIcon />
+          <IconNext />
         </button>
       )}
       {currentContentIndex > 0 && (
         <button className="content-left-button" onClick={() => changeContent(-1)}>
-          <BackIcon />
+          <IconBack />
         </button>
       )}
     </div>
