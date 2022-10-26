@@ -43,19 +43,6 @@ export function Profile() {
             <div className="bio">{bio}</div>
           </div>
         </div>
-        <div className="profile-info">
-          <span className="counts">21 posts</span>{' '}
-          <span className="counts">
-            268<button className="followers-button"> followers</button>
-          </span>
-          <span className="counts">
-            274 <button className="following-button"> following</button>
-          </span>
-        </div>
-        <div className="profile-bio">
-          <div className="name">Ejaz Baltistani</div>
-          <div className="bio">Quaindian</div>
-        </div>
       </header>
       <Gallery />
     </div>
