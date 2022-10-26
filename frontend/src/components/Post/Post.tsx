@@ -46,10 +46,10 @@ export function Post({ name, number }: PostProps) {
       <footer className="post-footer">
         <PostActions></PostActions>
         <p className="post-description">
-          <span className="bold">{number} Likes</span>
+          <span className="text-bold">{number} Likes</span>
         </p>
         <p className="post-description">
-          <span className="bold">{name}</span> has posted this in instagram...<span className="gray">more</span>
+          <span className="text-bold">{name}</span> has posted this in instagram...<span className="gray">more</span>
         </p>
         <p className="post-description">
           <span className="gray">View all 40 comments</span>
