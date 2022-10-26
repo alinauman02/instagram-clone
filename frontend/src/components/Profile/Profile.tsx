@@ -29,7 +29,7 @@ export function Profile() {
             </div>
           </div>
           <div className="profile-info">
-            <span className="counts">{posts} posts</span>{' '}
+            <span className="counts">{posts} posts</span>
             <span className="counts">
               {followers}
               <button className="followers-button"> followers</button>

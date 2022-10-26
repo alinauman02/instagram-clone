@@ -30,7 +30,7 @@ export default function DropDownMenu() {
           <button className="list-button flex-box">
             <div className="icon-div">
               <SettingsIcon />
-            </div>{' '}
+            </div>
             Settings
           </button>
         </li>
