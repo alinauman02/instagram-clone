@@ -3,10 +3,10 @@ import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg
 import { Input } from './Input';
 import { InputButton } from './InputButton';
 import { Link } from 'react-router-dom';
-import { auth } from 'config/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { logIn } from 'services/auth';
+import { FirebaseError } from 'firebase/app';
 
 export function Login() {
   const navigate = useNavigate();
@@ -22,14 +22,16 @@ export function Login() {
     setUser(currentUser => ({ ...currentUser, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, user.email, user.password)
-      .then(userCredential => {
-        console.log(userCredential.user);
-        navigate('/home');
-      })
-      .catch(error => setError(error.message));
+    try {
+      const res = await logIn(user.email, user.password);
+      if (res) navigate('/home');
+    } catch (err) {
+      if (err instanceof FirebaseError) {
+        setError(err.message);
+      }
+    }
   };
 
   return (
