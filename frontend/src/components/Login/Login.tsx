@@ -43,7 +43,7 @@ export function Login() {
         <form className="login-form" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <InputButton name="Log in" />
+          <InputButton name="Log in" enable={user.email !== '' && user.password !== ''} />
         </form>
         {error && <div className="login-error">{error}</div>}
         <div className="flex-box login-or">

@@ -48,7 +48,10 @@ export function Signup() {
           <Input type="name" placeholder="Full Name" name="name" onChange={onChange} />
           <Input type="number/email" placeholder="Username" name="number" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <InputButton name="Sign up" />
+          <InputButton
+            name="Sign up"
+            enable={user.email !== '' && user.number !== '' && user.password !== '' && user.name !== ''}
+          />
         </form>
         {error && <div className="signup-error">{error}</div>}
         <div className="flex-box login-or">
