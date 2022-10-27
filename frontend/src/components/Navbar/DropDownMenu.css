@@ -51,8 +51,8 @@
   border-top: 1px solid var(--white-shade-2);
   padding-left: 0.8em;
   padding-bottom: 0.8em;
-  margin-top: 0.5rem;
-  padding-top: 0.8em;
+  margin-top: 0.3rem;
+  padding-top: 0.1em;
 }
 
 .list-link-first {
