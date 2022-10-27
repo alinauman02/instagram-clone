@@ -1,23 +1,66 @@
 import './Login.css';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
-// import { ReactComponent as FacebookIcon } from 'assets/icons/instagram-icon.svg';
-
 import { Input } from './Input';
 import { InputButton } from './InputButton';
 import { Link } from 'react-router-dom';
+import { auth } from 'config/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setError('');
+    const fieldName = e.currentTarget.name;
+    setUser(
+      fieldName === 'email' ? { ...user, email: e.currentTarget.value } : { ...user, password: e.currentTarget.value }
+      // fieldName === 'email'
+      //   ? user => {
+      //       return e.target ? { ...user, email: e.currentTarget.value } : user;
+      //     }
+      //   : fieldName === 'number'
+      //   ? user => {
+      //       return e.target ? { ...user, number: e.currentTarget.value } : user;
+      //     }
+      //   : fieldName === 'name'
+      //   ? user => {
+      //       return e.target ? { ...user, name: e.currentTarget.value } : user;
+      //     }
+      //   : user => {
+      //       return e.target ? { ...user, password: e.currentTarget.value } : user;
+      //     }
+    );
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, user.email, user.password)
+      .then(userCredential => {
+        console.log(userCredential.user);
+        navigate('/home');
+      })
+      .catch(error => setError(error.message));
+  };
+
   return (
     <div className="login">
       <div className="login-card flexbox">
         <div className="instagram-icon">
           <InstagramIcon />
         </div>
-        <form className="login-form" action="home">
-          <Input type="number/email" placeholder="Phone number, username, or email" name="username" />
-          <Input type="password" placeholder="Password" name="password" />
+        <form className="login-form" onSubmit={handleSubmit}>
+          <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
+          <Input type="password" placeholder="Password" name="password" onChange={onChange} />
           <InputButton name="Log in" />
         </form>
+        {error && <div className="login-error">{error}</div>}
         <div className="flex-box login-or">
           <div className="login-or-line"></div>
           <div className="login-or-text">OR</div>
