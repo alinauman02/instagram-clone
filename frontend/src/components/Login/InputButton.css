@@ -1,4 +1,6 @@
 .submit-button {
+  color: white;
+  font-weight: bold;
   background-color: rgb(9, 135, 245);
   border: none;
   outline: none;
