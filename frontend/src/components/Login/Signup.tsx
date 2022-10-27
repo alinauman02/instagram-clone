@@ -20,32 +20,10 @@ export function Signup() {
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     setError('');
-    const fieldName = e.currentTarget.name;
-    setUser(
-      fieldName === 'email'
-        ? { ...user, email: e.currentTarget.value }
-        : fieldName === 'number'
-        ? { ...user, number: e.currentTarget.value }
-        : fieldName === 'name'
-        ? { ...user, name: e.currentTarget.value }
-        : { ...user, password: e.currentTarget.value }
-      // fieldName === 'email'
-      //   ? user => {
-      //       return e.target ? { ...user, email: e.currentTarget.value } : user;
-      //     }
-      //   : fieldName === 'number'
-      //   ? user => {
-      //       return e.target ? { ...user, number: e.currentTarget.value } : user;
-      //     }
-      //   : fieldName === 'name'
-      //   ? user => {
-      //       return e.target ? { ...user, name: e.currentTarget.value } : user;
-      //     }
-      //   : user => {
-      //       return e.target ? { ...user, password: e.currentTarget.value } : user;
-      //     }
-    );
+    const { name, value } = e.currentTarget;
+    setUser(currentUser => ({ ...currentUser, [name]: value }));
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, user.email, user.password)
