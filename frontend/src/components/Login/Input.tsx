@@ -3,7 +3,7 @@ import './Input.css';
 
 interface InputProps {
   name: string;
-  type: string;
+  type: 'string' | 'email' | 'password' | 'number';
   placeholder: string;
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 }
@@ -11,7 +11,14 @@ interface InputProps {
 export function Input({ name, type, placeholder, onChange }: InputProps) {
   return (
     <div className="input-box">
-      <input className="input-field" type={type} name={name} placeholder={placeholder} onChange={onChange} />
+      <input
+        className="input-field"
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+        autoComplete="off"
+      />
     </div>
   );
 }
