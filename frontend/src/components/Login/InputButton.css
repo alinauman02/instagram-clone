@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-.button-opacity {
-  opacity: 0.6;
-  pointer-events: none;
+.submit-button:disabled {
+  background-color: rgb(128, 191, 247);
+  cursor: initial;
 }
