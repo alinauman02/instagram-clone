@@ -18,6 +18,8 @@ export function Signup() {
   });
   const [error, setError] = useState('');
 
+  const canSignUp = user.email !== '' && user.number !== '' && user.password !== '' && user.name !== '';
+
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     setError('');
     const { name, value } = e.currentTarget;
@@ -45,13 +47,10 @@ export function Signup() {
         <div className="signup-desc">Sign up to see photos and videos from your friends</div>
         <form className="signup-form" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Mobile Number or Email" name="email" onChange={onChange} />
-          <Input type="name" placeholder="Full Name" name="name" onChange={onChange} />
-          <Input type="number/email" placeholder="Username" name="number" onChange={onChange} />
+          <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
+          <Input type="string" placeholder="Username" name="number" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <InputButton
-            name="Sign up"
-            enable={user.email !== '' && user.number !== '' && user.password !== '' && user.name !== ''}
-          />
+          <InputButton name="Sign up" disable={!canSignUp} />
         </form>
         {error && <div className="signup-error">{error}</div>}
         <div className="flex-box login-or">
