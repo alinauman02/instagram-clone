@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import './DropDownMenu.css';
-
 import { ReactComponent as SavedIcon } from 'assets/icons/saved.svg';
 import { ReactComponent as SettingsIcon } from 'assets/icons/settings.svg';
 import { ReactComponent as ProfileIcon } from 'assets/icons/profile.svg';
@@ -59,9 +58,9 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item last-dropdown-list-item">
           <button
             className="list-button"
-            onClick={() => {
+            onClick={async () => {
               try {
-                logOut();
+                await logOut();
                 navigate('/login');
               } catch (err) {
                 if (err instanceof FirebaseError) {

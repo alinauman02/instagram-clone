@@ -11,6 +11,6 @@ export async function logIn(email: string, password: string) {
   return res.user;
 }
 
-export async function logOut() {
-  await signOut(auth);
+export function logOut() {
+  return signOut(auth);
 }

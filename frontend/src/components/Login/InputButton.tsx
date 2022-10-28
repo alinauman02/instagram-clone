@@ -2,10 +2,13 @@ import './InputButton.css';
 
 interface InputButtonProps {
   name: string;
-  enable: boolean;
+  disable: boolean;
 }
 
-export function InputButton({ name, enable }: InputButtonProps) {
-  const submitStyle = enable ? 'submit-button' : 'submit-button button-opacity';
-  return <input className={submitStyle} type="submit" name={name} value={name} />;
+export function InputButton({ name, disable }: InputButtonProps) {
+  return (
+    <button className="submit-button" type="submit" name={name} value={name} disabled={disable}>
+      {name}
+    </button>
+  );
 }
