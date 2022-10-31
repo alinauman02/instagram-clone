@@ -1,7 +1,6 @@
 .login {
   justify-content: center;
   display: flex;
-  flex-direction: column;
 }
 
 .login-card {
@@ -13,7 +12,6 @@
   padding: 1.5em;
   border: 1px solid var(--white-shade-2);
   width: 100%;
-  flex-direction: column;
   margin-top: 10em;
   margin-bottom: 1rem;
 }
@@ -39,7 +37,6 @@
 .login-form {
   width: 250px;
   display: flex;
-  flex-direction: column;
   align-self: center;
   align-items: center;
 }

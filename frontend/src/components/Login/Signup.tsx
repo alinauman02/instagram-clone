@@ -42,13 +42,13 @@ export function Signup() {
   };
 
   return (
-    <div className="signup">
-      <div className="signup-card flexbox">
+    <div className="signup flex-direction-column">
+      <div className="signup-card flex-direction-column flexbox">
         <div className="instagram-icon">
           <InstagramIcon />
         </div>
         <div className="signup-desc">Sign up to see photos and videos from your friends</div>
-        <form className="signup-form" onSubmit={handleSubmit}>
+        <form className="signup-form flex-direction-column" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Mobile Number or Email" name="email" onChange={onChange} />
           <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
           <Input type="string" placeholder="Username" name="number" onChange={onChange} />

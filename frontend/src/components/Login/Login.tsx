@@ -36,12 +36,12 @@ export function Login() {
   };
 
   return (
-    <div className="login">
-      <div className="login-card flexbox">
+    <div className="login flex-direction-column">
+      <div className="login-card flex-direction-column flexbox">
         <div className="instagram-icon">
           <InstagramIcon />
         </div>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form flex-direction-column" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
           <button className="submit-button" name="Log in" value="Log in" disabled={!canLogin}>

@@ -24,7 +24,7 @@ export default function AccountOptions() {
   };
 
   return (
-    <div className="navbar-dropdown">
+    <div className="navbar-dropdown flex-direction-column">
       <ul className="dropdown-list">
         <li className="dropdown-list-item">
           <Link className="list-link flex-box" to="/profile">
