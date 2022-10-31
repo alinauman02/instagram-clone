@@ -1,0 +1,54 @@
+.content {
+  position: relative;
+}
+
+.content-img {
+  width: auto;
+  height: 446px;
+}
+
+.content-right-button {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  border: none;
+  opacity: 0.5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.content-left-button {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  border: none;
+  opacity: 0.5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.content {
+  width: auto;
+  border: 1px solid var(--white-shade-2);
+}
+
+.content-img {
+  max-width: 100%;
+}
+
+.content-dots {
+  position: absolute;
+  left: 200px;
+  bottom: 20px;
+}
+
+.content-dot-item {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  margin-left: 0.2rem;
+}
+
+.inactive-dot {
+  opacity: 0.5;
+}

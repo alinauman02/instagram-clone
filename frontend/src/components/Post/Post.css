@@ -1,0 +1,26 @@
+.post-card {
+  border-radius: 10px;
+  border: 1px solid var(--white-shade-2);
+  width: 500px;
+  height: auto;
+  margin-top: 5rem;
+  margin-left: 33rem;
+  background-color: var(--white-shade-0);
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.post-description {
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+
+.post-time {
+  font-size: 0.63rem;
+}
+
+.post-time {
+  font-size: small;
+}

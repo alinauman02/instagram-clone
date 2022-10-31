@@ -1,0 +1,31 @@
+.search {
+  background-color: var(--white-shade-2);
+  border-radius: 10px;
+  margin-left: 16rem;
+  width: 268px;
+  height: 36px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-icon {
+  align-self: center;
+  margin-left: 0.8rem;
+  background-color: var(--white-shade-2);
+}
+
+.search-icon > svg {
+  background-color: var(--white-shade-2);
+}
+
+.search-box {
+  margin-left: 1.2rem;
+  align-self: center;
+  border: none;
+  background-color: var(--white-shade-2);
+  font-size: 100%;
+  outline: none;
+  height: 100%;
+}
