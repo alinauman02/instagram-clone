@@ -7,3 +7,7 @@
   width: 103%;
   background-color: var(--white-shade-1);
 }
+
+.input-field:focus {
+  border: 1px solid black;
+}
