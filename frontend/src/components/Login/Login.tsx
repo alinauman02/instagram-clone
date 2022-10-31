@@ -5,6 +5,8 @@ import { FirebaseError } from 'firebase/app';
 import './Login.css';
 import { logIn, signUpWithGoogle } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
+
 import { Input } from './Input';
 
 export function Login() {
@@ -65,8 +67,11 @@ export function Login() {
           <div className="login-or-text">OR</div>
           <div className="login-or-line"></div>
         </div>
-        <button className="signup-button-google" onClick={handleGoogleLogin}>
-          Login with Google
+        <button className="login-button-google" onClick={handleGoogleLogin}>
+          <span className='google-icon'>
+            <GoogleIcon />
+            Login with Google
+          </span>
         </button>
         <a className="login-forgot" href="@">
           Forgot password?

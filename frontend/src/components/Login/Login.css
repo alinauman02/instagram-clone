@@ -18,10 +18,9 @@
   margin-bottom: 1rem;
 }
 
-.signup-button-google {
-  color: white;
+.login-button-google {
+  color: black;
   font-weight: bold;
-  background-color: rgb(9, 135, 245);
   border: none;
   outline: none;
   width: 84%;
@@ -29,6 +28,14 @@
   border-radius: 4px;
   margin: 0.5rem;
   padding: 0.6em 1em;
+  background-color: white;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.google-icon > svg {
+  margin-bottom: -0.3rem;
+  margin-right: 0.6rem;
 }
 
 .login-error {

@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
 import { signUp, signUpWithGoogle } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
+
 import { Input } from './Input';
 
 export function Signup() {
@@ -60,7 +62,10 @@ export function Signup() {
         </div>
         <div className="signup-desc">Sign up to see photos and videos from your friends</div>
         <button className="signup-button-google" onClick={handleGoogleLogin}>
-          Login with Google
+          <span className="google-icon">
+            <GoogleIcon />
+            Login with Google
+          </span>
         </button>
         <div className="flex-box signup-or">
           <div className="signup-or-line"></div>
