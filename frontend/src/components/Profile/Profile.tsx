@@ -5,7 +5,6 @@ import ProfilePic from 'assets/images/profile.jpeg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { CreatePost, Gallery, Header } from 'components';
 
-
 const { name, username, bio, posts, followers, following } = {
   name: 'Ejaz hussain',
   username: 'ejazhussain1050',
@@ -14,8 +13,6 @@ const { name, username, bio, posts, followers, following } = {
   posts: 21,
   following: 352,
 };
-
-
 
 export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
