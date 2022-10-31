@@ -10,15 +10,13 @@ interface InputProps {
 
 export function Input({ name, type, placeholder, onChange }: InputProps) {
   return (
-    <div className="input-box">
-      <input
-        className="input-field"
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        onChange={onChange}
-        autoComplete="off"
-      />
-    </div>
+    <input
+      className="input-field"
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      autoComplete="off"
+    />
   );
 }
