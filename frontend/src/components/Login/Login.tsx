@@ -10,7 +10,7 @@ import { Input } from './Input';
 export function Login() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
-  const [userCredentials, setuserCredentials] = useState({
+  const [userCredentials, setUserCredentials] = useState({
     email: '',
     password: '',
   });
@@ -20,7 +20,7 @@ export function Login() {
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     setError('');
     const { name, value } = e.currentTarget;
-    setuserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
+    setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
