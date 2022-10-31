@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { logIn } from 'services';
 import { FirebaseError } from 'firebase/app';
 
 import './Login.css';
+import { logIn } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
 
