@@ -1,13 +1,13 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Navbar.css';
-import { ReactComponent as Add } from 'assets/icons/add.svg';
-import { ReactComponent as Suggestions } from 'assets/icons/suggestions.svg';
-import { ReactComponent as Home } from 'assets/icons/home.svg';
-import { ReactComponent as Favorites } from 'assets/icons/favorites.svg';
-import { ReactComponent as Messenger } from 'assets/icons/messenger.svg';
-import DropDownMenu from './DropDownMenu';
-import { Link } from 'react-router-dom';
+import { ReactComponent as IconAdd } from 'assets/icons/add.svg';
+import { ReactComponent as IconSuggestions } from 'assets/icons/suggestions.svg';
+import { ReactComponent as IconHome } from 'assets/icons/home.svg';
+import { ReactComponent as IconFavorites } from 'assets/icons/favorites.svg';
+import { ReactComponent as IconMessenger } from 'assets/icons/messenger.svg';
+import AccountOptions from './AccountOptions';
 interface NavbarProps {
   onCreatePostClick: () => void;
 }
@@ -18,19 +18,19 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
   return (
     <nav className="navbar flex-box">
       <Link className="navbar-items" to="/home">
-        <Home />
+        <IconHome />
       </Link>
       <a className="navbar-items" href="@">
-        <Messenger />
+        <IconMessenger />
       </a>
       <button onClick={onCreatePostClick} className="navbar-items">
-        <Add />
+        <IconAdd />
       </button>
       <button className="navbar-items">
-        <Favorites />
+        <IconFavorites />
       </button>
       <a className="navbar-items" href="@">
-        <Suggestions />
+        <IconSuggestions />
       </a>
       <button
         className="navbar-items last-icon"
@@ -38,9 +38,9 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
           setDropdownMenu(st => !st);
         }}
       >
-        <Suggestions />
+        <IconSuggestions />
       </button>
-      <div className="navbar-items-dropdown relative-item">{dropdownMenu && <DropDownMenu />}</div>
+      <div className="navbar-items-dropdown relative-item">{dropdownMenu && <AccountOptions />}</div>
     </nav>
   );
 }

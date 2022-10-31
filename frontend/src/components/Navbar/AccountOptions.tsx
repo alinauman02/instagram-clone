@@ -1,15 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
-
-import './DropDownMenu.css';
-import { ReactComponent as SavedIcon } from 'assets/icons/saved.svg';
-import { ReactComponent as SettingsIcon } from 'assets/icons/settings.svg';
-import { ReactComponent as ProfileIcon } from 'assets/icons/profile.svg';
-import { ReactComponent as SwitchAccountIcon } from 'assets/icons/switch-accounts.svg';
-import { ReactComponent as ReportProblemIcon } from 'assets/icons/report-problem.svg';
-import { logOut } from 'services/auth';
 import { FirebaseError } from 'firebase/app';
 
-export default function DropDownMenu() {
+import './AccountOptions.css';
+import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
+import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
+import { ReactComponent as IconProfile } from 'assets/icons/profile.svg';
+import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
+import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem.svg';
+import { logOut } from 'services/auth';
+
+export default function AccountOptions() {
   const navigate = useNavigate();
   return (
     <div className="navbar-dropdown">
@@ -17,7 +17,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <Link className="list-link flex-box" to="/profile">
             <div className="icon-div">
-              <ProfileIcon />
+              <IconProfile />
             </div>
             Profile
           </Link>
@@ -25,7 +25,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <SavedIcon />
+              <IconSaved />
             </div>
             Saved
           </button>
@@ -33,15 +33,15 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <SettingsIcon />
-            </div>{' '}
+              <IconSettings />
+            </div>
             Settings
           </button>
         </li>
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              <ReportProblemIcon />
+              <IconReportProblem />
             </div>
             Report a problem
           </button>
@@ -49,8 +49,7 @@ export default function DropDownMenu() {
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
             <div className="icon-div">
-              {' '}
-              <SwitchAccountIcon />
+              <IconSwitchAccount />
             </div>
             Switch accounts
           </button>
