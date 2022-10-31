@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { logIn } from 'services/auth';
+import { logIn } from 'services';
 import { FirebaseError } from 'firebase/app';
 
 import './Login.css';

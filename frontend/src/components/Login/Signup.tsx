@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signUp } from 'services/auth';
+import { signUp } from 'services';
 import { FirebaseError } from 'firebase/app';
 import { Link, useNavigate } from 'react-router-dom';
 

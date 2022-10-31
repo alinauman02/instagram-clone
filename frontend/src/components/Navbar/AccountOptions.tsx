@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
-import { logOut } from 'services/auth';
+import { logOut } from 'services';
 
 import './AccountOptions.css';
 import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
@@ -8,7 +8,6 @@ import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { ReactComponent as IconProfile } from 'assets/icons/profile.svg';
 import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
 import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem.svg';
-
 
 export default function AccountOptions() {
   const navigate = useNavigate();
