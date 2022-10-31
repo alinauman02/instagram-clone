@@ -1,7 +1,6 @@
 import './Login.css';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
-import { InputButton } from './InputButton';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +24,6 @@ export function Login() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-   
     e.preventDefault();
     try {
       const res = await logIn(user.email, user.password);
@@ -46,7 +44,9 @@ export function Login() {
         <form className="login-form" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <InputButton name="Log in" disable={!canLogin} />
+          <button className="submit-button" name="Log in" value="Log in" disabled={!canLogin}>
+            Log in
+          </button>
         </form>
         {error && <div className="login-error">{error}</div>}
         <div className="flex-box login-or">

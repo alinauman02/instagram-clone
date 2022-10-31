@@ -94,3 +94,24 @@
   background-color: white;
   text-decoration: none;
 }
+
+.submit-button {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(9, 135, 245);
+  border: none;
+  outline: none;
+  width: 260px;
+  border-radius: 4px;
+  margin: 0.5rem;
+  padding: 0.5em;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: rgb(128, 191, 247);
+  cursor: initial;
+}

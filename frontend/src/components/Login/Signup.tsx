@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
-import { InputButton } from './InputButton';
 import { useState } from 'react';
 import { signUp } from 'services/auth';
 import { FirebaseError } from 'firebase/app';
@@ -50,7 +49,9 @@ export function Signup() {
           <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
           <Input type="string" placeholder="Username" name="number" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <InputButton name="Sign up" disable={!canSignUp} />
+          <button className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
+            Sign up
+          </button>
         </form>
         {error && <div className="signup-error">{error}</div>}
         <div className="flex-box login-or">
