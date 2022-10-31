@@ -11,6 +11,18 @@ import { logOut } from 'services/auth';
 
 export default function AccountOptions() {
   const navigate = useNavigate();
+
+  const onLogOut = async () => {
+    try {
+      await logOut();
+      navigate('/login');
+    } catch (err) {
+      if (err instanceof FirebaseError) {
+        console.log(err);
+      }
+    }
+  };
+
   return (
     <div className="navbar-dropdown">
       <ul className="dropdown-list">
@@ -55,19 +67,7 @@ export default function AccountOptions() {
           </button>
         </li>
         <li className="dropdown-list-item last-dropdown-list-item">
-          <button
-            className="list-button"
-            onClick={async () => {
-              try {
-                await logOut();
-                navigate('/login');
-              } catch (err) {
-                if (err instanceof FirebaseError) {
-                  console.log(err);
-                }
-              }
-            }}
-          >
+          <button className="list-button" onClick={onLogOut}>
             Logout
           </button>
         </li>
