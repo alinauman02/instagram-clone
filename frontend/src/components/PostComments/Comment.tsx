@@ -16,9 +16,9 @@ export function Comment() {
           <button className="reply-action">Reply</button>
         </div>
       </div>
-      <div className="comment-like">
+      <button className="comment-like">
         <IconLikeComment />
-      </div>
+      </button>
     </div>
   );
 }

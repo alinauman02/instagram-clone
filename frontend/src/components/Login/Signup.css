@@ -1,9 +1,11 @@
 .signup {
   justify-content: center;
   display: flex;
+  margin-top: 5%;
 }
 
 .signup-card {
+  background-color: white;
   padding: 3em;
   display: flex;
   margin-top: 0.2rem;
@@ -17,9 +19,13 @@
 }
 
 .instagram-icon {
-  width: 40%;
   margin-bottom: 2rem;
   align-self: center;
+}
+
+.instagram-icon > svg {
+  width: 175;
+  height: 51;
 }
 
 .signup-form {
@@ -27,13 +33,14 @@
   display: flex;
   align-self: center;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .signup-or-line {
   background-color: var(--white-shade-2);
   height: 2px;
   align-self: center;
-  width: 40%;
+  width: 100px;
 }
 
 .signup-or-text {
@@ -42,7 +49,7 @@
 }
 
 .signup-or {
-  margin-top: 2rem;
+  margin-top: 1rem;
   align-self: center;
 }
 
@@ -52,7 +59,7 @@
   font-weight: bold;
   color: gray;
   padding: 0.3em;
-  width: 100%;
+  width: 80%;
   text-align: center;
   margin-bottom: 0.8rem;
 }
@@ -69,6 +76,7 @@
 }
 
 .login-option {
+  background-color: white;
   padding: 2em;
   margin-top: 0.2rem;
   align-self: center;
@@ -79,6 +87,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+
 }
 
 .login-text {
@@ -104,7 +113,24 @@
   width: 103.5%;
   border-radius: 4px;
   margin: 0.5rem;
-  padding: 0.5em;
+  padding: 0.6em 1em;
+}
+
+.signup-button-google {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(9, 135, 245);
+  border: none;
+  outline: none;
+  width: 84%;
+  align-self: center;
+  border-radius: 4px;
+  margin: 0.5rem;
+  padding: 0.6em 1em;
+}
+
+.signup-button-google:hover {
+  cursor: pointer;
 }
 
 .submit-button:hover {

@@ -37,6 +37,9 @@
 .comment-emoji {
   padding-top: 0.3em;
   padding-right: 0.8rem;
+  background-color: white;
+  border: none;
+  outline: none;
 }
 
 .post-button {

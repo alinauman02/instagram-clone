@@ -6,13 +6,15 @@ import { Profile, Login, Signup, Home } from './components';
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
+      <div className="app-body">
+        <Routes>
+          <Route path="/" element={<Navigate to="login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

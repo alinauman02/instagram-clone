@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { signUp } from 'services';
 import { FirebaseError } from 'firebase/app';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './Signup.css';
+import { signUp, signUpWithGoogle } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
 
@@ -41,6 +41,17 @@ export function Signup() {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const res = await signUpWithGoogle();
+      if (res) navigate('/home');
+    } catch (err) {
+      if (err instanceof FirebaseError) {
+        setError(err.message);
+      }
+    }
+  };
+
   return (
     <div className="signup flex-direction-column">
       <div className="signup-card flex-direction-column flexbox">
@@ -48,6 +59,14 @@ export function Signup() {
           <InstagramIcon />
         </div>
         <div className="signup-desc">Sign up to see photos and videos from your friends</div>
+        <button className="signup-button-google" onClick={handleGoogleLogin}>
+          Login with Google
+        </button>
+        <div className="flex-box signup-or">
+          <div className="signup-or-line"></div>
+          <div className="signup-or-text">OR</div>
+          <div className="signup-or-line"></div>
+        </div>
         <form className="signup-form flex-direction-column" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Mobile Number or Email" name="email" onChange={onChange} />
           <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
@@ -58,14 +77,9 @@ export function Signup() {
           </button>
         </form>
         {error && <div className="signup-error">{error}</div>}
-        <div className="flex-box login-or">
-          <div className="signup-or-line"></div>
-          <div className="signup-or-text">OR</div>
-          <div className="signup-or-line"></div>
-        </div>
       </div>
       <div className="login-option">
-        <div className="login-text">Do have an account?</div>
+        <div className="login-text">Do you have an account?</div>
         <Link className="login-link" to="/login">
           Log in
         </Link>

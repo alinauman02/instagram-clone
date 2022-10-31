@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
 
 import './Login.css';
-import { logIn } from 'services';
+import { logIn, signUpWithGoogle } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
 
@@ -35,6 +35,17 @@ export function Login() {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const res = await signUpWithGoogle();
+      if (res) navigate('/home');
+    } catch (err) {
+      if (err instanceof FirebaseError) {
+        setError(err.message);
+      }
+    }
+  };
+
   return (
     <div className="login flex-direction-column">
       <div className="login-card flex-direction-column flexbox">
@@ -54,13 +65,16 @@ export function Login() {
           <div className="login-or-text">OR</div>
           <div className="login-or-line"></div>
         </div>
+        <button className="signup-button-google" onClick={handleGoogleLogin}>
+          Login with Google
+        </button>
         <a className="login-forgot" href="@">
           Forgot password?
         </a>
       </div>
       <div className="signup-option flex-box">
         <div className="signup-text">
-          don<span>&#39;</span>t have an account?
+          Don<span>&#39;</span>t have an account?
         </div>
         <Link to="/signup" className="signup-link">
           Sign up
