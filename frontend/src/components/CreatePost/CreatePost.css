@@ -1,8 +1,9 @@
 .create-post {
   background-color: var(--white-shade-0);
   border: 1px solid var(--white-shade-2);
-  width: 1000px;
-  height: 700px;
+  width: auto;
+  height: auto;
+
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -25,6 +26,8 @@
   position: fixed;
   padding-right: auto;
   padding-bottom: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .create-post-upload {
@@ -49,6 +52,7 @@
   border-radius: 7px;
   background-color: #4b83cd;
   border: none;
+  margin-bottom: 15rem;
 }
 
 .create-post-button:hover {

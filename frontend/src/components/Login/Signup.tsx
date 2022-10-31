@@ -1,11 +1,11 @@
+import { useState } from 'react';
+import { signUp } from 'services/auth';
+import { FirebaseError } from 'firebase/app';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './Signup.css';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { Input } from './Input';
-import { useState } from 'react';
-import { signUp } from 'services/auth';
-import { FirebaseError } from 'firebase/app';
 
 export function Signup() {
   const navigate = useNavigate();

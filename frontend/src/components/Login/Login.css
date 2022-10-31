@@ -22,20 +22,20 @@
   font-weight: bold;
   color: red;
   padding: 0.3em;
-  width: 250px;
+  width: 100%;
   text-align: center;
   margin-bottom: 0.8rem;
 }
 
 .instagram-icon {
   margin-top: 3em;
-  width: 10.8em;
+  width: 40%;
   margin-bottom: 5rem;
   align-self: center;
 }
 
 .login-form {
-  width: 250px;
+  width: 82%;
   display: flex;
   align-self: center;
   align-items: center;
@@ -45,7 +45,7 @@
   background-color: var(--white-shade-2);
   height: 2px;
   align-self: center;
-  width: 110px;
+  width: 40%;
 }
 
 .login-or-text {
@@ -97,7 +97,7 @@
   background-color: rgb(9, 135, 245);
   border: none;
   outline: none;
-  width: 260px;
+  width: 103.5%;
   border-radius: 4px;
   margin: 0.5rem;
   padding: 0.5em;

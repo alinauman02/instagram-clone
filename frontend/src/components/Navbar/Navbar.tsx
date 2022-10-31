@@ -8,6 +8,7 @@ import { ReactComponent as IconHome } from 'assets/icons/home.svg';
 import { ReactComponent as IconFavorites } from 'assets/icons/favorites.svg';
 import { ReactComponent as IconMessenger } from 'assets/icons/messenger.svg';
 import AccountOptions from './AccountOptions';
+
 interface NavbarProps {
   onCreatePostClick: () => void;
 }
