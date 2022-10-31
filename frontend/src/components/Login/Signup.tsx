@@ -9,7 +9,7 @@ import { FirebaseError } from 'firebase/app';
 
 export function Signup() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({
+  const [userCredentials, setUserCredentials] = useState({
     name: '',
     email: '',
     number: '',
@@ -17,18 +17,22 @@ export function Signup() {
   });
   const [error, setError] = useState('');
 
-  const canSignUp = user.email !== '' && user.number !== '' && user.password !== '' && user.name !== '';
+  const canSignUp =
+    userCredentials.email !== '' &&
+    userCredentials.number !== '' &&
+    userCredentials.password !== '' &&
+    userCredentials.name !== '';
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     setError('');
     const { name, value } = e.currentTarget;
-    setUser(currentUser => ({ ...currentUser, [name]: value }));
+    setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await signUp(user.email, user.password);
+      const res = await signUp(userCredentials.email, userCredentials.password);
       if (res) navigate('/home');
     } catch (err) {
       if (err instanceof FirebaseError) {

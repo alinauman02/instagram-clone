@@ -10,23 +10,23 @@ import { FirebaseError } from 'firebase/app';
 export function Login() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
-  const [user, setUser] = useState({
+  const [userCredentials, setuserCredentials] = useState({
     email: '',
     password: '',
   });
 
-  const canLogin = user.email !== '' && user.password !== '';
+  const canLogin = userCredentials.email !== '' && userCredentials.password !== '';
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     setError('');
     const { name, value } = e.currentTarget;
-    setUser(currentUser => ({ ...currentUser, [name]: value }));
+    setuserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await logIn(user.email, user.password);
+      const res = await logIn(userCredentials.email, userCredentials.password);
       if (res) navigate('/home');
     } catch (err) {
       if (err instanceof FirebaseError) {
@@ -59,7 +59,9 @@ export function Login() {
         </a>
       </div>
       <div className="signup-option flex-box">
-        <div className="signup-text">dont have an account?</div>
+        <div className="signup-text">
+          don<span>&#39;</span>t have an account?
+        </div>
         <Link to="/signup" className="signup-link">
           Sign up
         </Link>

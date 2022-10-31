@@ -93,6 +93,9 @@
   color: rgb(0, 55, 107);
   background-color: white;
   text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  color: #0095f6;
 }
 
 .submit-button {
