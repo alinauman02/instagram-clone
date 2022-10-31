@@ -55,7 +55,6 @@ export function Login() {
           <div className="login-or-line"></div>
         </div>
         <a className="login-forgot" href="@">
-          {' '}
           Forgot password?
         </a>
       </div>
