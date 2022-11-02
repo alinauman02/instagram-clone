@@ -1,8 +1,14 @@
 .settings {
-  margin: 0rem 10rem;
+  height: 100%;
+  margin-top: 0;
+  padding:3rem 8rem;
+}
+
+.setting-card {
+  height: 100%;
+  background-color: white;
   border: 1px solid var(--white-shade-2);
-  height: 90%;
-  margin-top: 3rem;
+  
 }
 
 .settings-sidebar {

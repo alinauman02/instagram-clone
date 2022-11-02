@@ -10,16 +10,18 @@ export function Settings() {
   selectedEditMode == 'Password' ? (editPasswordSelected = 'selected-mode') : (editProfileSelected = 'selected-mode');
 
   return (
-    <div className="settings flex-box">
-      <div className="settings-sidebar flex-box flex-direction-column">
-        <button className={'edit-buttons ' + editProfileSelected} onClick={() => setSelectedEditMode('Profile')}>
-          Edit profile
-        </button>
-        <button className={'edit-buttons ' + editPasswordSelected} onClick={() => setSelectedEditMode('Password')}>
-          Change password
-        </button>
-      </div>
-      <div className="edit-form">{selectedEditMode == 'Password' ? <EditPassword /> : <EditProfile />}</div>
+    <div className="settings">
+      <div className="setting-card flex-box">
+        <div className="settings-sidebar flex-box flex-direction-column">
+          <button className={'edit-buttons ' + editProfileSelected} onClick={() => setSelectedEditMode('Profile')}>
+            Edit profile
+          </button>
+          <button className={'edit-buttons ' + editPasswordSelected} onClick={() => setSelectedEditMode('Password')}>
+            Change password
+          </button>
+        </div>
+        <div className="edit-form">{selectedEditMode == 'Password' ? <EditPassword /> : <EditProfile />}</div>
+      </div>{' '}
     </div>
   );
 }
