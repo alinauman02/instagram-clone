@@ -16,3 +16,6 @@ export * from './Login/Input';
 export * from './Login/Signup';
 export * from './Home/Home';
 export * from './Navbar/AccountOptions';
+export * from './settings/EditPassword';
+export * from './settings/EditProfile';
+export * from './settings/Settings';
