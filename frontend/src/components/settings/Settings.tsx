@@ -12,16 +12,10 @@ export function Settings() {
   return (
     <div className="settings flex-box">
       <div className="settings-sidebar flex-box flex-direction-column">
-        <button
-          className={'edit-buttons ' + editProfileSelected}
-          onClick={() => setSelectedEditMode(mode => 'Profile')}
-        >
+        <button className={'edit-buttons ' + editProfileSelected} onClick={() => setSelectedEditMode('Profile')}>
           Edit profile
         </button>
-        <button
-          className={'edit-buttons ' + editPasswordSelected}
-          onClick={() => setSelectedEditMode(mode => 'Password')}
-        >
+        <button className={'edit-buttons ' + editPasswordSelected} onClick={() => setSelectedEditMode('Password')}>
           Change password
         </button>
       </div>
