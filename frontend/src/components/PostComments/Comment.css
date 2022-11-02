@@ -10,7 +10,7 @@
   border-radius: 50%;
 }
 
-.comment-person {
+.reviewer-name {
   font-weight: 700;
 }
 
@@ -28,6 +28,9 @@
   padding: 0.8em;
   margin-left: auto;
   margin-top: 0.4px;
+  border: none;
+  outline: none;
+  background-color: white;
 }
 
 .reply-action {

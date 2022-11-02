@@ -12,10 +12,17 @@
 
 .app-body {
   background-color: var(--white-shade-1);
+  padding-bottom: auto;
+  margin-bottom: 0px;
+  height: 100vh;
 }
 
 .flex-box {
   display: flex;
+}
+
+.flex-direction-column {
+  flex-direction: column;
 }
 
 body {
