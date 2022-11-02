@@ -4,9 +4,9 @@ import { ReactComponent as IconCommentEmoji } from 'assets/icons/comment-emoji.s
 export function PostComments() {
   return (
     <form className="flex-box comment-form">
-      <div className="comment-emoji">
+      <button className="comment-emoji">
         <IconCommentEmoji />
-      </div>
+      </button>
       <input className="comment-box" type="string" placeholder="Add a comment" />
       <input type="submit" className="post-button" placeholder="post" value="Post" />
     </form>

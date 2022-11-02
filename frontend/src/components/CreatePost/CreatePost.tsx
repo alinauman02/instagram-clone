@@ -10,7 +10,7 @@ export function CreatePost({ setCreatePostBoxVisibility }: CreatePostProps) {
     <div className="create-post-background">
       <div className="create-post">
         <div className="create-post-header">Create New Post</div>
-        <div className="create-post-upload">
+        <div className="create-post-upload flex-direction-column">
           <div className="create-post-icon">
             <IconCreatPost />
           </div>

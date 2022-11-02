@@ -25,7 +25,6 @@ export function Content({ content, currentContentIndex, changeContent }: Content
           return <div className={dotStyle} key={item.id}></div>;
         })}
       </div>
-
       {currentContentIndex < content.length - 1 && (
         <button onClick={() => changeContent(1)} className="content-right-button">
           <IconNext />

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 import { ReactComponent as IconAdd } from 'assets/icons/add.svg';
@@ -17,9 +18,9 @@ export function Navbar({ onCreatePostClick }: NavbarProps) {
 
   return (
     <nav className="navbar flex-box">
-      <a className="navbar-items" href="@">
+      <Link className="navbar-items" to="/home">
         <IconHome />
-      </a>
+      </Link>
       <a className="navbar-items" href="@">
         <IconMessenger />
       </a>

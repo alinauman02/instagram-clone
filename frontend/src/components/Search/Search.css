@@ -1,8 +1,8 @@
 .search {
   background-color: var(--white-shade-2);
-  border-radius: 10px;
+  border-radius: 9px;
   margin-left: 16rem;
-  width: 268px;
+  width: 20%;
   height: 36px;
 }
 

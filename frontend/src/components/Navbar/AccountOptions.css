@@ -1,6 +1,5 @@
 .navbar-dropdown {
   position: absolute;
-  flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   left: -180px;
   top: 30px;
@@ -31,7 +30,7 @@
 }
 
 .dropdown-list-item {
-  width: 200px;
+  width: 130%;
   background-color: white;
 }
 
@@ -49,5 +48,23 @@
   border-top: 1px solid var(--white-shade-2);
   padding-left: 0.8em;
   padding-bottom: 0.8em;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
+  padding-top: 0.1em;
+}
+
+.list-link-first {
+  padding-top: 1em;
+}
+
+.list-link {
+  padding: 0px;
+  margin: 0px;
+  padding-left: 0.8em;
+  padding-right: auto;
+  padding-top: 1em;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: ButtonText;
+  font-weight: lighter;
 }

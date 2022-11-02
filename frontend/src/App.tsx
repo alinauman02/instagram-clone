@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import './App.css';
-import { Post, Header, Profile, CreatePost } from './components';
+import { Profile, Login, Signup, Home } from './components';
 
 function App() {
-  const [showCreatePostModal, setShowCreatePostModal] = useState(false);
   return (
-    <div className="app-body">
-      <Header onCreatePostClick={() => setShowCreatePostModal(true)} />
-      {showCreatePostModal && <CreatePost setCreatePostBoxVisibility={setShowCreatePostModal} />}
-      <Post name="Ejaz hussain" number={3} />
-      <div className="profile-div">
-        <Profile />
+    <BrowserRouter>
+      <div className="app-body">
+        <Routes>
+          <Route path="/" element={<Navigate to="login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
