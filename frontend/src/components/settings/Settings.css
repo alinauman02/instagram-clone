@@ -1,4 +1,25 @@
 .settings {
-  margin: 2rem 5rem;
-  border: 1px solid gray;
+  margin: 0rem 10rem;
+  border: 1px solid var(--white-shade-2);
+  height: 90%;
+  margin-top: 3rem;
+}
+
+.settings-sidebar {
+  border: 1px solid var(--white-shade-2);
+  height: 90%;
+  width: 15%;
+}
+
+.edit-buttons {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+
+.selected-mode {
+  border-left: solid black;
+  font-weight: bold;
 }
