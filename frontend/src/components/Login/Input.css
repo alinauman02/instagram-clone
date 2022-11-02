@@ -1,12 +1,13 @@
-.input-box {
+.input-field {
+  outline: none;
   margin: 0.3rem;
-  padding: 0.5em;
+  padding: 0.6em 1em;
   border: 1px solid var(--white-shade-2);
   border-radius: 2px;
-  width: 260px;
+  width: 103%;
+  background-color: var(--white-shade-1);
 }
 
-.input-field{
-    border:none;
-    outline:none;
+.input-field:focus {
+  border: 1px solid black;
 }

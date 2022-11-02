@@ -1,14 +1,14 @@
 .post-card {
   border-radius: 10px;
   border: 1px solid var(--white-shade-2);
-  width: 500px;
+  width: 25%;
   height: auto;
   margin-top: 5rem;
   margin-left: 33rem;
   background-color: var(--white-shade-0);
 }
 
-.bold {
+.text-bold {
   font-weight: 700;
 }
 
@@ -37,6 +37,9 @@
 .comment-emoji {
   padding-top: 0.3em;
   padding-right: 0.8rem;
+  background-color: white;
+  border: none;
+  outline: none;
 }
 
 .post-button {

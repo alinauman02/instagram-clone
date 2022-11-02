@@ -1,10 +1,11 @@
 .login {
   justify-content: center;
   display: flex;
-  flex-direction: column;
 }
 
 .login-card {
+  background-color: white;
+  margin-top: 5%;
   padding: 3em;
   display: flex;
   margin-top: 0.2rem;
@@ -13,9 +14,28 @@
   padding: 1.5em;
   border: 1px solid var(--white-shade-2);
   width: 100%;
-  flex-direction: column;
   margin-top: 10em;
   margin-bottom: 1rem;
+}
+
+.login-button-google {
+  color: black;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  width: 84%;
+  align-self: center;
+  border-radius: 4px;
+  margin: 0.5rem;
+  padding: 0.6em 1em;
+  background-color: white;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.google-icon > svg {
+  margin-bottom: -0.3rem;
+  margin-right: 0.6rem;
 }
 
 .login-error {
@@ -24,22 +44,26 @@
   font-weight: bold;
   color: red;
   padding: 0.3em;
-  width: 250px;
+  width: 100%;
   text-align: center;
   margin-bottom: 0.8rem;
 }
 
 .instagram-icon {
   margin-top: 3em;
-  width: 10.8em;
+  width: 60%;
   margin-bottom: 5rem;
   align-self: center;
 }
 
+.instagram-icon > svg {
+  width: 175;
+  height: 51;
+}
+
 .login-form {
-  width: 250px;
+  width: 82%;
   display: flex;
-  flex-direction: column;
   align-self: center;
   align-items: center;
 }
@@ -48,7 +72,7 @@
   background-color: var(--white-shade-2);
   height: 2px;
   align-self: center;
-  width: 110px;
+  width: 100px;
 }
 
 .login-or-text {
@@ -69,6 +93,7 @@
 }
 
 .signup-option {
+  background-color: white;
   padding: 2em;
   margin-top: 0.2rem;
   align-self: center;
@@ -82,12 +107,35 @@
 }
 
 .signup-text {
-  font-size: .88rem;
+  font-size: 0.88rem;
 }
 
 .signup-link {
-  font-size: .88rem;
-  color: rgb(0, 55, 107);
+  font-size: 0.88rem;
+  color: #0095f6;
   background-color: white;
   text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.3rem;
+}
+
+.submit-button {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(9, 135, 245);
+  border: none;
+  outline: none;
+  width: 103.5%;
+  border-radius: 4px;
+  margin: 0.5rem;
+  padding: 0.6em 1em;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: rgb(128, 191, 247);
+  cursor: initial;
 }

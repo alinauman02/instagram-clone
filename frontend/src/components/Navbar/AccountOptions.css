@@ -1,6 +1,5 @@
 .navbar-dropdown {
   position: absolute;
-  flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   left: -180px;
   top: 30px;
@@ -10,8 +9,6 @@
   list-style-type: none;
   font-weight: 700;
   text-align: left;
-  margin: 0rem;
-  padding: 0px;
   background-color: white;
 }
 
@@ -33,7 +30,7 @@
 }
 
 .dropdown-list-item {
-  width: 200px;
+  width: 130%;
   background-color: white;
 }
 

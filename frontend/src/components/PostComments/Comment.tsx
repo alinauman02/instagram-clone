@@ -1,6 +1,5 @@
 import './Comment.css';
-
-import { ReactComponent as LikeComment } from 'assets/icons/like-comment.svg';
+import { ReactComponent as IconLikeComment } from 'assets/icons/like-comment.svg';
 
 export function Comment() {
   return (
@@ -9,7 +8,7 @@ export function Comment() {
 
       <div className="comment-mid">
         <div>
-          <span className="comment-person">Ejaz hussain</span> The quick brown fox jumps over the lazy dog
+          <span className="reviewer-name">Ejaz hussain</span> The quick brown fox jumps over the lazy dog
         </div>
         <div className="comment-actions">
           <span className="time">19h</span>
@@ -17,9 +16,9 @@ export function Comment() {
           <button className="reply-action">Reply</button>
         </div>
       </div>
-      <div className="comment-like">
-        <LikeComment />
-      </div>
+      <button className="comment-like">
+        <IconLikeComment />
+      </button>
     </div>
   );
 }

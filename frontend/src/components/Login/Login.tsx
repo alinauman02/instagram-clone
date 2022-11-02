@@ -1,34 +1,45 @@
-import './Login.css';
-import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
-import { Input } from './Input';
-import { InputButton } from './InputButton';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { logIn } from 'services/auth';
+import { useNavigate, Link } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
+
+import './Login.css';
+import { logIn, signUpWithGoogle } from 'services';
+import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
+
+import { Input } from './Input';
 
 export function Login() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
-  const [user, setUser] = useState({
+  const [userCredentials, setUserCredentials] = useState({
     email: '',
     password: '',
   });
 
-  const canLogin = user.email !== '' && user.password !== '';
+  const canLogin = userCredentials.email !== '' && userCredentials.password !== '';
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     setError('');
     const { name, value } = e.currentTarget;
-    setUser(currentUser => ({ ...currentUser, [name]: value }));
+    setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-   
     e.preventDefault();
     try {
-      const res = await logIn(user.email, user.password);
+      const res = await logIn(userCredentials.email, userCredentials.password);
+      if (res) navigate('/home');
+    } catch (err) {
+      if (err instanceof FirebaseError) {
+        setError(err.message);
+      }
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const res = await signUpWithGoogle();
       if (res) navigate('/home');
     } catch (err) {
       if (err instanceof FirebaseError) {
@@ -38,15 +49,17 @@ export function Login() {
   };
 
   return (
-    <div className="login">
-      <div className="login-card flexbox">
+    <div className="login flex-direction-column">
+      <div className="login-card flex-direction-column flexbox">
         <div className="instagram-icon">
           <InstagramIcon />
         </div>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form flex-direction-column" onSubmit={handleSubmit}>
           <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <InputButton name="Log in" disable={!canLogin} />
+          <button className="submit-button" name="Log in" value="Log in" disabled={!canLogin}>
+            Log in
+          </button>
         </form>
         {error && <div className="login-error">{error}</div>}
         <div className="flex-box login-or">
@@ -54,13 +67,20 @@ export function Login() {
           <div className="login-or-text">OR</div>
           <div className="login-or-line"></div>
         </div>
+        <button className="login-button-google" onClick={handleGoogleLogin}>
+          <span className='google-icon'>
+            <GoogleIcon />
+            Login with Google
+          </span>
+        </button>
         <a className="login-forgot" href="@">
-          {' '}
           Forgot password?
         </a>
       </div>
       <div className="signup-option flex-box">
-        <div className="signup-text">dont have an account?</div>
+        <div className="signup-text">
+          Don<span>&#39;</span>t have an account?
+        </div>
         <Link to="/signup" className="signup-link">
           Sign up
         </Link>
