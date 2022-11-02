@@ -46,6 +46,7 @@ export function EditPassword() {
           Confirm
         </button>
       </form>
+      <button className="edit-forgot-password">Forgot password?</button>
     </div>
   );
 }
