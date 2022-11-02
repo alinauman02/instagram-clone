@@ -1,0 +1,54 @@
+.edit-profile {
+  width: 40%;
+  justify-content: center;
+}
+
+.profile-settings-header {
+  background-color: var(--white-shade-0);
+  background-color: transparent;
+  margin-top: 5rem;
+  align-self: center;
+}
+
+.edit-profile-form {
+  align-self: center;
+  margin-left: 3em;
+  margin-top: 3em;
+}
+
+.profile-image-icon {
+  border-radius: 50%;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  margin-right: 2rem;
+}
+
+.edit-profile-picture {
+  color: blue;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+
+.edit-profile-label {
+  margin: 0.8rem 1rem;
+  background-color: green;
+  font-weight: bold;
+  width: 30%;
+  text-align: justify;
+  text-align-last: right;
+}
+
+.edit-submit {
+  background-color: hsl(198, 100%, 50%);
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  margin-left: 6rem;
+  margin-top: 2rem;
+}
