@@ -7,7 +7,7 @@
 
 .settings-sidebar {
   border: 1px solid var(--white-shade-2);
-  height: 90%;
+  height: 100%;
   width: 15%;
 }
 
@@ -22,4 +22,9 @@
 .selected-mode {
   border-left: solid black;
   font-weight: bold;
+}
+
+.edit-form {
+  align-items: center;
+  width: 100%;
 }

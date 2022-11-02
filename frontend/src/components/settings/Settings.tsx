@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Settings.css';
 
+import { EditProfile } from './EditProfile';
+import { EditPassword } from './EditPassword';
 export function Settings() {
   const [selectedEditMode, setSelectedEditMode] = useState<'Password' | 'Profile'>('Profile');
   let editPasswordSelected = '';
@@ -23,7 +25,7 @@ export function Settings() {
           Change password
         </button>
       </div>
-      <div></div>
+      <div className="edit-form">{selectedEditMode == 'Password' ? <EditPassword /> : <EditProfile />}</div>
     </div>
   );
 }
