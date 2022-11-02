@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import './EditProfile.css';
+import './EditPassword.css';
 import Profile from 'assets/images/profile.jpeg';
 import { Input } from './Input';
 
