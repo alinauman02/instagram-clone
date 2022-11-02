@@ -1,10 +1,8 @@
-import { ProfileListItem } from 'components/ProfileListItem/ProfileListItem';
 import { useState } from 'react';
-import './EditProfile.css';
 
+import './EditProfile.css';
 import Profile from 'assets/images/profile.jpeg';
 import { Input } from './Input';
-import { current } from '@reduxjs/toolkit';
 
 export function EditProfile() {
   const [profileInfo, setProfileInfo] = useState({
@@ -17,10 +15,12 @@ export function EditProfile() {
   });
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-    
     const { name, value } = e.currentTarget;
     setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
   };
+
+  const canSubmit =
+    profileInfo.phoneno !== '' && profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== '';
 
   return (
     <div className="edit-profile flex-box flex-direction-column">
@@ -34,31 +34,31 @@ export function EditProfile() {
       <form className="edit-profile-form">
         <div className="flex-box">
           <span className="edit-profile-label">Name</span>
-          <Input type="string" placeholder="Mobile Number or Email" name="name" onChange={onChange} />
+          <Input type="string" placeholder="Name" name="name" onChange={onChange} />
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Username</span>
-          <Input type="string" placeholder="Mobile Number or Email" name="username" onChange={onChange} />
+          <Input type="string" placeholder="Username" name="username" onChange={onChange} />
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Bio</span>
-          <Input type="string" placeholder="Mobile Number or Email" name="bio" onChange={onChange} />
+          <Input type="string" placeholder="bio" name="bio" onChange={onChange} />
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Email</span>
-          <Input type="string" placeholder="Mobile Number or Email" name="email" onChange={onChange} />
+          <Input type="email" placeholder="Email" name="email" onChange={onChange} />
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Phone number</span>
-          <Input type="string" placeholder="Mobile Number or Email" name="phoneno" onChange={onChange} />
+          <Input type="number" placeholder="Phone No" name="phoneno" onChange={onChange} />
         </div>
 
         <div className="flex-box">
           <span className="edit-profile-label">Gender</span>
-          <Input type="string" placeholder="Mobile Number or Email" name="gender" onChange={onChange} />
+          <Input type="string" placeholder="Gender" name="gender" onChange={onChange} />
         </div>
-        <button type="submit" className="edit-submit" id="submit">
-          submit
+        <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>
+          Submit
         </button>
       </form>
     </div>

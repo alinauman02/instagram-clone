@@ -26,18 +26,16 @@
 }
 
 .edit-profile-picture {
-  color: blue;
+  color: rgb(9, 135, 245);
   font-weight: bold;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
-
-
 .edit-profile-label {
   margin: 0.8rem 1rem;
-  background-color: green;
+
   font-weight: bold;
   width: 30%;
   text-align: justify;
@@ -45,10 +43,25 @@
 }
 
 .edit-submit {
-  background-color: hsl(198, 100%, 50%);
   color: white;
+  font-weight: bold;
+  background-color: rgb(9, 135, 245);
   border: none;
-  padding: 0.5em 1em;
-  margin-left: 6rem;
-  margin-top: 2rem;
+  outline: none;
+  border-radius: 4px;
+  margin: 3rem 6rem;
+  padding: 0.5em 0.8em;
+}
+
+.edit-submit-google:hover {
+  cursor: pointer;
+}
+
+.edit-submit:hover {
+  cursor: pointer;
+}
+
+.edit-submit:disabled {
+  background-color: rgb(128, 191, 247);
+  cursor: initial;
 }
