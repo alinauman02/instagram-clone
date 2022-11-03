@@ -1,13 +1,8 @@
-.edit-profile {
-  width: 40%;
-  justify-content: center;
-}
-
 .profile-settings-header {
   background-color: var(--white-shade-0);
   background-color: transparent;
-  margin-top: 5rem;
   align-self: center;
+  margin-top: 5rem;
 }
 
 .edit-profile-form {
