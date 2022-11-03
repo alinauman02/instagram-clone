@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import './EditProfile.css';
 import Profile from 'assets/images/profile.jpeg';
 import { Input } from './Input';
+import EditPhoto from './EditPhoto';
 
 export function EditProfile() {
+  const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
+
   const [profileInfo, setProfileInfo] = useState({
     name: '',
     username: '',
@@ -44,7 +47,10 @@ export function EditProfile() {
             <img className="profile-image-icon" src={Profile} alt="kjsaf"></img>
             <div>
               <h3>Ejaz Hussain</h3>
-              <button className="edit-profile-picture">edit profile icon</button>
+              <button className="edit-profile-picture" onClick={() => setShowEditPhotoModal(modal => !modal)}>
+                edit profile icon
+              </button>
+              {showEditPhotoModal && <EditPhoto profilePic={Profile} setShowEditPhotoModal={setShowEditPhotoModal} />}
             </div>
           </div>
           <form className="edit-profile-form">
