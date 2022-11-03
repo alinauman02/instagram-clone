@@ -65,3 +65,48 @@
   background-color: rgb(128, 191, 247);
   cursor: initial;
 }
+
+.settings {
+  height: 100%;
+  margin-top: 0;
+  padding: 3rem 8rem;
+}
+
+.setting-card {
+  height: 100%;
+  background-color: white;
+  border: 1px solid var(--white-shade-2);
+}
+
+.settings-sidebar {
+  border: 1px solid var(--white-shade-2);
+  height: 100%;
+  width: 17%;
+}
+
+.edit-buttons {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.edit-selected-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  border-left: solid black;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.edit-form {
+  align-items: center;
+  width: 100%;
+}
