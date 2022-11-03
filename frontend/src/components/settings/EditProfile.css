@@ -110,3 +110,21 @@
   align-items: center;
   width: 100%;
 }
+
+.input-edit-textarea {
+  border: 1px solid var(--white-shade-2);
+  padding: 0.1em;
+  margin: 0.5rem 1.5rem;
+  text-align: start;
+  padding: 0px;
+  line-height: inherit;
+  vertical-align: text-top;
+  padding-bottom: 3em;
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+
+.input-edit-textarea:focus {
+  border: 1px solid gray;
+  outline: none;
+}

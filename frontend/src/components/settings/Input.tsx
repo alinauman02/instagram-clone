@@ -3,7 +3,7 @@ import './Input.css';
 
 interface InputProps {
   name: string;
-  type: 'string' | 'email' | 'password' | 'number';
+  type: 'string' | 'email' | 'password' | 'number' | 'textarea';
   placeholder: string;
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 }

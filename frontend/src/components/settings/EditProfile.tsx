@@ -20,6 +20,11 @@ export function EditProfile() {
     setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
   };
 
+  const onChangeField = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.currentTarget;
+    setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
+  };
+
   const canSubmit =
     profileInfo.phoneno !== '' && profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== '';
 
@@ -53,7 +58,13 @@ export function EditProfile() {
             </div>
             <div className="flex-box">
               <span className="edit-profile-label">Bio</span>
-              <Input type="string" placeholder="bio" name="bio" onChange={onChange} />
+              <textarea
+                className="input-edit-textarea"
+                placeholder="bio"
+                name="bio"
+                onInput={onChangeField}
+                rows={2}
+              ></textarea>
             </div>
             <div className="flex-box">
               <span className="edit-profile-label">Email</span>
