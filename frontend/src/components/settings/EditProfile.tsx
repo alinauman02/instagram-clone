@@ -15,7 +15,7 @@ export function EditProfile() {
     phoneNumber: '',
     gender: '',
   });
-  const [profileName, setProfileName] = useState('Ejaz Hussain');
+  const profileName = 'Ejaz Hussain';
   const count = profileInfo.bio.length;
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -32,7 +32,10 @@ export function EditProfile() {
   };
 
   const canSubmit =
-    profileInfo.phoneNumber !== '' && profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== '';
+    profileInfo.phoneNumber !== '' &&
+    profileInfo.username !== '' &&
+    profileInfo.email !== '' &&
+    profileInfo.name !== '';
 
   return (
     <div className="edit-profile flex-box flex-direction-column">
@@ -81,7 +84,13 @@ export function EditProfile() {
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Phone number</span>
-          <Input type="number" placeholder="Phone No" name="phoneno" onChange={onChange} value={profileInfo.phoneNumber} />
+          <Input
+            type="number"
+            placeholder="Phone No"
+            name="phoneno"
+            onChange={onChange}
+            value={profileInfo.phoneNumber}
+          />
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Gender</span>
