@@ -1,14 +1,13 @@
 .settings {
   height: 100%;
   margin-top: 0;
-  padding:3rem 8rem;
+  padding: 3rem 8rem;
 }
 
 .setting-card {
   height: 100%;
   background-color: white;
   border: 1px solid var(--white-shade-2);
-  
 }
 
 .settings-sidebar {
@@ -23,9 +22,12 @@
   outline: none;
   padding: 1rem 3rem;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
+  padding-top: 2em;
 }
 
-.selected-mode {
+.selected-nav {
   border-left: solid black;
   font-weight: bold;
 }

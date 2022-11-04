@@ -1,27 +1,25 @@
-import { useState } from 'react';
-import './Settings.css';
+import {  NavLink, Outlet } from 'react-router-dom';
 
-import { EditProfile } from './EditProfile';
-import { EditPassword } from './EditPassword';
+import './Settings.css';
 export function Settings() {
-  const [selectedEditMode, setSelectedEditMode] = useState<'Password' | 'Profile'>('Profile');
-  let editPasswordSelected = '';
-  let editProfileSelected = '';
-  selectedEditMode == 'Password' ? (editPasswordSelected = 'selected-mode') : (editProfileSelected = 'selected-mode');
+  const selectedNav = 'selected-nav edit-buttons';
+  const notSelectedNav = 'edit-buttons';
 
   return (
     <div className="settings">
       <div className="setting-card flex-box">
         <div className="settings-sidebar flex-box flex-direction-column">
-          <button className={'edit-buttons ' + editProfileSelected} onClick={() => setSelectedEditMode('Profile')}>
+          <NavLink to="edit-profile" className={({ isActive }) => (isActive ? selectedNav : notSelectedNav)}>
             Edit profile
-          </button>
-          <button className={'edit-buttons ' + editPasswordSelected} onClick={() => setSelectedEditMode('Password')}>
+          </NavLink>
+          <NavLink to="change-password" className={({ isActive }) => (isActive ? selectedNav : notSelectedNav)}>
             Change password
-          </button>
+          </NavLink>
         </div>
-        <div className="edit-form">{selectedEditMode == 'Password' ? <EditPassword /> : <EditProfile />}</div>
-      </div>{' '}
+        <div className="edit-form">
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 }

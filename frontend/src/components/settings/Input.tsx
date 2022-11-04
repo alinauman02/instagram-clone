@@ -6,9 +6,10 @@ interface InputProps {
   type: 'string' | 'email' | 'password' | 'number' | 'textarea';
   placeholder: string;
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
-export function Input({ name, type, placeholder, onChange }: InputProps) {
+export function Input({ name, type, placeholder, value, onChange }: InputProps) {
   return (
     <input
       className="input-edit-field"
@@ -17,6 +18,7 @@ export function Input({ name, type, placeholder, onChange }: InputProps) {
       placeholder={placeholder}
       onChange={onChange}
       autoComplete="off"
+      value={value}
     />
   );
 }
