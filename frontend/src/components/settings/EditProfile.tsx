@@ -15,7 +15,7 @@ export function EditProfile() {
     phoneno: '',
     gender: '',
   });
-  const name = profileInfo.name;
+  const [profileName, setProfileName] = useState('Ejaz Hussain');
   const count = profileInfo.bio.length;
 
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -39,7 +39,7 @@ export function EditProfile() {
       <div className="flex-box profile-settings-header">
         <img className="profile-image-icon" src={Profile} alt="No Imag"></img>
         <div>
-          <h3>{name}</h3>
+          <h3>{profileName}</h3>
 
           <button className="edit-profile-picture" onClick={() => setShowEditPhotoModal(modal => !modal)}>
             edit profile icon
