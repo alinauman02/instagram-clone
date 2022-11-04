@@ -12,7 +12,7 @@ export function EditProfile() {
     username: '',
     bio: 'Live for change',
     email: 'ejazhussain1050@yopmail.com',
-    phoneno: '',
+    phoneNumber: '',
     gender: '',
   });
   const [profileName, setProfileName] = useState('Ejaz Hussain');
@@ -32,7 +32,7 @@ export function EditProfile() {
   };
 
   const canSubmit =
-    profileInfo.phoneno !== '' && profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== '';
+    profileInfo.phoneNumber !== '' && profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== '';
 
   return (
     <div className="edit-profile flex-box flex-direction-column">
@@ -81,7 +81,7 @@ export function EditProfile() {
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Phone number</span>
-          <Input type="number" placeholder="Phone No" name="phoneno" onChange={onChange} value={profileInfo.phoneno} />
+          <Input type="number" placeholder="Phone No" name="phoneno" onChange={onChange} value={profileInfo.phoneNumber} />
         </div>
         <div className="flex-box">
           <span className="edit-profile-label">Gender</span>
