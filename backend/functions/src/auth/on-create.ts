@@ -1,7 +1,5 @@
-import { functions } from '../config';
-
-
+import { firestore, functions } from '../config';
 
 export const onAuthCreate = functions.auth.user().onCreate(user => {
-  console.log(user);
+  return firestore.collection('users').doc(user.uid).set({ email: user.email });
 });
