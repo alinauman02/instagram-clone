@@ -18,13 +18,13 @@ export function EditProfile() {
   const profileName = 'Ejaz Hussain';
   const count = profileInfo.bio.length;
 
-  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
+  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
     setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
   };
 
-  const onChangeField = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
-    const { name, value } = e.currentTarget;
+  const onChangeField = (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
+    const { name, value } = event.currentTarget;
     setProfileInfo(currentProfileInfo => ({
       ...currentProfileInfo,
       [name]: value.length < 150 ? value : value.substring(0, 150),
@@ -51,20 +51,15 @@ export function EditProfile() {
         </div>
       </div>
       <form className="edit-profile-form">
-        <div className="flex-box">
-          <span className="edit-profile-label">Name</span>
-          <Input type="string" placeholder="Name" name="name" value={profileInfo.name} onChange={onChange} />
-        </div>
-        <div className="flex-box">
-          <span className="edit-profile-label">Username</span>
-          <Input
-            type="string"
-            placeholder="Username"
-            name="username"
-            onChange={onChange}
-            value={profileInfo.username}
-          />
-        </div>
+        <Input label="Name" type="string" placeholder="Name" name="name" value={profileInfo.name} onChange={onChange} />
+        <Input
+          type="string"
+          placeholder="Username"
+          name="username"
+          onChange={onChange}
+          value={profileInfo.username}
+          label="Username"
+        />
         <div className="flex-box">
           <span className="edit-profile-label">Bio</span>
           <textarea
@@ -78,24 +73,30 @@ export function EditProfile() {
           ></textarea>
         </div>
         <span className="bio-chars-count">{count}/150</span>
-        <div className="flex-box">
-          <span className="edit-profile-label">Email</span>
-          <Input type="email" placeholder="Email" name="email" onChange={onChange} value={profileInfo.email} />
-        </div>
-        <div className="flex-box">
-          <span className="edit-profile-label">Phone number</span>
-          <Input
-            type="number"
-            placeholder="Phone No"
-            name="phoneno"
-            onChange={onChange}
-            value={profileInfo.phoneNumber}
-          />
-        </div>
-        <div className="flex-box">
-          <span className="edit-profile-label">Gender</span>
-          <Input type="string" placeholder="Gender" name="gender" onChange={onChange} value={profileInfo.gender} />
-        </div>
+        <Input
+          type="email"
+          placeholder="Email"
+          name="email"
+          onChange={onChange}
+          value={profileInfo.email}
+          label="Email"
+        />
+        <Input
+          type="number"
+          placeholder="Phone No"
+          name="phoneno"
+          onChange={onChange}
+          value={profileInfo.phoneNumber}
+          label="Phone Number"
+        />
+        <Input
+          label="Gender"
+          type="string"
+          placeholder="Gender"
+          name="gender"
+          onChange={onChange}
+          value={profileInfo.gender}
+        />
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>
           Submit
         </button>

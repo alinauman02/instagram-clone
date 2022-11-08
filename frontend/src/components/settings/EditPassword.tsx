@@ -11,8 +11,8 @@ export function EditPassword() {
     confirmPassword: '',
   });
 
-  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
+  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
     setAccountPassword(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
   };
 
@@ -28,20 +28,15 @@ export function EditPassword() {
         </div>
       </div>
       <form className="edit-password-form">
-        <div className="flex-box">
-          <span className="edit-password-label">Password</span>
-          <Input type="password" placeholder="Password" name="oldPassword" onChange={onChange} />
-        </div>
-        <div className="flex-box">
-          <span className="edit-password-label">New Password</span>
-          <Input type="password" placeholder="New Password" name="newPassword" onChange={onChange} />
-        </div>
-
-        <div className="flex-box">
-          <span className="edit-password-label">Confirm Password</span>
-          <Input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={onChange} />
-        </div>
-
+        <Input label="Password" type="password" placeholder="Password" name="oldPassword" onChange={onChange} />
+        <Input label="New Password" type="password" placeholder="New Password" name="newPassword" onChange={onChange} />
+        <Input
+          label="Confirm Password"
+          type="password"
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          onChange={onChange}
+        />
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canConfirm}>
           Confirm
         </button>
