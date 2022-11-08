@@ -7,9 +7,9 @@ export async function signUp(user: User) {
   return res.uid;
 }
 
-const profileRouter = Router();
+const userRouter = Router();
 
-profileRouter.put('/', async (req: Request, res: Response) => {
+userRouter.put('/', async (req: Request, res: Response) => {
   try {
     const user: User = req.body.user;
     const uid = await signUp(user);
@@ -19,4 +19,4 @@ profileRouter.put('/', async (req: Request, res: Response) => {
   }
 });
 
-export { profileRouter };
+export { userRouter };

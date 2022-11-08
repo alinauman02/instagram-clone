@@ -5,5 +5,5 @@ import { getAuth } from 'firebase-admin/auth';
 
 admin.initializeApp();
 const firestore = getFirestore();
-const auth = getAuth(admin.initializeApp());
+const auth = getAuth();
 export { functions, firestore, auth };

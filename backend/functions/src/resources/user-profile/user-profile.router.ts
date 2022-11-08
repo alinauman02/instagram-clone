@@ -6,7 +6,7 @@ const profileRouter = Router();
 
 profileRouter.put('/', (req: Request, res: Response) => {
   const profile: UserProfile = req.body.userProfile;
-  firestore.collection('profiles').doc(profile.uid).set({
+  firestore.collection('users').doc(profile.uid).set({
     email: profile.email,
     username: profile.username,
     phoneNumber: profile.phoneNumber,
@@ -20,7 +20,7 @@ profileRouter.put('/', (req: Request, res: Response) => {
 
 profileRouter.get('/:id', async (req: Request, res: Response) => {
   if (typeof req.query.id === 'string') {
-    const ref = await firestore.collection('profiles').doc(req.query.id);
+    const ref = await firestore.collection('users').doc(req.query.id);
     const doc = await ref.get();
     if (doc.exists) {
       res.end(doc);
