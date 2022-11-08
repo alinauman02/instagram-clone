@@ -18,6 +18,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/express": "^4.17.14",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^4.0.2"
   },
