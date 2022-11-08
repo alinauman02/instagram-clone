@@ -10,3 +10,11 @@
   border: 1px solid gray;
   outline: none;
 }
+
+.edit-profile-label {
+  margin: 0.8rem 1rem;
+  font-weight: bold;
+  width: 30%;
+  text-align: justify;
+  text-align-last: right;
+}
