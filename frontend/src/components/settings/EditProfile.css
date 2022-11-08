@@ -28,15 +28,6 @@
   cursor: pointer;
 }
 
-.edit-profile-label {
-  margin: 0.8rem 1rem;
-
-  font-weight: bold;
-  width: 30%;
-  text-align: justify;
-  text-align-last: right;
-}
-
 .edit-submit {
   color: white;
   font-weight: bold;
