@@ -24,6 +24,7 @@ export function Input({ name, type, placeholder, value, onChange, label }: Input
         onChange={onChange}
         autoComplete="off"
         value={value}
+        id={name}
       />
     </div>
   );
