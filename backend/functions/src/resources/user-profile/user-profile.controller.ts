@@ -3,8 +3,8 @@ import { UserProfile } from '.';
 import { getUserProfileService, patchUserProfileService } from '../../services/user-profile.service';
 
 export const getUserProfile: RequestHandler = async (req, res) => {
-  if (typeof req.query.id === 'string') {
-    const profile = await getUserProfileService(req.query.id);
+  if (typeof req.params.id === 'string') {
+    const profile = await getUserProfileService(req.params.id);
     res.send(profile);
   } else res.send('Error');
 };
