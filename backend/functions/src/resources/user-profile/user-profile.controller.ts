@@ -10,10 +10,9 @@ export const getUserProfile: RequestHandler = async (req, res) => {
 };
 
 export const patchUserProfile: RequestHandler = async (req, res) => {
-  if (typeof req.query.id === 'string') {
+  if (typeof req.params.id === 'string') {
     const userProfile: UserProfile = req.body.profile;
-    console.log(req.query.id, '   ', userProfile);
-    const profile = await patchUserProfileService(req.query.id, userProfile);
+    const profile = await patchUserProfileService(req.params.id, userProfile);
     res.send(profile);
   } else res.send('Error');
 };
