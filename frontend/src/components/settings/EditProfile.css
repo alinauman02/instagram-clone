@@ -7,7 +7,7 @@
 
 .edit-profile-form {
   align-self: center;
-  margin-left: 3em;
+  margin-left: 7em;
   margin-top: 3em;
 }
 
@@ -28,15 +28,6 @@
   cursor: pointer;
 }
 
-.edit-profile-label {
-  margin: 0.8rem 1rem;
-
-  font-weight: bold;
-  width: 30%;
-  text-align: justify;
-  text-align-last: right;
-}
-
 .edit-submit {
   color: white;
   font-weight: bold;
@@ -44,12 +35,8 @@
   border: none;
   outline: none;
   border-radius: 4px;
-  margin: 3rem 6rem;
+  margin: 3rem 12rem;
   padding: 0.5em 0.8em;
-}
-
-.edit-submit-google:hover {
-  cursor: pointer;
 }
 
 .edit-submit:hover {
@@ -61,65 +48,21 @@
   cursor: initial;
 }
 
-.settings {
-  height: 100%;
-  margin-top: 0;
-  padding: 3rem 8rem;
-}
-
-.setting-card {
-  height: 100%;
-  background-color: white;
-  border: 1px solid var(--white-shade-2);
-}
-
-.settings-sidebar {
-  border: 1px solid var(--white-shade-2);
-  height: 100%;
-  width: 17%;
-}
-
-.edit-buttons {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 1rem 3rem;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-}
-
-.edit-selected-button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 1rem 3rem;
-  cursor: pointer;
-  border-left: solid black;
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-}
-
-.edit-form {
-  align-items: center;
-  width: 100%;
-}
-
 .input-edit-textarea {
   border: 1px solid var(--white-shade-2);
-  padding: 0.1em;
+  padding: 0.3em;
   margin: 0.5rem 1.5rem;
-  text-align: start;
-  padding: 0px;
-  line-height: inherit;
-  vertical-align: text-top;
-  padding-bottom: 3em;
-  overflow: visible;
-  text-overflow: ellipsis;
+  width: 300px;
+  border-radius: 4px;
 }
 
 .input-edit-textarea:focus {
   border: 1px solid gray;
+  color: black;
   outline: none;
+}
+
+.bio-chars-count {
+  margin-left: 11.5rem;
+  color: gray;
 }

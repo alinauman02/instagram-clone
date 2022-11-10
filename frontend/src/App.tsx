@@ -13,10 +13,11 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/settings" element={<EditProfile />} />
-          <Route path="/settings/editprofile" element={<EditProfile />} />
-          <Route path="settings/changepassword" element={<EditPassword />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings" element={<Settings />}>
+            <Route path="/settings" element={<Navigate to="edit-profile" />} />
+            <Route path="/settings/change-password" element={<EditPassword />} />
+            <Route path="/settings/edit-profile" element={<EditProfile />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

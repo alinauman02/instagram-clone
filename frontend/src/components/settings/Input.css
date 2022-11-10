@@ -1,7 +1,9 @@
 .input-edit-field {
   border: 1px solid var(--white-shade-2);
-  padding: 0.1em;
+  padding: 0.5em;
   margin: 0.5rem 1.5rem;
+  width: 300px;
+  border-radius: 4px;
 }
 
 .input-edit-field:focus {
@@ -9,3 +11,10 @@
   outline: none;
 }
 
+.edit-profile-label {
+  margin: 0.8rem 1rem;
+  font-weight: bold;
+  width: 30%;
+  text-align: justify;
+  text-align-last: right;
+}
