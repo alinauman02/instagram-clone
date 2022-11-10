@@ -3,25 +3,26 @@ import { FirebaseError } from 'firebase/app';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './Signup.css';
-import { signUp, signUpWithGoogle } from 'services';
+import { signUpWithGoogle } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
 
 import { Input } from './Input';
+import { signUpApi } from 'apis/auth';
 
 export function Signup() {
   const navigate = useNavigate();
   const [userCredentials, setUserCredentials] = useState({
     name: '',
     email: '',
-    number: '',
+    username: '',
     password: '',
   });
   const [error, setError] = useState('');
 
   const canSignUp =
     userCredentials.email !== '' &&
-    userCredentials.number !== '' &&
+    userCredentials.username !== '' &&
     userCredentials.password !== '' &&
     userCredentials.name !== '';
 
@@ -31,16 +32,27 @@ export function Signup() {
     setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await signUp(userCredentials.email, userCredentials.password);
+  //     if (res) navigate('/home');
+  //   } catch (err) {
+  //     if (err instanceof FirebaseError) {
+  //       setError(err.message);
+  //     }
+  //   }
+  // };
+
+  const OnSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      const res = await signUp(userCredentials.email, userCredentials.password);
-      if (res) navigate('/home');
-    } catch (err) {
-      if (err instanceof FirebaseError) {
-        setError(err.message);
-      }
-    }
+    const res = await signUpApi(
+      userCredentials.name,
+      userCredentials.email,
+      userCredentials.password,
+      userCredentials.username
+    );
+    console.log(res);
   };
 
   const handleGoogleLogin = async () => {
@@ -72,12 +84,12 @@ export function Signup() {
           <div className="signup-or-text">OR</div>
           <div className="signup-or-line"></div>
         </div>
-        <form className="signup-form flex-direction-column" onSubmit={handleSubmit}>
-          <Input type="email" placeholder="Mobile Number or Email" name="email" onChange={onChange} />
+        <form className="signup-form flex-direction-column" onSubmit={OnSignUp}>
+          <Input type="email" placeholder="Email" name="email" onChange={onChange} />
           <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
-          <Input type="string" placeholder="Username" name="number" onChange={onChange} />
+          <Input type="string" placeholder="Username" name="username" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <button className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
+          <button type="submit" className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
             Sign up
           </button>
         </form>

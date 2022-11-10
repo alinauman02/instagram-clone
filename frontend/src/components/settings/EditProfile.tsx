@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './EditProfile.css';
 import Profile from 'assets/images/profile.jpeg';
 import { Input } from './Input';
 import EditPhoto from './EditPhoto';
+import { getProfile, updateProfile } from 'apis/user-profle';
 
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
@@ -18,8 +19,32 @@ export function EditProfile() {
   const profileName = 'Ejaz Hussain';
   const count = profileInfo.bio.length;
 
-  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = event.currentTarget;
+  useEffect(() => {
+    const FetchProfileData = async (signal: AbortSignal) => {
+      try {
+        const res = await getProfile(signal, 'dR6PnYD50Al1Q7K4r57tVaQe8tvq');
+        setProfileInfo({
+          name: res.name,
+          username: res.username,
+          bio: res.bio,
+          email: res.email,
+          phoneNumber: res.phoneNumber,
+          gender: res.gender,
+        });
+        
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const controller = new AbortController();
+    FetchProfileData(controller.signal);
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = e.currentTarget;
     setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
   };
 
@@ -102,5 +127,7 @@ export function EditProfile() {
         </button>
       </form>
     </div>
+  ) : (
+    <div>Loading</div>
   );
 }
