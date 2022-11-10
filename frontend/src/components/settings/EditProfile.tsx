@@ -4,12 +4,13 @@ import './EditProfile.css';
 import Profile from 'assets/images/profile.jpeg';
 import { Input } from './Input';
 import EditPhoto from './EditPhoto';
-import { useGetProfileByIdQuery } from 'apis/create-api';
 import { UserProfile } from 'models';
+import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/create-api';
 
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
-  const res = useGetProfileByIdQuery('vmOLhfitAA8fFxbp36Cf2F222fxr');
+  const { data, isFetching } = useGetProfileByIdQuery('vmOLhfitAA8fFxbp36Cf2F222fxr');
+
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
     name: '',
     bio: '',
@@ -18,30 +19,26 @@ export function EditProfile() {
     gender: '',
     phoneNumber: '',
   });
+  const [updateProfileMutation] = useUpdateProfileByIdMutation();
 
-  useEffect(() => {
-    if (res.currentData !== undefined) {
-      setProfileInfo(res.currentData);
-    }
-  }, [res]);
+  const updateProfile = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const res = updateProfileMutation({ id: 'vmOLhfitAA8fFxbp36Cf2F222fxr', profile: profileInfo });
+    console.log(res);
+  };
 
   const profileName = 'Ejaz Hussain';
 
   const count = profileInfo.bio.length;
 
-  console.log(res.currentData);
-
-  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
-    setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
+  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
+    setProfileInfo({ ...profileInfo, [name]: value });
   };
 
   const onChangeField = (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.currentTarget;
-    setProfileInfo(currentProfileInfo => ({
-      ...currentProfileInfo,
-      [name]: value.length < 150 ? value : value.substring(0, 150),
-    }));
+    setProfileInfo({ ...profileInfo, [name]: value });
   };
 
   const canSubmit =
@@ -50,7 +47,13 @@ export function EditProfile() {
     profileInfo.email !== '' &&
     profileInfo.name !== '';
 
-  return (
+  useEffect(() => {
+    data !== undefined ? setProfileInfo(data) : null;
+  }, [isFetching]);
+
+  return isFetching ? (
+    <div>Loading</div>
+  ) : (
     <div className="edit-profile flex-box flex-direction-column">
       <div className="flex-box profile-settings-header">
         <img className="profile-image-icon" src={Profile} alt="No Imag"></img>
@@ -63,7 +66,7 @@ export function EditProfile() {
           {showEditPhotoModal && <EditPhoto profilePic={Profile} setShowEditPhotoModal={setShowEditPhotoModal} />}
         </div>
       </div>
-      <form className="edit-profile-form">
+      <form className="edit-profile-form" onSubmit={updateProfile}>
         <Input label="Name" type="string" placeholder="Name" name="name" value={profileInfo.name} onChange={onChange} />
         <Input
           type="string"
@@ -97,7 +100,7 @@ export function EditProfile() {
         <Input
           type="number"
           placeholder="Phone No"
-          name="phoneno"
+          name="phoneNumber"
           onChange={onChange}
           value={profileInfo.phoneNumber}
           label="Phone Number"
