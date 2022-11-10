@@ -43,6 +43,10 @@ export function EditProfile() {
     };
   }, []);
 
+  const FetchProfileData = ()=>{
+    const res=await getProfile(id);
+  }
+  useEffect(,[])
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
     setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
