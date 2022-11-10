@@ -1,0 +1,68 @@
+.profile-settings-header {
+  background-color: var(--white-shade-0);
+  background-color: transparent;
+  align-self: center;
+  margin-top: 5rem;
+}
+
+.edit-profile-form {
+  align-self: center;
+  margin-left: 7em;
+  margin-top: 3em;
+}
+
+.profile-image-icon {
+  border-radius: 50%;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  margin-right: 2rem;
+}
+
+.edit-profile-picture {
+  color: rgb(9, 135, 245);
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.edit-submit {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(9, 135, 245);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  margin: 3rem 12rem;
+  padding: 0.5em 0.8em;
+}
+
+.edit-submit:hover {
+  cursor: pointer;
+}
+
+.edit-submit:disabled {
+  background-color: rgb(128, 191, 247);
+  cursor: initial;
+}
+
+.input-edit-textarea {
+  border: 1px solid var(--white-shade-2);
+  padding: 0.3em;
+  margin: 0.5rem 1.5rem;
+  width: 300px;
+  border-radius: 4px;
+}
+
+.input-edit-textarea:focus {
+  border: 1px solid gray;
+  color: black;
+  outline: none;
+}
+
+.bio-chars-count {
+  margin-left: 11.5rem;
+  color: gray;
+}

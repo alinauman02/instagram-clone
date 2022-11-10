@@ -43,12 +43,12 @@ export default function AccountOptions() {
           </button>
         </li>
         <li className="dropdown-list-item">
-          <button className="list-button flex-box">
+          <Link className="list-link flex-box" to="/settings">
             <div className="icon-div">
               <IconSettings />
             </div>
             Settings
-          </button>
+          </Link>
         </li>
         <li className="dropdown-list-item">
           <button className="list-button flex-box">
