@@ -4,49 +4,33 @@ import './EditProfile.css';
 import Profile from 'assets/images/profile.jpeg';
 import { Input } from './Input';
 import EditPhoto from './EditPhoto';
-import { getProfile, updateProfile } from 'apis/user-profle';
+import { useGetProfileByIdQuery } from 'apis/create-api';
+import { UserProfile } from 'models';
 
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
-  const [profileInfo, setProfileInfo] = useState({
-    name: 'Ejaz Hussain',
+  const res = useGetProfileByIdQuery('vmOLhfitAA8fFxbp36Cf2F222fxr');
+  const [profileInfo, setProfileInfo] = useState<UserProfile>({
+    name: '',
+    bio: '',
+    email: '',
     username: '',
-    bio: 'Live for change',
-    email: 'ejazhussain1050@yopmail.com',
-    phoneNumber: '',
     gender: '',
+    phoneNumber: '',
   });
-  const profileName = 'Ejaz Hussain';
-  const count = profileInfo.bio.length;
 
   useEffect(() => {
-    const FetchProfileData = async (signal: AbortSignal) => {
-      try {
-        const res = await getProfile(signal, 'dR6PnYD50Al1Q7K4r57tVaQe8tvq');
-        setProfileInfo({
-          name: res.name,
-          username: res.username,
-          bio: res.bio,
-          email: res.email,
-          phoneNumber: res.phoneNumber,
-          gender: res.gender,
-        });
-        
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    const controller = new AbortController();
-    FetchProfileData(controller.signal);
-    return () => {
-      controller.abort();
-    };
-  }, []);
+    if (res.currentData !== undefined) {
+      setProfileInfo(res.currentData);
+    }
+  }, [res]);
 
-  const FetchProfileData = ()=>{
-    const res=await getProfile(id);
-  }
-  useEffect(,[])
+  const profileName = 'Ejaz Hussain';
+
+  const count = profileInfo.bio.length;
+
+  console.log(res.currentData);
+
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
     setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, [name]: value }));
@@ -131,7 +115,5 @@ export function EditProfile() {
         </button>
       </form>
     </div>
-  ) : (
-    <div>Loading</div>
   );
 }
