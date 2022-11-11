@@ -49,7 +49,7 @@ export function EditProfile() {
 
   useEffect(() => {
     data !== undefined ? setProfileInfo(data) : null;
-  }, [isFetching]);
+  }, [data, isFetching]);
 
   return isFetching ? (
     <div>Loading</div>
