@@ -10,15 +10,13 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:3002/aurora-instagram-clone/us-central1/api' }),
   endpoints: builder => ({
     getProfileById: builder.query<UserProfile, string>({
-      query: id => `/profile/${id}`,
+      query: id => `/user-profiles/${id}`,
     }),
     updateProfileById: builder.mutation<UserProfile, Post>({
       query: ({ id, profile }) => ({
-        url: `/profile/${id}`,
+        url: `/user-profiles/${id}`,
         method: 'PATCH',
-        body: {
-          profile,
-        },
+        body: profile,
       }),
     }),
   }),
