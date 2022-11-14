@@ -11,7 +11,7 @@ export const getUserProfile: RequestHandler = async (req, res) => {
   }
 };
 
-export const patchUserProfile: RequestHandler = async (req, res) => {
+export const UpdateUserProfile: RequestHandler = async (req, res) => {
   try {
     const userProfile: UserProfile = req.body;
     const profile = await updateUserProfileService(req.params.id, userProfile);
