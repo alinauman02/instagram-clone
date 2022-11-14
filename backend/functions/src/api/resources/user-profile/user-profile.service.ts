@@ -1,5 +1,4 @@
-import { UserProfile } from '.';
-import { getUserProfileDocument, updateUserProfileDocument } from './';
+import { UserProfile, getUserProfileDocument, updateUserProfileDocument } from '.';
 
 export async function getUserProfileService(uid: string) {
   const getProfile = await getUserProfileDocument(uid);
