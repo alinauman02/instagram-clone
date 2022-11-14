@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { signUpUser } from '.';
-import { createUserProfileDocument } from '../dal';
+import { createUserProfileDocument } from '../user-profile';
 import { UserProfile } from '../user-profile';
 
 export const signup: RequestHandler = async (req, res) => {
