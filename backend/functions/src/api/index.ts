@@ -6,7 +6,6 @@ import { profileRouter } from './resources/user-profile';
 
 import { functions } from '../config';
 import { authRouter } from './resources/auth/auth.router';
-import { ROUTE_PATH } from '../constants';
 
 const app = express();
 
@@ -16,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(logger);
 
-app.use(ROUTE_PATH.USER_PROFILES, profileRouter);
-app.use(ROUTE_PATH.AUTH, authRouter);
+app.use('/user-profiles', profileRouter);
+app.use('/auth', authRouter);
 
 app.use(errorHandler);
 
