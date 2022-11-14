@@ -1,5 +1,6 @@
 import { UserProfile } from '../user-profile';
 import { firestore } from '../../../config';
+import { COLLECTION_NAMES } from '../../../constants';
 
 export const updateDocumentDate = (ref: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>) => {
   const date: Date = new Date();
