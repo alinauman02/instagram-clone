@@ -1,3 +1,3 @@
-export const COLLECTION_NAMES = {
-  USER_PROFILES: 'user-profiles',
-};
+export enum COLLECTION_NAMES {
+  USER_PROFILES = 'user-profiles',
+}
