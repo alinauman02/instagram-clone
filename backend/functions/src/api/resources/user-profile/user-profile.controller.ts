@@ -1,18 +1,22 @@
 import { RequestHandler } from 'express';
 import { UserProfile } from '.';
-import { getUserProfileService, patchUserProfileService } from '../../services/user-profile.service';
+import { getUserProfileService, updateUserProfileService } from '../../../services';
 
 export const getUserProfile: RequestHandler = async (req, res) => {
-  if (typeof req.params.id === 'string') {
+  try {
     const profile = await getUserProfileService(req.params.id);
     res.send(profile);
-  } else res.send('Error');
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 export const patchUserProfile: RequestHandler = async (req, res) => {
-  if (typeof req.params.id === 'string') {
-    const userProfile: UserProfile = req.body.profile;
-    const profile = await patchUserProfileService(req.params.id, userProfile);
+  try {
+    const userProfile: UserProfile = req.body;
+    const profile = await updateUserProfileService(req.params.id, userProfile);
     res.send(profile);
-  } else res.send('Error');
+  } catch (error) {
+    console.log(error);
+  }
 };
