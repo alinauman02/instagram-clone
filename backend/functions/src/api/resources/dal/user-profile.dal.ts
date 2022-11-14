@@ -17,6 +17,7 @@ export const getUserProfileDocument = async (uid: string) => {
 
 export const updateUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
   const ref = firestore.collection(COLLECTION_NAMES.USER_PROFILES).doc(uid);
-  ref.update({ ...onUpdateDocument(userProfile) });
-  return await (await ref.get()).data();
+  await ref.update({ ...onUpdateDocument(userProfile) });
+  const doc = await ref.get();
+  return { ...doc.data(), uid };
 };
