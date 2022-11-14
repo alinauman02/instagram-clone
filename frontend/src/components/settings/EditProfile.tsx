@@ -9,7 +9,7 @@ import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/creat
 
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
-  const { data, isFetching } = useGetProfileByIdQuery('vmOLhfitAA8fFxbp36Cf2F222fxr');
+  const { data, isFetching } = useGetProfileByIdQuery('eYKLJ2PJhU0cFaO5EzCrIbiTwqDj');
 
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
     name: '',
@@ -23,13 +23,22 @@ export function EditProfile() {
 
   const updateProfile = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const res = updateProfileMutation({ id: 'vmOLhfitAA8fFxbp36Cf2F222fxr', profile: profileInfo });
+    const res = updateProfileMutation({ id: 'eYKLJ2PJhU0cFaO5EzCrIbiTwqDj', profile: profileInfo });
     console.log(res);
   };
 
   const profileName = 'Ejaz Hussain';
+  let count = 0;
+  let canSubmit = false;
 
-  const count = profileInfo.bio.length;
+  profileInfo
+    ? ((count = profileInfo.bio.length),
+      (canSubmit =
+        profileInfo.phoneNumber !== '' &&
+        profileInfo.username !== '' &&
+        profileInfo.email !== '' &&
+        profileInfo.name !== ''))
+    : ((count = 0), (canSubmit = false));
 
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = event.currentTarget;
@@ -41,17 +50,11 @@ export function EditProfile() {
     setProfileInfo({ ...profileInfo, [name]: value });
   };
 
-  const canSubmit =
-    profileInfo.phoneNumber !== '' &&
-    profileInfo.username !== '' &&
-    profileInfo.email !== '' &&
-    profileInfo.name !== '';
-
   useEffect(() => {
-    data !== undefined ? setProfileInfo(data) : null;
+    data !== undefined ? setProfileInfo(data) : setProfileInfo(profileInfo);
   }, [data, isFetching]);
 
-  return isFetching ? (
+  return isFetching || !profileInfo ? (
     <div>Loading</div>
   ) : (
     <div className="edit-profile flex-box flex-direction-column">
@@ -85,7 +88,7 @@ export function EditProfile() {
             onInput={onChangeField}
             rows={3}
             maxLength={150}
-            value={profileInfo.bio}
+            value={profileInfo.bio ? profileInfo.bio : ''}
           ></textarea>
         </div>
         <span className="bio-chars-count">{count}/150</span>
