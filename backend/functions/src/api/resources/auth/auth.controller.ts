@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import { signUpUser } from '../../services/auth.service';
-import { createUserProfileDocument } from '../dal/user-profile.dal';
+import { signUpUser } from '../../../services';
+import { createUserProfileDocument } from '../dal';
 import { UserProfile } from '../user-profile';
 
 export const signup: RequestHandler = async (req, res) => {
@@ -8,11 +8,9 @@ export const signup: RequestHandler = async (req, res) => {
   const email: string = req.body.email;
   const password: string = req.body.password;
   const username: string = req.body.username;
-
   const profile: UserProfile = { name, username, email, phoneNumber: '', gender: '', bio: '' };
 
   const userRecord = await signUpUser(email, password);
   await createUserProfileDocument(userRecord.uid, profile);
-
   res.send({ ...profile, id: userRecord.uid });
 };
