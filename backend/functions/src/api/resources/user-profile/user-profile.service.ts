@@ -1,5 +1,5 @@
-import { getUserProfileDocument, updateUserProfileDocument } from '../api/resources/dal/user-profile.dal';
-import { UserProfile } from '../api/resources/user-profile';
+import { UserProfile } from '.';
+import { getUserProfileDocument, updateUserProfileDocument } from '../dal';
 
 export async function getUserProfileService(uid: string) {
   const getProfile = await getUserProfileDocument(uid);

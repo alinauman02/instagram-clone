@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { signUpUser } from '../../../services';
+import { signUpUser } from '.';
 import { createUserProfileDocument } from '../dal';
 import { UserProfile } from '../user-profile';
 
