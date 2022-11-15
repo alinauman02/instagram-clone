@@ -68,3 +68,11 @@
 .bio {
   font-size: 1.1rem;
 }
+
+.edit-profile-button {
+  padding: 0.2em;
+}
+
+.edit-profile-button:hover {
+  cursor: pointer;
+}
