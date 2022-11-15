@@ -6,10 +6,12 @@ import { Input } from './Input';
 import EditPhoto from './EditPhoto';
 import { UserProfile } from 'models';
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/create-api';
+import { useNavigate } from 'react-router-dom';
 
 export function EditProfile() {
+  const navigate=useNavigate();
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
-  const { data, isFetching } = useGetProfileByIdQuery('eYKLJ2PJhU0cFaO5EzCrIbiTwqDj');
+  const { data, isFetching } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
 
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
     name: '',
@@ -21,10 +23,11 @@ export function EditProfile() {
   });
   const [updateProfileMutation] = useUpdateProfileByIdMutation();
 
-  const updateProfile = (event: React.FormEvent<HTMLFormElement>) => {
+  const updateProfile = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const res = updateProfileMutation({ id: 'eYKLJ2PJhU0cFaO5EzCrIbiTwqDj', profile: profileInfo });
+    const res = await updateProfileMutation({ id: 'LZgHW4gQrclAk0OQvH8TCzYyccEo', profile: profileInfo });
     console.log(res);
+    navigate('/profile');
   };
 
   const profileName = 'Ejaz Hussain';
