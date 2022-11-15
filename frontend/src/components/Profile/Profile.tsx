@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './Profile.css';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { CreatePost, Gallery, Header } from 'components';
+import { useGetProfileByIdQuery } from 'apis/create-api';
+import { useNavigate } from 'react-router-dom';
 
-const { name, username, bio, posts, followers, following } = {
-  name: 'Ejaz hussain',
-  username: 'ejazhussain1050',
-  bio: 'Do it your self',
+const { posts, followers, following } = {
   followers: 235,
   posts: 21,
   following: 352,
@@ -16,6 +15,19 @@ const { name, username, bio, posts, followers, following } = {
 
 export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
+  const { data, isFetching } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
+  const navigate = useNavigate();
+  const [profileInfo, setProfileInfo] = useState({
+    name: '',
+    bio: '',
+    username: '',
+    gender: '',
+  });
+
+  useEffect(() => {
+    data !== undefined ? setProfileInfo(data) : setProfileInfo(profileInfo);
+  }, [data, isFetching]);
+
   return (
     <div className="app-body">
       <Header onCreatePostClick={() => setShowCreatePostModal(true)} />
@@ -27,10 +39,22 @@ export function Profile() {
 
           <div className="bio">
             <div className="flex-box">
-              <div className="user-name">{username}</div>
-              <button className="edit-profile-button">Edit Profile</button>
+              <div className="user-name">{profileInfo.username}</div>
+              <button
+                className="edit-profile-button"
+                onClick={() => {
+                  navigate('/settings/edit-profile');
+                }}
+              >
+                Edit Profile
+              </button>
               <div>
-                <button className="settings-profile-button">
+                <button
+                  className="settings-profile-button"
+                  onClick={() => {
+                    navigate('/settings/edit-profile');
+                  }}
+                >
                   <IconSettings />
                 </button>
               </div>
@@ -46,8 +70,8 @@ export function Profile() {
               </span>
             </div>
             <div className="profile-bio">
-              <div className="name">{name}</div>
-              <div className="bio">{bio}</div>
+              <div className="name">{profileInfo.name}</div>
+              <div className="bio">{profileInfo.bio}</div>
             </div>
           </div>
         </header>
