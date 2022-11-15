@@ -5,4 +5,7 @@ export interface UserProfile {
   gender?: 'male' | 'female' | '';
   name?: string;
   bio?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  isDeleted?: boolean;
 }
