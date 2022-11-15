@@ -32,18 +32,6 @@ export function Signup() {
     setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await signUp(userCredentials.email, userCredentials.password);
-  //     if (res) navigate('/home');
-  //   } catch (err) {
-  //     if (err instanceof FirebaseError) {
-  //       setError(err.message);
-  //     }
-  //   }
-  // };
-
   const OnSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await signUpApi(
@@ -53,6 +41,7 @@ export function Signup() {
       userCredentials.username
     );
     console.log(res);
+    navigate('/home');
   };
 
   const handleGoogleLogin = async () => {
