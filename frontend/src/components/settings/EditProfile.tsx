@@ -9,7 +9,7 @@ import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/creat
 import { useNavigate } from 'react-router-dom';
 
 export function EditProfile() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
   const { data, isFetching } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
 

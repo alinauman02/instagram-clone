@@ -1,4 +1,4 @@
-import {  NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import './Settings.css';
 export function Settings() {
@@ -14,6 +14,9 @@ export function Settings() {
           </NavLink>
           <NavLink to="change-password" className={({ isActive }) => (isActive ? selectedNav : notSelectedNav)}>
             Change password
+          </NavLink>
+          <NavLink to="/home" className={({ isActive }) => (isActive ? selectedNav : notSelectedNav)}>
+            Back
           </NavLink>
         </div>
         <div className="edit-form">
