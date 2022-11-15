@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express';
 import { signUpUser } from '.';
-import { createUserProfileDocument } from '../dal';
-import { UserProfile } from '../user-profile';
+import { createUserProfileDocument , UserProfile } from '../user-profile';
 
 export const signup: RequestHandler = async (req, res) => {
   const name: string = req.body.name;

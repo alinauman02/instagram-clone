@@ -1,2 +1,3 @@
-export * from './on-create-document';
-export * from './on-update-document';
+export * from './set-common-fields';
+export * from './set-updated-date';
+export * from './add-document-uid';

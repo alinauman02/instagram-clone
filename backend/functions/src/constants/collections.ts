@@ -1,3 +1,3 @@
-export enum COLLECTION_NAMES {
+export enum FirestoreCollection {
   USER_PROFILES = 'user-profiles',
 }

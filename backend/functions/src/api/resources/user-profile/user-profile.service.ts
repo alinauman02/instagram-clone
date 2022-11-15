@@ -1,12 +1,10 @@
-import { UserProfile } from '.';
-import { getUserProfileDocument, updateUserProfileDocument } from '../dal';
+import { UserProfile, getUserProfileDocument, updateUserProfileDocument } from '.';
 
 export async function getUserProfileService(uid: string) {
   const getProfile = await getUserProfileDocument(uid);
   return getProfile;
 }
 
-export async function updateUserProfileService(uid: string, userProfile: UserProfile) {
-  const getProfile = await updateUserProfileDocument(uid, userProfile);
-  return getProfile;
+export function updateUserProfileService(uid: string, userProfile: UserProfile) {
+  return updateUserProfileDocument(uid, userProfile);
 }
