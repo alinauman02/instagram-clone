@@ -3,12 +3,13 @@ import { FirebaseError } from 'firebase/app';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './Signup.css';
-import { signUpWithGoogle } from 'services';
+import { logIn, signUpWithGoogle } from 'services';
 import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
 
 import { Input } from './Input';
 import { signUpApi } from 'apis/auth';
+import { Login } from './Login';
 
 export function Signup() {
   const navigate = useNavigate();
@@ -40,8 +41,12 @@ export function Signup() {
       userCredentials.password,
       userCredentials.username
     );
-    console.log(res);
-    navigate('/home');
+    if (res.error) {
+      setError(res.error);
+    } else {
+      logIn(userCredentials.email, userCredentials.password);
+      navigate('/home');
+    }
   };
 
   const handleGoogleLogin = async () => {
