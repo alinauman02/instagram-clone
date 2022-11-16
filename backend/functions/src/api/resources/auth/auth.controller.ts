@@ -9,10 +9,8 @@ export const signup: RequestHandler = async (req, res, next) => {
     const password: string = req.body.password;
     const username: string = req.body.username;
     const profile: UserProfile = { name, username, email, phoneNumber: '', gender: '', bio: '' };
-
     const userRecord = await signUpUser(email, password);
-    await createUserProfileDocument(userRecord.uid, profile);
-    res.send({ ...profile, id: userRecord.uid });
+    res.send(await createUserProfileDocument(userRecord.uid, profile));
   } catch (error) {
     next(error);
   }
