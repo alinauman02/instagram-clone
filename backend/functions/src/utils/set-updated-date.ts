@@ -1,5 +1,3 @@
-import { UserProfile } from '../api/resources/user-profile';
-
-export function setUpdatedAtDocument(obj: Record<string, unknown> | UserProfile) {
+export function setUpdatedAtDocument(obj: Object) {
   return { ...obj, updatedAt: new Date() };
 }
