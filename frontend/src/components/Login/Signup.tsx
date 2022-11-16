@@ -44,7 +44,7 @@ export function Signup() {
     if (res.error) {
       setError(res.error);
     } else {
-      logIn(userCredentials.email, userCredentials.password);
+     await logIn(userCredentials.email, userCredentials.password);
       navigate('/home');
     }
   };
