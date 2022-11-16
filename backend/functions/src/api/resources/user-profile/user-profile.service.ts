@@ -1,8 +1,7 @@
 import { UserProfile, getUserProfileDocument, updateUserProfileDocument } from '.';
 
 export async function getUserProfileService(uid: string) {
-  const getProfile = await getUserProfileDocument(uid);
-  return getProfile;
+  return await getUserProfileDocument(uid);
 }
 
 export function updateUserProfileService(uid: string, userProfile: UserProfile) {
