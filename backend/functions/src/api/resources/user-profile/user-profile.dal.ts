@@ -13,6 +13,7 @@ export const createUserProfileDocument = async (uid: string, userProfile: UserPr
 export const getUserProfileDocument = async (uid: string) => {
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
   const snapShot = await ref.get();
+  if (!snapShot.exists) throw new Error(`User with id ${uid} does not exist`);
   return docToObj(snapShot);
 };
 
