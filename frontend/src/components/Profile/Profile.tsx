@@ -6,6 +6,7 @@ import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { CreatePost, Gallery, Header } from 'components';
 import { useGetProfileByIdQuery } from 'apis/create-api';
 import { useNavigate } from 'react-router-dom';
+import { selectUserId, useAppSelector } from 'store';
 
 const { posts, followers, following } = {
   followers: 235,
@@ -15,7 +16,8 @@ const { posts, followers, following } = {
 
 export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
-  const { data } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
+  const id = useAppSelector(selectUserId);
+  const { data } = useGetProfileByIdQuery(id);
   const navigate = useNavigate();
   const [profileInfo, setProfileInfo] = useState({
     name: '',
