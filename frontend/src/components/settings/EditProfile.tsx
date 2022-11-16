@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './EditProfile.css';
 import Profile from 'assets/images/profile.jpeg';
@@ -6,13 +7,13 @@ import { Input } from './Input';
 import EditPhoto from './EditPhoto';
 import { UserProfile } from 'models';
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/create-api';
-import { useNavigate } from 'react-router-dom';
+import { selectUserId, useAppSelector } from 'store';
 
 export function EditProfile() {
   const navigate = useNavigate();
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
-  const { data, isFetching } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
-
+  const id = useAppSelector(selectUserId);
+  const { data, isFetching } = useGetProfileByIdQuery(id);
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
     name: '',
     bio: '',
@@ -25,7 +26,7 @@ export function EditProfile() {
 
   const updateProfile = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const res = await updateProfileMutation({ id: 'LZgHW4gQrclAk0OQvH8TCzYyccEo', profile: profileInfo });
+    const res = await updateProfileMutation({ id, profile: profileInfo });
     console.log(res);
     navigate('/profile');
   };
@@ -54,8 +55,8 @@ export function EditProfile() {
   };
 
   useEffect(() => {
-    data !== undefined ? setProfileInfo(data) : setProfileInfo(profileInfo);
-  }, [data, isFetching]);
+    if (data) setProfileInfo(data);
+  }, [data]);
 
   return isFetching || !profileInfo ? (
     <div>Loading</div>

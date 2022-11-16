@@ -15,7 +15,7 @@ const { posts, followers, following } = {
 
 export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
-  const { data, isFetching } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
+  const { data } = useGetProfileByIdQuery('LZgHW4gQrclAk0OQvH8TCzYyccEo');
   const navigate = useNavigate();
   const [profileInfo, setProfileInfo] = useState({
     name: '',
@@ -25,8 +25,8 @@ export function Profile() {
   });
 
   useEffect(() => {
-    data !== undefined ? setProfileInfo(data) : setProfileInfo(profileInfo);
-  }, [data, isFetching]);
+    if (data) setProfileInfo(data);
+  }, [data]);
 
   return (
     <div className="app-body">
