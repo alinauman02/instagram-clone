@@ -1,15 +1,14 @@
-import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import './Signup.css';
-import { logIn, signUpWithGoogle } from 'services';
-import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
+import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { logIn, signUpWithGoogle } from 'services';
+import './Signup.css';
 
-import { Input } from './Input';
 import { signUpApi } from 'apis/auth';
-import { Login } from './Login';
+import { Input } from './Input';
 
 export function Signup() {
   const navigate = useNavigate();
@@ -33,19 +32,23 @@ export function Signup() {
     setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
-  const OnSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await signUpApi(
-      userCredentials.name,
-      userCredentials.email,
-      userCredentials.password,
-      userCredentials.username
-    );
-    if (res.error) {
-      setError(res.error);
-    } else {
-     await logIn(userCredentials.email, userCredentials.password);
-      navigate('/home');
+    try {
+      const res = await signUpApi(
+        userCredentials.name,
+        userCredentials.email,
+        userCredentials.password,
+        userCredentials.username
+      );
+      if (res.error) {
+        setError(res.error);
+      } else {
+        await logIn(userCredentials.email, userCredentials.password);
+        navigate('/home');
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -78,7 +81,7 @@ export function Signup() {
           <div className="signup-or-text">OR</div>
           <div className="signup-or-line"></div>
         </div>
-        <form className="signup-form flex-direction-column" onSubmit={OnSignUp}>
+        <form className="signup-form flex-direction-column" onSubmit={onSignUp}>
           <Input type="email" placeholder="Email" name="email" onChange={onChange} />
           <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
           <Input type="string" placeholder="Username" name="username" onChange={onChange} />
