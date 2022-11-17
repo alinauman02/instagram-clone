@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './EditProfile.css';
-import Profile from 'assets/images/profile.jpeg';
-import { Input } from './Input';
-import EditPhoto from './EditPhoto';
-import { UserProfile } from 'models';
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/create-api';
+import Profile from 'assets/images/profile.jpeg';
+import { UserProfile } from 'models';
 import { selectUserId, useAppSelector } from 'store';
+import EditPhoto from './EditPhoto';
+import './EditProfile.css';
+import { Input } from './Input';
 
 export function EditProfile() {
   const navigate = useNavigate();
@@ -37,11 +37,7 @@ export function EditProfile() {
 
   profileInfo
     ? ((count = profileInfo.bio.length),
-      (canSubmit =
-        profileInfo.phoneNumber !== '' &&
-        profileInfo.username !== '' &&
-        profileInfo.email !== '' &&
-        profileInfo.name !== ''))
+      (canSubmit = profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== ''))
     : ((count = 0), (canSubmit = false));
 
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -92,7 +88,7 @@ export function EditProfile() {
             onInput={onChangeField}
             rows={3}
             maxLength={150}
-            value={profileInfo.bio ? profileInfo.bio : ''}
+            value={profileInfo.bio ?? ''}
           ></textarea>
         </div>
         <span className="bio-chars-count">{count}/150</span>
