@@ -1,4 +1,4 @@
-import { urlString } from './create-api';
+import { urlString } from '.';
 
 export const signUpApi = async (name: string, email: string, password: string, username: string) => {
   const response = await fetch(urlString + 'auth/signup/', {

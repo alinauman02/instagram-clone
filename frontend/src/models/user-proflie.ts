@@ -1,4 +1,4 @@
-import { Metadata } from './meta-data';
+import { Metadata } from '.';
 
 export interface UserProfile extends Metadata {
   username: string;
