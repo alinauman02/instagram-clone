@@ -11,7 +11,6 @@ import { signUpApi } from 'apis/auth';
 import { Input } from './Input';
 
 export function Signup() {
-  console.count('rendered');
   const navigate = useNavigate();
   const [userCredentials, setUserCredentials] = useState({
     name: '',
