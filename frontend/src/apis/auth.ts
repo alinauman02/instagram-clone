@@ -1,7 +1,7 @@
-const urlString = 'http://127.0.0.1:3002/aurora-instagram-clone/us-central1/api/auth/signup';
+import { urlString } from './create-api';
 
 export const signUpApi = async (name: string, email: string, password: string, username: string) => {
-  const response = await fetch(urlString, {
+  const response = await fetch(urlString + 'auth/signup/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
