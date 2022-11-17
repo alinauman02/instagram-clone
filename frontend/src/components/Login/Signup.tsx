@@ -11,6 +11,7 @@ import { signUpApi } from 'apis/auth';
 import { Input } from './Input';
 
 export function Signup() {
+  console.count('rendered');
   const navigate = useNavigate();
   const [userCredentials, setUserCredentials] = useState({
     name: '',
@@ -41,14 +42,11 @@ export function Signup() {
         userCredentials.password,
         userCredentials.username
       );
-      if (res.error) {
-        setError(res.error);
-      } else {
-        await logIn(userCredentials.email, userCredentials.password);
-        navigate('/home');
-      }
+      if (res.error) throw new Error(res.error);
+      await logIn(userCredentials.email, userCredentials.password);
+      navigate('/home');
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) setError(error.message);
     }
   };
 
