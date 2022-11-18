@@ -1,7 +1,7 @@
-import './Header.css';
-import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as DownIcon } from 'assets/icons/down-icon.svg';
-import { Search, Navbar } from './../';
+import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { Navbar, Search } from 'components';
+import './Header.css';
 
 interface HeaderProps {
   onCreatePostClick: () => void;

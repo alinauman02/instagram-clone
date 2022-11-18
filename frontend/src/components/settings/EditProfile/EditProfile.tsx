@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/create-api';
 import Profile from 'assets/images/profile.jpeg';
+import { EditPhoto, InputField } from 'components';
 import { UserProfile } from 'models';
 import { selectUserId, useAppSelector } from 'store';
-import EditPhoto from './EditPhoto';
 import './EditProfile.css';
-import { Input } from './Input';
 
 export function EditProfile() {
   const navigate = useNavigate();
@@ -70,8 +69,15 @@ export function EditProfile() {
         </div>
       </div>
       <form className="edit-profile-form" onSubmit={updateProfile}>
-        <Input label="Name" type="string" placeholder="Name" name="name" value={profileInfo.name} onChange={onChange} />
-        <Input
+        <InputField
+          label="Name"
+          type="string"
+          placeholder="Name"
+          name="name"
+          value={profileInfo.name}
+          onChange={onChange}
+        />
+        <InputField
           type="string"
           placeholder="Username"
           name="username"
@@ -92,7 +98,7 @@ export function EditProfile() {
           ></textarea>
         </div>
         <span className="bio-chars-count">{count}/150</span>
-        <Input
+        <InputField
           type="email"
           placeholder="Email"
           name="email"
@@ -100,7 +106,7 @@ export function EditProfile() {
           value={profileInfo.email}
           label="Email"
         />
-        <Input
+        <InputField
           type="number"
           placeholder="Phone No"
           name="phoneNumber"
@@ -108,7 +114,7 @@ export function EditProfile() {
           value={profileInfo.phoneNumber}
           label="Phone Number"
         />
-        <Input
+        <InputField
           label="Gender"
           type="string"
           placeholder="Gender"

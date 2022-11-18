@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import './EditPassword.css';
 import Profile from 'assets/images/profile.jpeg';
-import { Input } from './Input';
+import { InputField } from 'components';
+import './EditPassword.css';
 
 export function EditPassword() {
   const [accountPassword, setAccountPassword] = useState({
@@ -28,9 +28,15 @@ export function EditPassword() {
         </div>
       </div>
       <form className="edit-password-form">
-        <Input label="Password" type="password" placeholder="Password" name="oldPassword" onChange={onChange} />
-        <Input label="New Password" type="password" placeholder="New Password" name="newPassword" onChange={onChange} />
-        <Input
+        <InputField label="Password" type="password" placeholder="Password" name="oldPassword" onChange={onChange} />
+        <InputField
+          label="New Password"
+          type="password"
+          placeholder="New Password"
+          name="newPassword"
+          onChange={onChange}
+        />
+        <InputField
           label="Confirm Password"
           type="password"
           placeholder="Confirm Password"

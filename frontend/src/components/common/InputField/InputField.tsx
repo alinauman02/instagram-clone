@@ -1,5 +1,5 @@
 import React from 'react';
-import './Input.css';
+import './InputField.css';
 
 interface InputProps {
   name: string;
@@ -10,7 +10,7 @@ interface InputProps {
   label?: string;
 }
 
-export function Input({ name, type, placeholder, value, onChange, label }: InputProps) {
+export function InputField({ name, type, placeholder, value, onChange, label }: InputProps) {
   return (
     <div className="flex-box">
       <label htmlFor={name} className="edit-profile-label">

@@ -8,7 +8,7 @@ import { logIn, signUpWithGoogle } from 'services';
 import './Signup.css';
 
 import { signUpApi } from 'apis/auth';
-import { Input } from './Input';
+import { InputField } from 'components';
 
 export function Signup() {
   const navigate = useNavigate();
@@ -79,10 +79,10 @@ export function Signup() {
           <div className="signup-or-line"></div>
         </div>
         <form className="signup-form flex-direction-column" onSubmit={onSignUp}>
-          <Input type="email" placeholder="Email" name="email" onChange={onChange} />
-          <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
-          <Input type="string" placeholder="Username" name="username" onChange={onChange} />
-          <Input type="password" placeholder="Password" name="password" onChange={onChange} />
+          <InputField type="email" placeholder="Email" name="email" onChange={onChange} />
+          <InputField type="string" placeholder="Full Name" name="name" onChange={onChange} />
+          <InputField type="string" placeholder="Username" name="username" onChange={onChange} />
+          <InputField type="password" placeholder="Password" name="password" onChange={onChange} />
           <button type="submit" className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
             Sign up
           </button>
