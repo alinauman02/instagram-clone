@@ -11,30 +11,26 @@ interface InputProps {
 }
 
 export function InputField({ name, type, placeholder, value, onChange, label }: InputProps) {
-  return label ? (
-    <div className="flex-box">
-      <label htmlFor={name} className="edit-profile-label">
-        {label}
-      </label>
-      <input
-        className="input-edit-field"
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        onChange={onChange}
-        autoComplete="off"
-        value={value}
-        id={name}
-      />
-    </div>
-  ) : (
+  const inputField = (
     <input
-      className="input-field"
+      className={label ? 'input-edit-field' : 'input-field'}
       type={type}
       name={name}
       placeholder={placeholder}
       onChange={onChange}
       autoComplete="off"
+      value={value}
+      id={name}
     />
+  );
+  return label ? (
+    <div className="flex-box">
+      <label htmlFor={name} className="edit-profile-label">
+        {label}
+      </label>
+      {inputField}
+    </div>
+  ) : (
+    inputField
   );
 }
