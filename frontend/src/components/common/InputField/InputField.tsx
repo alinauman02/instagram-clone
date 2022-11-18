@@ -11,7 +11,7 @@ interface InputProps {
 }
 
 export function InputField({ name, type, placeholder, value, onChange, label }: InputProps) {
-  return (
+  return label ? (
     <div className="flex-box">
       <label htmlFor={name} className="edit-profile-label">
         {label}
@@ -27,5 +27,14 @@ export function InputField({ name, type, placeholder, value, onChange, label }: 
         id={name}
       />
     </div>
+  ) : (
+    <input
+      className="input-field"
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      autoComplete="off"
+    />
   );
 }

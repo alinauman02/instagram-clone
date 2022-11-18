@@ -7,7 +7,7 @@ import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg
 import { logIn, signUpWithGoogle } from 'services';
 import './Login.css';
 
-import { Input } from 'components';
+import { InputField } from 'components';
 
 export function Login() {
   const navigate = useNavigate();
@@ -55,8 +55,8 @@ export function Login() {
           <InstagramIcon />
         </div>
         <form className="login-form flex-direction-column" onSubmit={handleSubmit}>
-          <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
-          <Input type="password" placeholder="Password" name="password" onChange={onChange} />
+          <InputField type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
+          <InputField type="password" placeholder="Password" name="password" onChange={onChange} />
           <button className="submit-button" name="Log in" value="Log in" disabled={!canLogin}>
             Log in
           </button>

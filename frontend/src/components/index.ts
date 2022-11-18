@@ -3,7 +3,6 @@ export * from './common/Header/Header';
 export * from './common/Header/Navbar/AccountOptions/AccountOptions';
 export * from './common/Header/Navbar/Navbar';
 export * from './common/Header/Search/Search';
-export * from './common/Input/Input';
 export * from './common/InputField/InputField';
 export * from './common/ProfileListItem/ProfileListItem';
 export * from './Home/Home';
