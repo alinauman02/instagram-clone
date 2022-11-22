@@ -13,6 +13,7 @@ export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
   const id = useAppSelector(selectUserId);
   const { data, isFetching } = useGetProfileByIdQuery(id);
+  const [error, setError] = useState('');
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
     name: '',
     bio: '',
@@ -24,10 +25,16 @@ export function EditProfile() {
   const [updateProfileMutation] = useUpdateProfileByIdMutation();
 
   const updateProfile = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const res = await updateProfileMutation({ id, profile: profileInfo });
-    console.log(res);
-    navigate('/profile');
+    try {
+      setError('');
+      event.preventDefault();
+      const res = await updateProfileMutation({ id, profile: profileInfo });
+      if (res.error) throw new Error(res.error.data.error);
+      navigate('/profile');
+    } catch (error) {
+      if (error instanceof Error) setError(error.message);
+    }
+    console.log(error);
   };
 
   const profileName = 'Ejaz Hussain';
@@ -45,6 +52,7 @@ export function EditProfile() {
   };
 
   const onChangeField = (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
+    setError('');
     const { name, value } = event.currentTarget;
     setProfileInfo({ ...profileInfo, [name]: value });
   };
@@ -122,9 +130,11 @@ export function EditProfile() {
           onChange={onChange}
           value={profileInfo.gender}
         />
+
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>
           Submit
         </button>
+        <div className="error-msg">{error}</div>
       </form>
     </div>
   );
