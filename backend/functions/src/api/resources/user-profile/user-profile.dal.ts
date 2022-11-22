@@ -1,7 +1,7 @@
-import { UserProfile } from '../user-profile';
 import { firestore } from '../../../config';
 import { FirestoreCollection } from '../../../constants';
 import { docToObj, setCommonFieldsDocument, setUpdatedAtDocument } from '../../../utils';
+import { UserProfile } from '../user-profile';
 
 export const createUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);

@@ -1,4 +1,4 @@
-import { IsAlpha, IsEmail, IsNumberString, Length, MaxLength, MinLength } from 'class-validator';
+import { IsAlpha, IsEmail, Length, MaxLength, MinLength } from 'class-validator';
 
 export class UserProfile {
   @MinLength(10, {
@@ -7,22 +7,43 @@ export class UserProfile {
   @MaxLength(20, {
     message: 'Username is too long',
   })
-  username?: string;
+  username: string;
 
-  @IsEmail({},{ message: 'Invalid email' })
-  email?: string;
+  @IsEmail({}, { message: 'Invalid email' })
+  email: string;
 
   @Length(10, 13)
-  @IsNumberString()
   phoneNumber?: string;
 
   gender?: 'male' | 'female' | '';
 
   @IsAlpha()
-  name?: string;
+  name: string;
+
+  @Length(0, 150)
   bio?: string;
 
   createdAt?: Date;
   updatedAt?: Date;
   isDeleted?: boolean;
+
+  constructor(
+    username: string,
+    email: string,
+    name: string,
+    bio?: string,
+    phoneNumber?: string,
+    createdAt?: Date,
+    updatedAt?: Date,
+    isDeleted?: boolean
+  ) {
+    this.username = username;
+    this.email = email;
+    this.name = name;
+    this.bio = bio ? bio : '';
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.isDeleted = isDeleted;
+    this.phoneNumber = phoneNumber ? phoneNumber : '';
+  }
 }
