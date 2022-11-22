@@ -45,7 +45,10 @@ export function Signup() {
       await logIn(userCredentials.email, userCredentials.password);
       navigate('/home');
     } catch (error) {
-      if (error instanceof Error) setError(error.message);
+      console.error(error);
+      if (error instanceof Error) {
+        setError(error.message);
+      }
     }
   };
 
