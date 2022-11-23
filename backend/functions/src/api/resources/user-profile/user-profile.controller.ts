@@ -20,13 +20,9 @@ export const UpdateUserProfile: RequestHandler = async (req, res, next) => {
       req.body.email,
       req.body.name,
       req.body.bio,
-      req.body.phoneNumber,
-
-      req.body.createdAt,
-      req.body.updatedAt,
-      req.body.isDeleted
+      req.body.phoneNumber
     );
-
+    console.log(req.body.phoneNumber);
     await validateOrReject(userProfile);
     const profile = await updateUserProfileService(req.params.id, userProfile);
     res.send(profile);

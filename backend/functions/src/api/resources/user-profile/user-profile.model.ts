@@ -1,7 +1,8 @@
-import { IsAlpha, IsEmail, Length, MaxLength, MinLength } from 'class-validator';
+import { IsAlpha, IsEmail, IsOptional, Length, MaxLength, MinLength } from 'class-validator';
+import { Gender } from '../../../constants';
 
 export class UserProfile {
-  @MinLength(10, {
+  @MinLength(3, {
     message: 'Username is too short',
   })
   @MaxLength(20, {
@@ -15,7 +16,8 @@ export class UserProfile {
   @Length(10, 13)
   phoneNumber?: string;
 
-  gender?: 'male' | 'female' | '';
+  @IsOptional()
+  gender?: Gender;
 
   @IsAlpha()
   name: string;
@@ -44,6 +46,6 @@ export class UserProfile {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.isDeleted = isDeleted;
-    this.phoneNumber = phoneNumber ? phoneNumber : '';
+    this.phoneNumber = phoneNumber;
   }
 }
