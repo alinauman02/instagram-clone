@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import './Profile.css';
-import ProfilePic from 'assets/images/profile.jpeg';
+import { useGetProfileByIdQuery } from 'apis';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
+import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header } from 'components';
-import { useGetProfileByIdQuery } from 'apis/create-api';
 import { useNavigate } from 'react-router-dom';
 import { selectUserId, useAppSelector } from 'store';
+import './Profile.css';
 
 const { posts, followers, following } = {
   followers: 235,

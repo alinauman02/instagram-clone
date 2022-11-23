@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis/create-api';
+import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
 import { EditPhoto, InputField } from 'components';
 import { UserProfile } from 'models';
@@ -28,7 +28,10 @@ export function EditProfile() {
     try {
       setError('');
       event.preventDefault();
-      const res = await updateProfileMutation({ id, profile: profileInfo });
+      const tempFile = { ...profileInfo };
+      if (profileInfo.phoneNumber === '') delete tempFile.phoneNumber;
+      console.log(tempFile);
+      const res = await updateProfileMutation({ id, profile: tempFile });
       if (res.error) throw new Error(res.error.data.error);
       navigate('/profile');
     } catch (error) {
