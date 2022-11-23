@@ -11,10 +11,10 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_APP_FIREBASE_MID,
 };
 
-const url = 'http://localhost:3001';
+const firebaseUrl = import.meta.env.VITE_APP_FIREBASE_PORT_URL;
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-connectAuthEmulator(auth, url);
+connectAuthEmulator(auth, firebaseUrl);
 
 export { auth, app };
