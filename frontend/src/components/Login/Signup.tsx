@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import './Signup.css';
-import { signUp, signUpWithGoogle } from 'services';
-import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
+import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { logIn, signUpWithGoogle } from 'services';
+import './Signup.css';
 
+import { signUpApi } from 'apis/auth';
 import { Input } from './Input';
 
 export function Signup() {
@@ -14,14 +15,14 @@ export function Signup() {
   const [userCredentials, setUserCredentials] = useState({
     name: '',
     email: '',
-    number: '',
+    username: '',
     password: '',
   });
   const [error, setError] = useState('');
 
   const canSignUp =
     userCredentials.email !== '' &&
-    userCredentials.number !== '' &&
+    userCredentials.username !== '' &&
     userCredentials.password !== '' &&
     userCredentials.name !== '';
 
@@ -31,15 +32,20 @@ export function Signup() {
     setUserCredentials(currentuserCredentials => ({ ...currentuserCredentials, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await signUp(userCredentials.email, userCredentials.password);
-      if (res) navigate('/home');
-    } catch (err) {
-      if (err instanceof FirebaseError) {
-        setError(err.message);
-      }
+      const res = await signUpApi(
+        userCredentials.name,
+        userCredentials.email,
+        userCredentials.password,
+        userCredentials.username
+      );
+      if (res.error) throw new Error(res.error);
+      await logIn(userCredentials.email, userCredentials.password);
+      navigate('/home');
+    } catch (error) {
+      if (error instanceof Error) setError(error.message);
     }
   };
 
@@ -72,12 +78,12 @@ export function Signup() {
           <div className="signup-or-text">OR</div>
           <div className="signup-or-line"></div>
         </div>
-        <form className="signup-form flex-direction-column" onSubmit={handleSubmit}>
-          <Input type="email" placeholder="Mobile Number or Email" name="email" onChange={onChange} />
+        <form className="signup-form flex-direction-column" onSubmit={onSignUp}>
+          <Input type="email" placeholder="Email" name="email" onChange={onChange} />
           <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
-          <Input type="string" placeholder="Username" name="number" onChange={onChange} />
+          <Input type="string" placeholder="Username" name="username" onChange={onChange} />
           <Input type="password" placeholder="Password" name="password" onChange={onChange} />
-          <button className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
+          <button type="submit" className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
             Sign up
           </button>
         </form>

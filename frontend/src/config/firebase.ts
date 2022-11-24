@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { connectAuthEmulator, getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
@@ -11,7 +11,10 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_APP_FIREBASE_MID,
 };
 
+const firebaseUrl = import.meta.env.VITE_APP_FIREBASE_PORT_URL;
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+connectAuthEmulator(auth, firebaseUrl);
+
 export { auth, app };
