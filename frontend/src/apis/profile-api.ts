@@ -18,7 +18,7 @@ const profileApi = apiWithTag.injectEndpoints({
         method: 'PATCH',
         body: profile,
         headers: {
-          Authorization: `Basic ${token}`,
+          Authorization: `${token}`,
         },
       }),
       invalidatesTags: [ApiTag.PROFILE],
