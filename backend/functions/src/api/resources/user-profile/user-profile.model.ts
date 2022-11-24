@@ -1,4 +1,4 @@
-import { IsAlpha, IsEmail, IsOptional, Length, MaxLength, MinLength } from 'class-validator';
+import { IsEmail, IsOptional, Length, Matches, MaxLength, MinLength } from 'class-validator';
 import { Gender } from '../../../constants';
 
 export class UserProfile {
@@ -20,7 +20,7 @@ export class UserProfile {
   @IsOptional()
   gender?: Gender;
 
-  @IsAlpha()
+  @Matches(new RegExp('[a-zA-Z]*'))
   name: string;
 
   @Length(0, 150)

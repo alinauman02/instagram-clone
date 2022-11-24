@@ -1,3 +1,3 @@
 export * from './auth';
-export * from './create-api';
+export * from './api';
 export * from './profile-api'
