@@ -5,7 +5,8 @@ export enum ApiTag {
   PROFILE = 'Profile',
 }
 
-const profileApi = emptyApi.injectEndpoints({
+const apiWithTag = emptyApi.enhanceEndpoints({ addTagTypes: [ApiTag.PROFILE] });
+const profileApi = apiWithTag.injectEndpoints({
   endpoints: builder => ({
     getProfileById: builder.query<UserProfile, string>({
       query: id => `/user-profiles/${id}`,
