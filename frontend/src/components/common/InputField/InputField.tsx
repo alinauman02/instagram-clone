@@ -21,19 +21,15 @@ export function InputField({ name, type, placeholder, value, onChange, label }: 
       autoComplete="off"
       value={value}
       id={name}
-      list={name === 'gender' ? 'choose-gender' : undefined}
     />
   );
+
   return label ? (
     <div className="flex-box">
       <label htmlFor={name} className="edit-profile-label">
         {label}
       </label>
       {inputField}
-      <datalist id="choose-gender">
-        <option value="male"></option>
-        <option value="female"></option>
-      </datalist>
     </div>
   ) : (
     inputField

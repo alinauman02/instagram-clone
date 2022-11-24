@@ -14,6 +14,7 @@ export class UserProfile {
   email: string;
 
   @Length(10, 13)
+  @IsOptional()
   phoneNumber?: string;
 
   @IsOptional()
@@ -35,6 +36,7 @@ export class UserProfile {
     name: string,
     bio?: string,
     phoneNumber?: string,
+    gender?: Gender,
     createdAt?: Date,
     updatedAt?: Date,
     isDeleted?: boolean
@@ -47,5 +49,6 @@ export class UserProfile {
     this.updatedAt = updatedAt;
     this.isDeleted = isDeleted;
     this.phoneNumber = phoneNumber;
+    this.gender = gender;
   }
 }
