@@ -19,6 +19,7 @@ export const getUserProfileDocument = async (uid: string) => {
 
 export const updateUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
+  userProfile.phoneNumber = userProfile.phoneNumber ?? '';
   await ref.update({ ...setUpdatedAtDocument(userProfile) });
   const snapShot = await ref.get();
   return docToObj(snapShot);
