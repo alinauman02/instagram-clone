@@ -5,13 +5,14 @@ import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
 import { EditPhoto, InputField, SelectField } from 'components';
 import { UserProfile } from 'models';
-import { selectUserId, useAppSelector } from 'store';
+import { selectUserId, selectUserToken, useAppSelector } from 'store';
 import './EditProfile.css';
 
 export function EditProfile() {
   const navigate = useNavigate();
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
   const id = useAppSelector(selectUserId);
+  const token = useAppSelector(selectUserToken);
   const { data, isFetching } = useGetProfileByIdQuery(id);
   const [error, setError] = useState('');
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
@@ -30,7 +31,7 @@ export function EditProfile() {
       event.preventDefault();
       const tempFile = { ...profileInfo };
       if (profileInfo.phoneNumber === '') tempFile.phoneNumber = undefined;
-      const res = await updateProfileMutation({ id, profile: tempFile });
+      const res = await updateProfileMutation({ token,id, profile: tempFile });
       if (res.error) throw new Error(res.error.data.error);
       navigate('/profile');
     } catch (error) {

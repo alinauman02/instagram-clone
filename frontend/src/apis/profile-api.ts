@@ -13,10 +13,13 @@ const profileApi = apiWithTag.injectEndpoints({
       providesTags: [ApiTag.PROFILE],
     }),
     updateProfileById: builder.mutation<UserProfile, PostProfile>({
-      query: ({ id, profile }) => ({
+      query: ({ token, id, profile }) => ({
         url: `/user-profiles/${id}`,
         method: 'PATCH',
         body: profile,
+        headers: {
+          Authorization: `Basic ${token}`,
+        },
       }),
       invalidatesTags: [ApiTag.PROFILE],
     }),

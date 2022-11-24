@@ -5,6 +5,7 @@ export const urlString = 'http://127.0.0.1:3002/aurora-instagram-clone/us-centra
 
 export interface PostProfile {
   id: string;
+  token: string;
   profile: UserProfile;
 }
 
