@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
-import { EditPhoto, InputField } from 'components';
+import { EditPhoto, InputField, SelectField } from 'components';
 import { UserProfile } from 'models';
 import { selectUserId, useAppSelector } from 'store';
 import './EditProfile.css';
@@ -29,15 +29,13 @@ export function EditProfile() {
       setError('');
       event.preventDefault();
       const tempFile = { ...profileInfo };
-      if (profileInfo.phoneNumber === '') delete tempFile.phoneNumber;
-      console.log(tempFile);
+      if (profileInfo.phoneNumber === '') tempFile.phoneNumber = undefined;
       const res = await updateProfileMutation({ id, profile: tempFile });
       if (res.error) throw new Error(res.error.data.error);
       navigate('/profile');
     } catch (error) {
       if (error instanceof Error) setError(error.message);
     }
-    console.log(error);
   };
 
   const profileName = 'Ejaz Hussain';
@@ -50,6 +48,11 @@ export function EditProfile() {
     : ((count = 0), (canSubmit = false));
 
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
+    setProfileInfo({ ...profileInfo, [name]: value });
+  };
+
+  const onChangeSelect = (event: React.FormEvent<HTMLSelectElement>) => {
     const { name, value } = event.currentTarget;
     setProfileInfo({ ...profileInfo, [name]: value });
   };
@@ -105,7 +108,7 @@ export function EditProfile() {
             onInput={onChangeField}
             rows={3}
             maxLength={150}
-            value={profileInfo.bio ?? ''}
+            value={profileInfo.bio}
           ></textarea>
         </div>
         <span className="bio-chars-count">{count}/150</span>
@@ -125,12 +128,11 @@ export function EditProfile() {
           value={profileInfo.phoneNumber}
           label="Phone Number"
         />
-        <InputField
+        <SelectField
+          onChange={onChangeSelect}
           label="Gender"
-          type="string"
           placeholder="Gender"
           name="gender"
-          onChange={onChange}
           value={profileInfo.gender}
         />
 
