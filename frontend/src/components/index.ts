@@ -13,6 +13,7 @@ export * from './Profile/Gallery/GalleryItem/GalleryItem';
 export * from './Profile/Profile';
 export * from './Settings/EditPassword/EditPassword';
 export * from './Settings/EditProfile/EditPhoto/EditPhoto';
+export * from './Settings/EditProfile/EditProfile';
 export * from './Settings/Settings';
 export * from './Signup/Signup';
 export * from './ui/CreatePost/CreatePost';
