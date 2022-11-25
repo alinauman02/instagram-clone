@@ -28,9 +28,9 @@ export function EditProfile() {
     try {
       setError('');
       event.preventDefault();
-      const tempProfileInfo = { ...profileInfo };
-      if (profileInfo.phoneNumber === '') tempProfileInfo.phoneNumber = undefined;
-      const res = await updateProfileMutation({ id, profile: tempProfileInfo });
+      const editProfilePlayload = { ...profileInfo };
+      if (profileInfo.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
+      const res = await updateProfileMutation({ id, profile: editProfilePlayload });
       if (res.error) throw new Error(res.error.data.error);
       navigate('/profile');
     } catch (error) {
