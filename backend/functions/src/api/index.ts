@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
-import { canEditProfile, errorHandler, logger, validateIdToken } from './../middleware';
+import { errorHandler, logger, validateIdToken } from './../middleware';
 import { profileRouter } from './resources/user-profile';
 
 import { functions } from '../config';
@@ -17,7 +17,6 @@ app.use(logger);
 
 app.use('/auth', authRouter);
 app.use(validateIdToken);
-app.use(canEditProfile);
 app.use('/user-profiles', profileRouter);
 
 app.use(errorHandler);
