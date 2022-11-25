@@ -6,7 +6,6 @@ import { getUserProfileService, updateUserProfileService } from './user-profile.
 export const getUserProfile: RequestHandler = async (req, res, next) => {
   try {
     const profile = await getUserProfileService(req.params.id);
-    await validateOrReject(UserProfile);
     res.send(profile);
   } catch (error) {
     next(error);
