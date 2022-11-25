@@ -133,7 +133,8 @@ export function EditProfile() {
           label="Gender"
           placeholder="Gender"
           name="gender"
-          value={profileInfo.gender}
+          value={profileInfo.gender ?? ''}
+          options={['male', 'female']}
         />
 
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>

@@ -4,11 +4,12 @@ interface InputProps {
   name: string;
   placeholder: string;
   onChange: (e: React.FormEvent<HTMLSelectElement>) => void;
-  value?: string;
+  value: string;
   label?: string;
+  options: string[];
 }
 
-export function SelectField({ name, placeholder, value, label, onChange }: InputProps) {
+export function SelectField({ options, name, placeholder, value, label, onChange }: InputProps) {
   return (
     <div className="flex-box">
       <label htmlFor={name} className="edit-profile-label">
@@ -23,9 +24,10 @@ export function SelectField({ name, placeholder, value, label, onChange }: Input
         id={name}
         onChange={onChange}
       >
-        <option value="male">male</option>
-        <option value="female">female</option>
-      </select>{' '}
+        {options.map(val => {
+          return <option key={val}>{val}</option>;
+        })}
+      </select>
     </div>
   );
 }
