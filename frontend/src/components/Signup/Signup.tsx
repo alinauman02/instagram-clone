@@ -81,10 +81,28 @@ export function Signup() {
           <div className="signup-or-line"></div>
         </div>
         <form className="signup-form flex-direction-column" onSubmit={onSignUp}>
-          <InputField type="email" placeholder="Email" name="email" onChange={onChange} />
-          <InputField type="string" placeholder="Full Name" name="name" onChange={onChange} />
-          <InputField type="string" placeholder="Username" name="username" onChange={onChange} />
-          <InputField type="password" placeholder="Password" name="password" onChange={onChange} />
+          <InputField type="email" placeholder="Email" name="email" onChange={onChange} value={userCredentials.email} />
+          <InputField
+            type="string"
+            placeholder="Full Name"
+            name="name"
+            onChange={onChange}
+            value={userCredentials.name}
+          />
+          <InputField
+            type="string"
+            placeholder="Username"
+            name="username"
+            onChange={onChange}
+            value={userCredentials.username}
+          />
+          <InputField
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={onChange}
+            value={userCredentials.password}
+          />
           <button type="submit" className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
             Sign up
           </button>
