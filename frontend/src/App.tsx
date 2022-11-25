@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import './App.css';
-import { Profile, Login, Signup, Home, Settings, EditProfile, EditPassword } from 'components';
+import { EditPassword, EditProfile, Home, Login, Profile, Settings, Signup } from 'components';
 import { auth } from 'config';
 import { setAuthState, useAppDispatch } from 'store';
+import './App.css';
 
 function App() {
   const dispatch = useAppDispatch();
