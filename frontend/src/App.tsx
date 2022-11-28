@@ -16,8 +16,9 @@ function App() {
 
       const id = user.uid;
       const token = await user.getIdToken(true);
+      const username = (await user.getIdTokenResult()).claims.username;
 
-      dispatch(setAuthState({ id, token }));
+      dispatch(setAuthState({ id, token, username }));
     });
   }, [dispatch]);
 
@@ -29,7 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {useAppSelector(selectUserId) && <Route path="/profile/" element={<Profile />} />}
-          {useAppSelector(selectUserId) && <Route path="/:profileId" element={<Profile />} />}
+          {useAppSelector(selectUserId) && <Route path="/:username" element={<Profile />} />}
           {useAppSelector(selectUserId) && <Route path="/home" element={<Home />} />}
           {useAppSelector(selectUserId) && (
             <Route path="/settings" element={<Settings />}>

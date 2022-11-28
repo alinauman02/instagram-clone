@@ -5,9 +5,10 @@ import { RootState } from 'store';
 interface AuthState {
   id: string;
   token: string;
+  username: string;
 }
 
-const initialState: AuthState = { id: '', token: '' };
+const initialState: AuthState = { id: '', token: '', username: '' };
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -16,12 +17,14 @@ export const authSlice = createSlice({
     setAuthState(state, action: PayloadAction<AuthState>) {
       state.id = action.payload.id;
       state.token = action.payload.token;
+      state.username = action.payload.username;
     },
   },
 });
 
 export const selectUserId = (state: RootState) => state.auth.id;
 export const selectUserToken = (state: RootState) => state.auth.token;
+export const selectUserUsername = (state: RootState) => state.auth.token;
 
 export const { setAuthState } = authSlice.actions;
 export const authSliceReducer = authSlice.reducer;

@@ -1,5 +1,8 @@
 import { auth } from '../../../config';
 
-export function signUpUser(email: string, password: string) {
-  return auth.createUser({ email, password });
+export async function signUpUser(email: string, password: string,username:string) {
+  
+  const res=await auth.createUser({ email, password });
+  auth.setCustomUserClaims(res.uid,{username})
+  return res;
 }
