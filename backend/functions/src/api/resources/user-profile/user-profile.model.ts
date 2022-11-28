@@ -1,17 +1,19 @@
-import { IsEmail, IsOptional, Length, Matches, MaxLength, MinLength } from 'class-validator';
+import { IsAlpha, IsEmail, IsNotEmpty, IsOptional, Length } from 'class-validator';
 import { Gender } from '../../../constants';
 
 export class UserProfile {
-  @MinLength(3, {
-    message: 'Username is too short',
-  })
-  @MaxLength(20, {
-    message: 'Username is too long',
-  })
+  @Length(8, 20)
+  @IsNotEmpty()
   username: string;
 
-  @IsEmail({}, { message: 'Invalid email' })
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
+
+  @Length(3, 30)
+  @IsAlpha()
+  @IsNotEmpty()
+  name: string;
 
   @Length(10, 13)
   @IsOptional()
@@ -19,9 +21,6 @@ export class UserProfile {
 
   @IsOptional()
   gender?: Gender;
-
-  @Matches(new RegExp('[a-zA-Z]*'))
-  name: string;
 
   @Length(0, 150)
   bio?: string;

@@ -1,23 +1,22 @@
-import { IsAlpha, IsAlphanumeric, IsEmail, Length, MaxLength, MinLength } from 'class-validator';
+import { IsAlpha, IsAlphanumeric, IsEmail, IsNotEmpty, Length } from 'class-validator';
 
 export class SignupRequestPayLoad {
-  @MinLength(3, {
-    message: 'Username is too short',
-  })
-  @MaxLength(20, {
-    message: 'Username is too long',
-  })
+  @Length(8, 20)
+  @IsNotEmpty()
   username: string;
 
-  @IsEmail({}, { message: 'Invalid email' })
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
 
   @Length(3, 30)
   @IsAlpha()
+  @IsNotEmpty()
   name: string;
 
   @Length(8, 20)
   @IsAlphanumeric()
+  @IsNotEmpty()
   password: string;
 
   constructor(username: string, email: string, password: string, name: string) {
