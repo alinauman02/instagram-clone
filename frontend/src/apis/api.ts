@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { UserProfile } from 'models';
 
-export const urlString = import.meta.env.VITE_APP_ROUTE_URL;
+export const urlString = import.meta.env.VITE_APP_FIREBASE_ROUTE_URL;
 
 export interface PostProfile {
   id: string;
