@@ -125,7 +125,7 @@ export function EditProfile() {
           placeholder="Phone No"
           name="phoneNumber"
           onChange={onChange}
-          value={profileInfo.phoneNumber}
+          value={profileInfo.phoneNumber ?? ''}
           label="Phone Number"
         />
         <SelectField
