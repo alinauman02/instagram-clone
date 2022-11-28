@@ -1,4 +1,4 @@
-import { IsAlpha, IsDefined, IsEmail, IsNotEmpty, IsOptional, Length } from 'class-validator';
+import { IsAlpha, IsDefined, IsEmail, IsEnum, IsNotEmpty, IsOptional, Length } from 'class-validator';
 import { Gender } from '../../../constants';
 
 export class UserProfile {
@@ -23,6 +23,7 @@ export class UserProfile {
   phoneNumber?: string;
 
   @IsOptional()
+  @IsEnum(Gender, { message: 'Invalid Gender' })
   gender?: Gender;
 
   @Length(0, 150)
