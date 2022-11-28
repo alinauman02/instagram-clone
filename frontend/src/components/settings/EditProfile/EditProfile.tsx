@@ -32,7 +32,7 @@ export function EditProfile() {
       if (profileInfo.phoneNumber === '') tempFile.phoneNumber = undefined;
       const res = await updateProfileMutation({ id, profile: tempFile });
       if (res.error) throw new Error(res.error.data.error);
-      navigate('/profile');
+      navigate('/profile/5hsXfkYWNLyO9z0PTjQUVUgbJPyB');
     } catch (error) {
       if (error instanceof Error) setError(error.message);
     }

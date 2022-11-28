@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { useGetProfileByIdQuery } from 'apis';
+import { useGetProfileByUsernameQuery } from 'apis';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header } from 'components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { selectUserId, useAppSelector } from 'store';
 import './Profile.css';
 
@@ -16,8 +16,10 @@ const { posts, followers, following } = {
 
 export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
-  const id = useAppSelector(selectUserId);
-  const { data } = useGetProfileByIdQuery(id);
+  const params = useParams();
+  let id = useAppSelector(selectUserId);
+  if (params.profileId) id = params.profileId;
+  const { data } = useGetProfileByUsernameQuery('ejaz12322');
   const navigate = useNavigate();
   const [profileInfo, setProfileInfo] = useState({
     name: '',
