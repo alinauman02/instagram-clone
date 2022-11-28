@@ -7,14 +7,17 @@ import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem
 import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
+import { setAuthState, useAppDispatch } from 'store';
 import './AccountOptions.css';
 
 export function AccountOptions() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onLogOut = async () => {
     try {
       await logOut();
+      dispatch(setAuthState({ id: '', token: '' }));
       navigate('/login');
     } catch (err) {
       if (err instanceof FirebaseError) {
