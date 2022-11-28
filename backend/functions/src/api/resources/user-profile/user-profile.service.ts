@@ -1,7 +1,11 @@
-import { UserProfile, getUserProfileDocument, updateUserProfileDocument } from '.';
+import { getUserProfileDocument, getUserProfileDocumentByUserName, updateUserProfileDocument, UserProfile } from '.';
 
 export function getUserProfileService(uid: string) {
-  return  getUserProfileDocument(uid);
+  return getUserProfileDocument(uid);
+}
+
+export function getUserProfileServiceByUserName(username: string) {
+  return getUserProfileDocumentByUserName(username);
 }
 
 export function updateUserProfileService(uid: string, userProfile: UserProfile) {

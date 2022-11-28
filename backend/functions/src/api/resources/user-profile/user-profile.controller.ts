@@ -1,11 +1,21 @@
 import { validateOrReject } from 'class-validator';
 import { RequestHandler } from 'express';
 import { UserProfile } from '.';
-import { getUserProfileService, updateUserProfileService } from './user-profile.service';
+import { getUserProfileService, getUserProfileServiceByUserName, updateUserProfileService } from './user-profile.service';
 
 export const getUserProfile: RequestHandler = async (req, res, next) => {
   try {
     const profile = await getUserProfileService(req.params.id);
+    await validateOrReject(UserProfile);
+    res.send(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getUserProfileByUserName: RequestHandler = async (req, res, next) => {
+  try {
+    const profile = await getUserProfileServiceByUserName(req.params.username);
     await validateOrReject(UserProfile);
     res.send(profile);
   } catch (error) {

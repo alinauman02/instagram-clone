@@ -17,6 +17,13 @@ export const getUserProfileDocument = async (uid: string) => {
   return docToObj(snapShot);
 };
 
+export const getUserProfileDocumentByUserName = async (userName: string) => {
+  const ref = firestore.collection(FirestoreCollection.USER_PROFILES).where('username', '==', userName);
+  const snapShot = await ref.limit(1).get();
+  if (snapShot.empty) throw new Error(`User with username ${userName} does not exist`);
+  return docToObj(snapShot.docs[0]);
+};
+
 export const updateUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
   userProfile.phoneNumber = userProfile.phoneNumber ?? '';
