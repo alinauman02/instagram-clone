@@ -1,3 +1,4 @@
+import { plainToClass } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 import { RequestHandler } from 'express';
 import { signUpUser } from '.';
@@ -6,7 +7,7 @@ import { SignupRequestPayLoad } from './auth.model';
 
 export const signup: RequestHandler = async (req, res, next) => {
   try {
-    const profile = new SignupRequestPayLoad(req.body.username, req.body.email, req.body.password, req.body.name);
+    const profile = plainToClass(SignupRequestPayLoad, req.body);
     await validateOrReject(profile);
     const userRecord = await signUpUser(req.body.email, req.body.password);
     const userProfile = new UserProfile(
