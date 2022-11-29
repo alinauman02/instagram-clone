@@ -1,27 +1,30 @@
-import { IsEmail, IsOptional, Length, Matches, MaxLength, MinLength } from 'class-validator';
+import { IsAlpha, IsDefined, IsEmail, IsEnum, IsNotEmpty, IsOptional, Length } from 'class-validator';
 import { Gender } from '../../../constants';
 
 export class UserProfile {
-  @MinLength(3, {
-    message: 'Username is too short',
-  })
-  @MaxLength(20, {
-    message: 'Username is too long',
-  })
+  @Length(8, 20)
+  @IsNotEmpty()
+  @IsDefined({ message: 'Username is missing' })
   username: string;
 
-  @IsEmail({}, { message: 'Invalid email' })
+  @IsEmail()
+  @IsDefined({ message: 'Email is missing' })
+  @IsNotEmpty()
   email: string;
+
+  @Length(3, 30)
+  @IsAlpha()
+  @IsDefined({ message: 'Name is missing' })
+  @IsNotEmpty()
+  name: string;
 
   @Length(10, 13)
   @IsOptional()
   phoneNumber?: string;
 
   @IsOptional()
+  @IsEnum(Gender, { message: 'Invalid Gender' })
   gender?: Gender;
-
-  @Matches(new RegExp('[a-zA-Z]*'))
-  name: string;
 
   @Length(0, 150)
   bio?: string;

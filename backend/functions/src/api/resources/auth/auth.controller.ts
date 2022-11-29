@@ -1,3 +1,4 @@
+import { plainToClass } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 import { RequestHandler } from 'express';
 import { signUpUser } from '.';
@@ -6,17 +7,17 @@ import { SignupRequestPayLoad } from './auth.model';
 
 export const signup: RequestHandler = async (req, res, next) => {
   try {
-    const profile = new SignupRequestPayLoad(req.body.username, req.body.email, req.body.password, req.body.name);
-    await validateOrReject(profile);
-    if (await checkUsername(profile.username)) throw new Error('Username Already exists!');
-    if (await checkEmail(profile.email)) throw new Error('Email already exists');
+const profile = plainToClass(SignupRequestPayLoad, req.body);
+    await validateOrReject(profile[0]);
+    if (await checkUsername(profile[0].username)) throw new Error('Username Already exists!');
+    if (await checkEmail(profile[0].email)) throw new Error('Email already exists');
 
-    checkEmail(profile.email);
+    checkEmail(profile[0].email);
     const userRecord = await signUpUser(req.body.email, req.body.password, req.body.username);
     const userProfile = new UserProfile(
-      profile.username,
-      profile.email,
-      profile.name,
+      profile[0].username,
+      profile[0].email,
+      profile[0].name,
       req.body.bio,
       req.body.phoneNumber,
       req.body.createdAt,

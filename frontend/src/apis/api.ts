@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { UserProfile } from 'models';
 import { RootState } from 'store';
 
-export const urlString = 'http://127.0.0.1:3002/aurora-instagram-clone/us-central1/api/';
+export const urlString = import.meta.env.VITE_APP_FIREBASE_ROUTE_URL;
 
 export interface PostProfile {
   id: string;

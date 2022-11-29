@@ -27,9 +27,9 @@ export function EditProfile() {
     try {
       setError('');
       event.preventDefault();
-      const tempFile = { ...profileInfo };
-      if (profileInfo.phoneNumber === '') tempFile.phoneNumber = undefined;
-      const res = await updateProfileMutation({ id, profile: tempFile });
+      const editProfilePlayload = { ...profileInfo };
+      if (profileInfo.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
+      const res = await updateProfileMutation({ id, profile: editProfilePlayload });
       if (res.error) throw new Error(res.error.data.error);
     } catch (error) {
       if (error instanceof Error) setError(error.message);
@@ -123,7 +123,7 @@ export function EditProfile() {
           placeholder="Phone No"
           name="phoneNumber"
           onChange={onChange}
-          value={profileInfo.phoneNumber}
+          value={profileInfo.phoneNumber ?? ''}
           label="Phone Number"
         />
         <SelectField
@@ -131,7 +131,8 @@ export function EditProfile() {
           label="Gender"
           placeholder="Gender"
           name="gender"
-          value={profileInfo.gender}
+          value={profileInfo.gender ?? ''}
+          options={['male', 'female']}
         />
 
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>

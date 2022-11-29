@@ -55,8 +55,14 @@ export function Login() {
           <InstagramIcon />
         </div>
         <form className="login-form flex-direction-column" onSubmit={handleSubmit}>
-          <InputField type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
-          <InputField type="password" placeholder="Password" name="password" onChange={onChange} />
+          <InputField type="email" placeholder="Email" name="email" onChange={onChange} value={userCredentials.email} />
+          <InputField
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={onChange}
+            value={userCredentials.password}
+          />
           <button className="submit-button" name="Log in" value="Log in" disabled={!canLogin}>
             Log in
           </button>
