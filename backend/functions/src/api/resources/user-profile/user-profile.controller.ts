@@ -1,4 +1,4 @@
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 import { RequestHandler } from 'express';
 import { UserProfile } from '.';
@@ -15,9 +15,9 @@ export const getUserProfile: RequestHandler = async (req, res, next) => {
 
 export const UpdateUserProfile: RequestHandler = async (req, res, next) => {
   try {
-    const userProfile = plainToClass(UserProfile, req.body);
+    const userProfile = plainToInstance(UserProfile, req.body as UserProfile);
     await validateOrReject(userProfile);
-    const profile = await updateUserProfileService(req.params.id, userProfile[0]);
+    const profile = await updateUserProfileService(req.params.id, userProfile);
     res.send(profile);
   } catch (error) {
     next(error);
