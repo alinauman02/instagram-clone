@@ -4,10 +4,27 @@ import { docToObj, setCommonFieldsDocument, setUpdatedAtDocument } from '../../.
 import { UserProfile } from '../user-profile';
 
 export const createUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
-  const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
+  const refCheck = firestore.collection(FirestoreCollection.USER_PROFILES);
+  const ref = refCheck.doc(uid);
   await ref.set({ ...setCommonFieldsDocument(userProfile) });
   const snapShot = await ref.get();
   return docToObj(snapShot);
+};
+
+export const checkEmail = async (email: string) => {
+  const refCheck = firestore.collection(FirestoreCollection.USER_PROFILES);
+  const snapShot = await refCheck.where('email', '==', email).get();
+  console.log(snapShot);
+  if (!snapShot.empty) return true;
+  return false;
+};
+
+export const checkUsername = async (username: string) => {
+  const refCheck = firestore.collection(FirestoreCollection.USER_PROFILES);
+  const snapShot = await refCheck.where('username', '==', username).get();
+  console.log(snapShot);
+  if (!snapShot.empty) return true;
+  return false;
 };
 
 export const getUserProfileDocument = async (uid: string) => {
@@ -25,6 +42,11 @@ export const getUserProfileDocumentByUserName = async (userName: string) => {
 };
 
 export const updateUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
+  const refCheck = firestore
+    .collection(FirestoreCollection.USER_PROFILES)
+    .where('username', '==', userProfile.username);
+  const snapShotCheck = await refCheck.get();
+  if (!snapShotCheck.empty) return new Error('Username already exists');
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
   userProfile.phoneNumber = userProfile.phoneNumber ?? '';
   await ref.update({ ...setUpdatedAtDocument(userProfile) });

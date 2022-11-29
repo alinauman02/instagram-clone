@@ -1,7 +1,11 @@
 import { validateOrReject } from 'class-validator';
 import { RequestHandler } from 'express';
-import { UserProfile } from '.';
-import { getUserProfileService, getUserProfileServiceByUserName, updateUserProfileService } from './user-profile.service';
+import { checkEmail, checkUsername, UserProfile } from '.';
+import {
+  getUserProfileService,
+  getUserProfileServiceByUserName,
+  updateUserProfileService,
+} from './user-profile.service';
 
 export const getUserProfile: RequestHandler = async (req, res, next) => {
   try {
@@ -34,6 +38,8 @@ export const UpdateUserProfile: RequestHandler = async (req, res, next) => {
       req.body.gender
     );
     await validateOrReject(userProfile);
+    if (await checkUsername(userProfile.username)) throw new Error('Username Already exists!');
+    if (await checkEmail(userProfile.email)) throw new Error('Email already exists');
     const profile = await updateUserProfileService(req.params.id, userProfile);
     res.send(profile);
   } catch (error) {
