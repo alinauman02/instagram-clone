@@ -17,7 +17,7 @@ export const UpdateUserProfile: RequestHandler = async (req, res, next) => {
   try {
     const userProfile = plainToClass(UserProfile, req.body);
     await validateOrReject(userProfile);
-    const profile = await updateUserProfileService(req.params.id, userProfile);
+    const profile = await updateUserProfileService(req.params.id, userProfile[0]);
     res.send(profile);
   } catch (error) {
     next(error);
