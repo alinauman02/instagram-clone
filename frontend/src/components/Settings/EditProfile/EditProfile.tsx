@@ -30,8 +30,6 @@ export function EditProfile() {
       event.preventDefault();
       const editProfilePlayload = { ...profileInfo };
       if (profileInfo.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
-      ///  delete editProfilePlayload.id;
-      console.log(editProfilePlayload);
       const res = await updateProfileMutation({ id, profile: editProfilePlayload });
       if (res.error) throw new Error(res.error.data.error);
       navigate('/profile');
