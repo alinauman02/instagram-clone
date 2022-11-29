@@ -14,7 +14,6 @@ export const createUserProfileDocument = async (uid: string, userProfile: UserPr
 export const checkEmail = async (email: string) => {
   const refCheck = firestore.collection(FirestoreCollection.USER_PROFILES);
   const snapShot = await refCheck.where('email', '==', email).get();
-  console.log(snapShot);
   if (!snapShot.empty) return true;
   return false;
 };
@@ -22,7 +21,6 @@ export const checkEmail = async (email: string) => {
 export const checkUsername = async (username: string) => {
   const refCheck = firestore.collection(FirestoreCollection.USER_PROFILES);
   const snapShot = await refCheck.where('username', '==', username).get();
-  console.log(snapShot);
   if (!snapShot.empty) return true;
   return false;
 };
