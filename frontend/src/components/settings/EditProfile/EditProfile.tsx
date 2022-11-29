@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useGetProfileByUsernameQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
@@ -9,7 +8,6 @@ import { selectUserId, selectUserUsername, useAppSelector } from 'store';
 import './EditProfile.css';
 
 export function EditProfile() {
-  const navigate = useNavigate();
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
   const username = useAppSelector(selectUserUsername);
   const id = useAppSelector(selectUserId);
@@ -33,7 +31,6 @@ export function EditProfile() {
       if (profileInfo.phoneNumber === '') tempFile.phoneNumber = undefined;
       const res = await updateProfileMutation({ id, profile: tempFile });
       if (res.error) throw new Error(res.error.data.error);
-      navigate('/profile');
     } catch (error) {
       if (error instanceof Error) setError(error.message);
     }
