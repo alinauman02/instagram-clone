@@ -17,7 +17,7 @@ export function AccountOptions() {
   const onLogOut = async () => {
     try {
       await logOut();
-      dispatch(setAuthState({ id: '', token: '' }));
+      dispatch(setAuthState({ id: '', token: '', username: '' }));
       navigate('/login');
     } catch (err) {
       if (err instanceof FirebaseError) {
