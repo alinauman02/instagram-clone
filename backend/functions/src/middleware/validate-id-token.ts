@@ -1,16 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 import { getAuth } from 'firebase-admin/auth';
 
-export const validateIdToken = (req: Request, res: Response, next: NextFunction) => {
-  if (req.headers.authorization) {
-    getAuth()
-      .verifyIdToken(req.headers.authorization.split(' ')[1])
-      .then(decodedToken => {
-        req.body.user = decodedToken;
-        next();
-      })
-      .catch(error => {
-        next(error);
-      });
-  } else next(new Error("'User not authenticated'"));
+export const validateIdToken = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    if (req.headers.authorization) {
+      const decodedToken = await getAuth().verifyIdToken(req.headers.authorization.split(' ')[1]);
+      req.body.user = decodedToken;
+      next();
+    } else throw new Error("'Authentication error! Token not found'");
+  } catch (error) {
+    next(error);
+  }
 };
