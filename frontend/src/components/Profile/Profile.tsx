@@ -5,6 +5,7 @@ import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header } from 'components';
 import { useNavigate, useParams } from 'react-router-dom';
+import { selectUsername, useAppSelector } from 'store';
 import './Profile.css';
 
 const { posts, followers, following } = {
@@ -17,6 +18,7 @@ export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
   const params = useParams();
   let username = '';
+  const currentUsername: string = useAppSelector(selectUsername);
   if (params.username) username = params.username;
   const { data } = useGetProfileByUsernameQuery(username);
   const navigate = useNavigate();
@@ -43,24 +45,28 @@ export function Profile() {
           <div className="bio">
             <div className="flex-box">
               <div className="user-name">{profileInfo.username}</div>
-              <button
-                className="edit-profile-button"
-                onClick={() => {
-                  navigate('/settings/edit-profile');
-                }}
-              >
-                Edit Profile
-              </button>
-              <div>
-                <button
-                  className="settings-profile-button"
-                  onClick={() => {
-                    navigate('/settings/edit-profile');
-                  }}
-                >
-                  <IconSettings />
-                </button>
-              </div>
+              {currentUsername !== username && (
+                <>
+                  <button
+                    className="edit-profile-button"
+                    onClick={() => {
+                      navigate('/settings/edit-profile');
+                    }}
+                  >
+                    Edit Profile
+                  </button>
+                  <div>
+                    <button
+                      className="settings-profile-button"
+                      onClick={() => {
+                        navigate('/settings/edit-profile');
+                      }}
+                    >
+                      <IconSettings />
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
             <div className="profile-info">
               <span className="counts">{posts} posts</span>{' '}
@@ -82,4 +88,12 @@ export function Profile() {
       </div>
     </div>
   );
+}
+function dispatch(
+  selectUsername: (state: {
+    auth: AuthState;
+    api: import('@reduxjs/toolkit/dist/query/core/apiState').CombinedState<{}, never, 'api'>;
+  }) => string
+) {
+  throw new Error('Function not implemented.');
 }
