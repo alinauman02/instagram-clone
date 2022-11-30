@@ -28,13 +28,21 @@ export function EditPassword() {
         </div>
       </div>
       <form className="edit-password-form">
-        <InputField label="Password" type="password" placeholder="Password" name="oldPassword" onChange={onChange} />
+        <InputField
+          label="Password"
+          type="password"
+          placeholder="Password"
+          name="oldPassword"
+          onChange={onChange}
+          value=""
+        />
         <InputField
           label="New Password"
           type="password"
           placeholder="New Password"
           name="newPassword"
           onChange={onChange}
+          value=""
         />
         <InputField
           label="Confirm Password"
@@ -42,6 +50,7 @@ export function EditPassword() {
           placeholder="Confirm Password"
           name="confirmPassword"
           onChange={onChange}
+          value=""
         />
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canConfirm}>
           Confirm
