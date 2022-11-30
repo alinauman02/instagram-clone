@@ -1,6 +1,6 @@
 import './SelectField.css';
 
-interface InputProps {
+interface SelectFieldProps {
   name: string;
   placeholder: string;
   onChange: (e: React.FormEvent<HTMLSelectElement>) => void;
@@ -9,7 +9,7 @@ interface InputProps {
   options: string[];
 }
 
-export function SelectField({ options, name, placeholder, value, label, onChange }: InputProps) {
+export function SelectField({ options, name, placeholder, value, label, onChange }: SelectFieldProps) {
   return (
     <div className="flex-box">
       <label htmlFor={name} className="edit-profile-label">
