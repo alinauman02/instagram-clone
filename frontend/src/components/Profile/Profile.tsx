@@ -5,7 +5,6 @@ import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header } from 'components';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectUserUsername, useAppSelector } from 'store';
 import './Profile.css';
 
 const { posts, followers, following } = {
@@ -17,7 +16,7 @@ const { posts, followers, following } = {
 export function Profile() {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
   const params = useParams();
-  let username = useAppSelector(selectUserUsername);
+  let username = '';
   if (params.username) username = params.username;
   const { data } = useGetProfileByUsernameQuery(username);
   const navigate = useNavigate();
