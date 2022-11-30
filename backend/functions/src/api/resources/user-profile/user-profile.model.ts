@@ -1,20 +1,17 @@
-import { IsAlpha, IsDefined, IsEmail, IsEnum, IsNotEmpty, IsOptional, Length } from 'class-validator';
+import { IsAlpha, IsEmail, IsEnum, IsNotEmpty, IsOptional, Length } from 'class-validator';
 import { Gender } from '../../../constants';
 
 export class UserProfile {
   @Length(8, 20)
   @IsNotEmpty()
-  @IsDefined({ message: 'Username is missing' })
   username: string;
 
   @IsEmail()
-  @IsDefined({ message: 'Email is missing' })
   @IsNotEmpty()
   email: string;
 
   @Length(3, 30)
   @IsAlpha()
-  @IsDefined({ message: 'Name is missing' })
   @IsNotEmpty()
   name: string;
 
