@@ -4,12 +4,12 @@ import { useGetProfileByUsernameQuery, useUpdateProfileByIdMutation } from 'apis
 import Profile from 'assets/images/profile.jpeg';
 import { EditPhoto, InputField, SelectField } from 'components';
 import { UserProfile } from 'models';
-import { selectUserId, selectUserUsername, useAppSelector } from 'store';
+import { selectUserId, selectUsername, useAppSelector } from 'store';
 import './EditProfile.css';
 
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
-  const username = useAppSelector(selectUserUsername);
+  const username = useAppSelector(selectUsername);
   const id = useAppSelector(selectUserId);
   const { data, isFetching } = useGetProfileByUsernameQuery(username);
   const [error, setError] = useState('');

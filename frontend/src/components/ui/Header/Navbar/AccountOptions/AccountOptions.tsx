@@ -7,7 +7,7 @@ import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem
 import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
-import { selectUserUsername, setAuthState, useAppDispatch, useAppSelector } from 'store';
+import { selectUsername, setAuthState, useAppDispatch, useAppSelector } from 'store';
 import './AccountOptions.css';
 
 export function AccountOptions() {
@@ -25,7 +25,7 @@ export function AccountOptions() {
       }
     }
   };
-  const username = useAppSelector(selectUserUsername);
+  const username = useAppSelector(selectUsername);
   return (
     <div className="navbar-dropdown flex-direction-column">
       <ul className="dropdown-list">
