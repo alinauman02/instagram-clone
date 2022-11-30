@@ -17,7 +17,6 @@ function App() {
       const id = user.uid;
       const token = await user.getIdToken(true);
       const username = (await user.getIdTokenResult()).claims.username;
-      
 
       dispatch(setAuthState({ id, token, username }));
     });
@@ -30,11 +29,10 @@ function App() {
           <Route path="/" element={<Navigate to="login" />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/:username" element={<Profile />} />
           {useAppSelector(selectUserId) && (
             <>
-              <Route path="/:username" element={<Profile />} />
               <Route path="/home" element={<Home />} />
-
               <Route path="/settings" element={<Settings />}>
                 <Route path="/settings" element={<Navigate to="edit-profile" />} />
                 <Route path="/settings/change-password" element={<EditPassword />} />
