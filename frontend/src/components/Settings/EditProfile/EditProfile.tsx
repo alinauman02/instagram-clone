@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
 import { EditPhoto, InputField, SelectField } from 'components';
-import { UserProfile } from 'models';
+import { Gender, UserProfile } from 'models';
 import { selectUserId, useAppSelector } from 'store';
 import './EditProfile.css';
 
@@ -134,7 +134,7 @@ export function EditProfile() {
           placeholder="Gender"
           name="gender"
           value={profileInfo.gender ?? ''}
-          options={['male', 'female']}
+          options={[Gender.MALE, Gender.FEMALE]}
         />
 
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>
