@@ -7,7 +7,7 @@ export const validateIdToken = async (req: Request, res: Response, next: NextFun
       const decodedToken = await getAuth().verifyIdToken(req.headers.authorization.split(' ')[1]);
       req.user = decodedToken;
       next();
-    } else throw new Error("'Authentication error! Token not found'");
+    } else throw new Error('Authentication error! Token not found');
   } catch (error) {
     next(error);
   }
