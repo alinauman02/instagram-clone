@@ -27,7 +27,7 @@ export const getUserProfileByUserName: RequestHandler = async (req, res, next) =
   }
 };
 
-export const UpdateUserProfile: RequestHandler = async (req, res, next) => {
+export const updateUserProfile: RequestHandler = async (req, res, next) => {
   try {
     const userProfile = plainToInstance(UserProfile, req.body as UserProfile);
     await validateOrReject(userProfile);
