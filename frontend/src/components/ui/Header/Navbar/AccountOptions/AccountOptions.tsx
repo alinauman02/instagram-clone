@@ -26,11 +26,12 @@ export function AccountOptions() {
     }
   };
   const username = useAppSelector(selectUsername);
+  console.log(username);
   return (
     <div className="navbar-dropdown flex-direction-column">
       <ul className="dropdown-list">
         <li className="dropdown-list-item">
-          <Link className="list-link flex-box" to={'/${username}'}>
+          <Link className="list-link flex-box" to={'/'+username}>
             <div className="icon-div">
               <IconProfile />
             </div>

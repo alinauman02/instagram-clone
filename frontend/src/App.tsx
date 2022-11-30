@@ -16,8 +16,8 @@ function App() {
 
       const id = user.uid;
       const token = await user.getIdToken(true);
-      const username = (await user.getIdTokenResult()).claims.username;
-
+      const claimResults = await user.getIdTokenResult();
+      const username = claimResults.claims.username;
       dispatch(setAuthState({ id, token, username }));
     });
   }, [dispatch]);

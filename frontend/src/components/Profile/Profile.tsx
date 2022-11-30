@@ -20,6 +20,7 @@ export function Profile() {
   let username = '';
   const currentUsername: string = useAppSelector(selectUsername);
   if (params.username) username = params.username;
+  console.log(username);
   const { data } = useGetProfileByUsernameQuery(username);
   const navigate = useNavigate();
   const [profileInfo, setProfileInfo] = useState({
@@ -45,7 +46,7 @@ export function Profile() {
           <div className="bio">
             <div className="flex-box">
               <div className="user-name">{profileInfo.username}</div>
-              {currentUsername !== username && (
+              {currentUsername === username && (
                 <>
                   <button
                     className="edit-profile-button"
@@ -88,12 +89,4 @@ export function Profile() {
       </div>
     </div>
   );
-}
-function dispatch(
-  selectUsername: (state: {
-    auth: AuthState;
-    api: import('@reduxjs/toolkit/dist/query/core/apiState').CombinedState<{}, never, 'api'>;
-  }) => string
-) {
-  throw new Error('Function not implemented.');
 }
