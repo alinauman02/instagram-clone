@@ -10,6 +10,7 @@ export const signup: RequestHandler = async (req, res, next) => {
     const profile = plainToInstance(SignupRequestPayLoad, req.body as SignupRequestPayLoad);
     await validateOrReject(profile);
     const userRecord = await signUpUser(req.body.email, req.body.password);
+    delete req.body.password;
     const userProfile = plainToInstance(UserProfile, req.body as UserProfile);
     res.send(await createUserProfileDocument(userRecord.uid, userProfile));
   } catch (error) {

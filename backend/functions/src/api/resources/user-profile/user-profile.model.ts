@@ -3,16 +3,16 @@ import { Gender } from '../../../constants';
 
 export class UserProfile {
   @Length(8, 20)
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'username is missing or empty' })
   username: string;
 
   @IsEmail()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'email is missing or empty' })
   email: string;
 
   @Length(3, 30)
   @IsAlpha()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'name is missing or empty' })
   name: string;
 
   @Length(10, 13)
