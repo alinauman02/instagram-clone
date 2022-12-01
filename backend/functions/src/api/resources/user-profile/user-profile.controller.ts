@@ -31,8 +31,6 @@ export const updateUserProfile: RequestHandler = async (req, res, next) => {
   try {
     const userProfile = plainToInstance(UserProfile, req.body as UserProfile);
     await validateOrReject(userProfile);
-    // if (await checkUsername(userProfile.username)) throw new Error('Username Already exists!');
-    // if (await checkEmail(userProfile.email)) throw new Error('Email already exists');
     const profile = await updateUserProfileService(req.params.id, userProfile);
     res.send(profile);
   } catch (error) {

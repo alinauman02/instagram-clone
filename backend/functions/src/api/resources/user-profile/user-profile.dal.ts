@@ -40,11 +40,6 @@ export const getUserProfileDocumentByUserName = async (userName: string) => {
 };
 
 export const updateUserProfileDocument = async (uid: string, userProfile: UserProfile) => {
-  const refCheck = firestore
-    .collection(FirestoreCollection.USER_PROFILES)
-    .where('username', '==', userProfile.username);
-  const snapShotCheck = await refCheck.get();
-  if (!snapShotCheck.empty) return new Error('Username already exists');
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
   userProfile.phoneNumber = userProfile.phoneNumber ?? '';
   await ref.update({ ...setUpdatedAtDocument(userProfile) });
