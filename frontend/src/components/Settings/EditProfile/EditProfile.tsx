@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
@@ -9,33 +8,28 @@ import { selectUserId, useAppSelector } from 'store';
 import './EditProfile.css';
 
 export function EditProfile() {
-  const navigate = useNavigate();
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
   const id = useAppSelector(selectUserId);
   const { data, isFetching } = useGetProfileByIdQuery(id);
-  const [error, setError] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [profileInfo, setProfileInfo] = useState<UserProfile>({
     name: '',
     bio: '',
     email: '',
     username: '',
-    gender: '',
-    phoneNumber: '',
   });
   const [updateProfileMutation] = useUpdateProfileByIdMutation();
 
   const updateProfile = async (event: React.FormEvent<HTMLFormElement>) => {
-    try {
-      setError('');
-      event.preventDefault();
-      const editProfilePlayload = { ...profileInfo };
-      if (profileInfo.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
-      const res = await updateProfileMutation({ id, profile: editProfilePlayload });
-      if (res.error) throw new Error(res.error.data.error);
-      navigate('/profile');
-    } catch (error) {
-      if (error instanceof Error) setError(error.message);
-    }
+    setErrorMessage('');
+    event.preventDefault();
+    const editProfilePlayload = { ...profileInfo };
+    if (profileInfo.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
+    updateProfileMutation({ id, profile: editProfilePlayload })
+      .unwrap()
+      .catch(error => {
+        setErrorMessage(error.data.error);
+      });
   };
 
   const profileName = 'Ejaz Hussain';
@@ -58,7 +52,7 @@ export function EditProfile() {
   };
 
   const onChangeField = (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
-    setError('');
+    setErrorMessage('');
     const { name, value } = event.currentTarget;
     setProfileInfo({ ...profileInfo, [name]: value });
   };
@@ -140,7 +134,7 @@ export function EditProfile() {
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canSubmit}>
           Submit
         </button>
-        <div className="error-msg">{error}</div>
+        <div className="error-msg">{errorMessage}</div>
       </form>
     </div>
   );
