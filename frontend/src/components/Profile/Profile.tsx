@@ -20,6 +20,7 @@ export function Profile() {
   let username = '';
   const currentUsername: string = useAppSelector(selectUsername);
   if (params.username) username = params.username;
+  console.log(username);
   const { data } = useGetProfileByUsernameQuery(username);
   const navigate = useNavigate();
   const [profileInfo, setProfileInfo] = useState({
