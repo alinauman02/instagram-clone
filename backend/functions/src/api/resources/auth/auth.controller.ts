@@ -12,16 +12,10 @@ export const signup: RequestHandler = async (req, res, next) => {
     if (await checkUsername(profile.username)) throw new Error('Username Already exists!');
     if (await checkEmail(profile.email)) throw new Error('Email already exists');
     const userRecord = await signUpUser(req.body.email, req.body.password, req.body.username);
-    const userProfile = new UserProfile(
-      profile.username,
-      profile.email,
-      profile.name,
-      req.body.bio,
-      req.body.phoneNumber,
-      req.body.createdAt,
-      req.body.updatedAt,
-      req.body.isDeleted
-    );
+
+    delete req.body.password;
+    const userProfile = plainToInstance(UserProfile, req.body as UserProfile);
+
     res.send(await createUserProfileDocument(userRecord.uid, userProfile));
   } catch (error) {
     next(error);

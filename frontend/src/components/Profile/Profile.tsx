@@ -27,7 +27,6 @@ export function Profile() {
     name: '',
     bio: '',
     username: '',
-    gender: '',
   });
 
   useEffect(() => {

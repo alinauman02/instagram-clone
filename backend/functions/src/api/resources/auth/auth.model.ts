@@ -1,26 +1,22 @@
-import { IsAlpha, IsAlphanumeric, IsDefined, IsEmail, IsNotEmpty, Length } from 'class-validator';
+import { IsAlpha, IsAlphanumeric, IsEmail, IsNotEmpty, Length } from 'class-validator';
 
 export class SignupRequestPayLoad {
   @Length(8, 20)
-  @IsNotEmpty()
-  @IsDefined({ message: 'Username is missing' })
+  @IsNotEmpty({ message: 'username is missing or empty' })
   username: string;
 
   @IsEmail()
-  @IsDefined({ message: 'Email is missing' })
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'email is missing or empty' })
   email: string;
 
   @Length(3, 30)
   @IsAlpha()
-  @IsDefined({ message: 'Name is missing' })
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'name is missing or empty' })
   name: string;
 
   @Length(8, 20)
-  @IsDefined({ message: 'Password is missing' })
   @IsAlphanumeric()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'password is missing or empty' })
   password: string;
 
   constructor(username: string, email: string, password: string, name: string) {
