@@ -60,7 +60,7 @@ export function EditProfile() {
   };
 
   useEffect(() => {
-    if (data) setProfileInfo(data);
+    if (data) setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, ...data }));
   }, [data]);
 
   return isFetching || !profileInfo ? (
