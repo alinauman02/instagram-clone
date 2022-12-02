@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
-import { errorHandler, logger } from './resources/middleware';
+import { errorHandler, logger } from './middleware';
 import { profileRouter } from './resources/user-profile';
 
 import { functions } from '../config';
