@@ -8,7 +8,7 @@ export interface UserProfile extends Metadata {
   username: string;
   email: string;
   phoneNumber?: string;
-  gender?: Gender;
+  gender: Gender;
   name: string;
   bio: string;
 }
