@@ -10,9 +10,9 @@ import './EditProfile.css';
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
   const id = useAppSelector(selectUserId);
-  const { data, isFetching } = useGetProfileByIdQuery(id);
+  const { data: profile, isFetching } = useGetProfileByIdQuery(id);
   const [errorMessage, setErrorMessage] = useState('');
-  const [profileInfo, setProfileInfo] = useState<UserProfile>({
+  const [profileForm, setProfileForm] = useState<UserProfile>({
     name: '',
     bio: '',
     email: '',
@@ -25,8 +25,8 @@ export function EditProfile() {
   const updateProfile = async (event: React.FormEvent<HTMLFormElement>) => {
     setErrorMessage('');
     event.preventDefault();
-    const editProfilePlayload = { ...profileInfo };
-    if (profileInfo.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
+    const editProfilePlayload = { ...profileForm };
+    if (profileForm.phoneNumber === '') editProfilePlayload.phoneNumber = undefined;
     updateProfileMutation({ id, profile: editProfilePlayload })
       .unwrap()
       .catch(error => {
@@ -38,32 +38,32 @@ export function EditProfile() {
   let count = 0;
   let canSubmit = false;
 
-  profileInfo
-    ? ((count = profileInfo.bio.length),
-      (canSubmit = profileInfo.username !== '' && profileInfo.email !== '' && profileInfo.name !== ''))
+  profileForm
+    ? ((count = profileForm.bio.length),
+      (canSubmit = profileForm.username !== '' && profileForm.email !== '' && profileForm.name !== ''))
     : ((count = 0), (canSubmit = false));
 
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = event.currentTarget;
-    setProfileInfo({ ...profileInfo, [name]: value });
+    setProfileForm({ ...profileForm, [name]: value });
   };
 
   const onChangeSelect = (event: React.FormEvent<HTMLSelectElement>) => {
     const { name, value } = event.currentTarget;
-    setProfileInfo({ ...profileInfo, [name]: value });
+    setProfileForm({ ...profileForm, [name]: value });
   };
 
   const onChangeField = (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
     setErrorMessage('');
     const { name, value } = event.currentTarget;
-    setProfileInfo({ ...profileInfo, [name]: value });
+    setProfileForm({ ...profileForm, [name]: value });
   };
 
   useEffect(() => {
-    if (data) setProfileInfo(currentProfileInfo => ({ ...currentProfileInfo, ...data }));
-  }, [data]);
+    if (profile) setProfileForm(currentProfileInfo => ({ ...currentProfileInfo, ...profile }));
+  }, [profile]);
 
-  return isFetching || !profileInfo ? (
+  return isFetching || !profileForm ? (
     <div>Loading</div>
   ) : (
     <div className="edit-profile flex-box flex-direction-column">
@@ -84,7 +84,7 @@ export function EditProfile() {
           type="string"
           placeholder="Name"
           name="name"
-          value={profileInfo.name}
+          value={profileForm.name}
           onChange={onChange}
         />
         <InputField
@@ -92,7 +92,7 @@ export function EditProfile() {
           placeholder="Username"
           name="username"
           onChange={onChange}
-          value={profileInfo.username}
+          value={profileForm.username}
           label="Username"
         />
         <div className="flex-box">
@@ -104,7 +104,7 @@ export function EditProfile() {
             onInput={onChangeField}
             rows={3}
             maxLength={150}
-            value={profileInfo.bio}
+            value={profileForm.bio}
           ></textarea>
         </div>
         <span className="bio-chars-count">{count}/150</span>
@@ -113,7 +113,7 @@ export function EditProfile() {
           placeholder="Email"
           name="email"
           onChange={onChange}
-          value={profileInfo.email}
+          value={profileForm.email}
           label="Email"
         />
         <InputField
@@ -121,7 +121,7 @@ export function EditProfile() {
           placeholder="Phone No"
           name="phoneNumber"
           onChange={onChange}
-          value={profileInfo.phoneNumber as string}
+          value={profileForm.phoneNumber as string}
           label="Phone Number"
         />
         <SelectField
@@ -129,7 +129,7 @@ export function EditProfile() {
           label="Gender"
           placeholder="Gender"
           name="gender"
-          value={profileInfo.gender}
+          value={profileForm.gender}
           options={[Gender.MALE, Gender.FEMALE]}
         />
 
