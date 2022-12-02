@@ -34,7 +34,7 @@ export function EditPassword() {
           placeholder="Password"
           name="oldPassword"
           onChange={onChange}
-          value=""
+          value={accountPassword.oldPassword}
         />
         <InputField
           label="New Password"
@@ -42,7 +42,7 @@ export function EditPassword() {
           placeholder="New Password"
           name="newPassword"
           onChange={onChange}
-          value=""
+          value={accountPassword.newPassword}
         />
         <InputField
           label="Confirm Password"
@@ -50,7 +50,7 @@ export function EditPassword() {
           placeholder="Confirm Password"
           name="confirmPassword"
           onChange={onChange}
-          value=""
+          value={accountPassword.confirmPassword}
         />
         <button className="edit-submit" name="Sign up" value="Sign up" disabled={!canConfirm}>
           Confirm
