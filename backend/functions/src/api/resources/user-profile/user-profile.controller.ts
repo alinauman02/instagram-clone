@@ -20,7 +20,6 @@ export const getUserProfile: RequestHandler = async (req, res, next) => {
 export const getUserProfileByUserName: RequestHandler = async (req, res, next) => {
   try {
     const profile = await getUserProfileServiceByUserName(req.params.username);
-    await validateOrReject(UserProfile);
     res.send(profile);
   } catch (error) {
     next(error);
