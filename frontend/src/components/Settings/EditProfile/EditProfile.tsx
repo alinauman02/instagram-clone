@@ -17,6 +17,8 @@ export function EditProfile() {
     bio: '',
     email: '',
     username: '',
+    phoneNumber: '',
+    gender: Gender.MALE,
   });
   const [updateProfileMutation] = useUpdateProfileByIdMutation();
 
@@ -119,7 +121,7 @@ export function EditProfile() {
           placeholder="Phone No"
           name="phoneNumber"
           onChange={onChange}
-          value={profileInfo.phoneNumber ?? ''}
+          value={profileInfo.phoneNumber as string}
           label="Phone Number"
         />
         <SelectField
@@ -127,7 +129,7 @@ export function EditProfile() {
           label="Gender"
           placeholder="Gender"
           name="gender"
-          value={profileInfo.gender ?? ''}
+          value={profileInfo.gender}
           options={[Gender.MALE, Gender.FEMALE]}
         />
 
