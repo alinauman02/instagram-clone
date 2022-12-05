@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(logger);
 
-app.use('/user-profiles', profileRouter);
 app.use('/auth', authRouter);
+app.use('/user-profiles', profileRouter);
 
 app.use(errorHandler);
 

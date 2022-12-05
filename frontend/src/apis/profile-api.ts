@@ -12,6 +12,10 @@ const profileApi = apiWithTag.injectEndpoints({
       query: id => `/user-profiles/${id}`,
       providesTags: [ApiTag.PROFILE],
     }),
+    getProfileByUsername: builder.query<UserProfile, string>({
+      query: username => `/user-profiles/username/${username}`,
+      providesTags: [ApiTag.PROFILE],
+    }),
     updateProfileById: builder.mutation<UserProfile, PostProfile>({
       query: ({ id, profile }) => ({
         url: `/user-profiles/${id}`,
@@ -24,4 +28,4 @@ const profileApi = apiWithTag.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetProfileByIdQuery, useUpdateProfileByIdMutation } = profileApi;
+export const { useGetProfileByUsernameQuery, useGetProfileByIdQuery, useUpdateProfileByIdMutation } = profileApi;

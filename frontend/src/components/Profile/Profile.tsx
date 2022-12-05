@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { useGetProfileByIdQuery } from 'apis';
+import { useGetProfileByUsernameQuery } from 'apis';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header } from 'components';
-import { useNavigate } from 'react-router-dom';
-import { selectUserId, useAppSelector } from 'store';
+import { useNavigate, useParams } from 'react-router-dom';
+import { selectUsername, useAppSelector } from 'store';
 import './Profile.css';
 
 const { posts, followers, following } = {
@@ -15,19 +15,14 @@ const { posts, followers, following } = {
 };
 
 export function Profile() {
-  const [showCreatePostModal, setShowCreatePostModal] = useState(false);
-  const id = useAppSelector(selectUserId);
-  const { data } = useGetProfileByIdQuery(id);
   const navigate = useNavigate();
-  const [profileInfo, setProfileInfo] = useState({
-    name: '',
-    bio: '',
-    username: '',
-  });
+  const { username } = useParams();
 
-  useEffect(() => {
-    if (data) setProfileInfo(data);
-  }, [data]);
+  const currentUsername: string = useAppSelector(selectUsername);
+
+  const { data: profile } = useGetProfileByUsernameQuery(username as string);
+
+  const [showCreatePostModal, setShowCreatePostModal] = useState(false);
 
   return (
     <div className="app-body">
@@ -40,25 +35,19 @@ export function Profile() {
 
           <div className="bio">
             <div className="flex-box">
-              <div className="user-name">{profileInfo.username}</div>
-              <button
-                className="edit-profile-button"
-                onClick={() => {
-                  navigate('/settings/edit-profile');
-                }}
-              >
-                Edit Profile
-              </button>
-              <div>
-                <button
-                  className="settings-profile-button"
-                  onClick={() => {
-                    navigate('/settings/edit-profile');
-                  }}
-                >
-                  <IconSettings />
-                </button>
-              </div>
+              <div className="user-name">{profile?.username}</div>
+              {currentUsername === username && (
+                <>
+                  <button className="edit-profile-button" onClick={() => navigate('/settings/edit-profile')}>
+                    Edit Profile
+                  </button>
+                  <div>
+                    <button className="settings-profile-button" onClick={() => navigate('/settings/edit-profile')}>
+                      <IconSettings />
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
             <div className="profile-info">
               <span className="counts">{posts} posts</span>{' '}
@@ -71,8 +60,8 @@ export function Profile() {
               </span>
             </div>
             <div className="profile-bio">
-              <div className="name">{profileInfo.name}</div>
-              <div className="bio">{profileInfo.bio}</div>
+              <div className="name">{profile?.name}</div>
+              <div className="bio">{profile?.bio}</div>
             </div>
           </div>
         </header>

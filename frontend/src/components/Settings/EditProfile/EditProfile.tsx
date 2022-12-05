@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
 
-import { useGetProfileByIdQuery, useUpdateProfileByIdMutation } from 'apis';
+import { useGetProfileByUsernameQuery, useUpdateProfileByIdMutation } from 'apis';
 import Profile from 'assets/images/profile.jpeg';
 import { EditPhoto, InputField, SelectField } from 'components';
 import { Gender, UserProfile } from 'models';
-import { selectUserId, useAppSelector } from 'store';
+import { selectUserId, selectUsername, useAppSelector } from 'store';
 import './EditProfile.css';
 
 export function EditProfile() {
   const [showEditPhotoModal, setShowEditPhotoModal] = useState(false);
+  const username = useAppSelector(selectUsername);
   const id = useAppSelector(selectUserId);
-  const { data: profile, isFetching } = useGetProfileByIdQuery(id);
+  const { data: profile, isFetching } = useGetProfileByUsernameQuery(username);
   const [errorMessage, setErrorMessage] = useState('');
   const [profileForm, setProfileForm] = useState<UserProfile>({
     name: '',

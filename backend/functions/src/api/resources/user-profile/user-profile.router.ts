@@ -1,7 +1,10 @@
 import { Router } from 'express';
-import { getUserProfile, UpdateUserProfile } from './user-profile.controller';
+import { canEditProfile, validateIdToken } from '../../middleware';
+import { getUserProfile, getUserProfileByUserName, updateUserProfile } from './user-profile.controller';
 
 export const profileRouter = Router();
 
 profileRouter.get('/:id', getUserProfile);
-profileRouter.patch('/:id', UpdateUserProfile);
+profileRouter.get('/username/:username', getUserProfileByUserName);
+profileRouter.use(validateIdToken);
+profileRouter.patch('/:id', canEditProfile, updateUserProfile);
