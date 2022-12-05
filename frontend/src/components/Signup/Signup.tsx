@@ -8,7 +8,7 @@ import { logIn, signUpWithGoogle } from 'services';
 import './Signup.css';
 
 import { signUpApi } from 'apis/auth';
-import { Input } from './Input';
+import { InputField } from 'components';
 
 export function Signup() {
   const navigate = useNavigate();
@@ -45,7 +45,9 @@ export function Signup() {
       await logIn(userCredentials.email, userCredentials.password);
       navigate('/home');
     } catch (error) {
-      if (error instanceof Error) setError(error.message);
+      if (error instanceof Error) {
+        setError(error.message);
+      }
     }
   };
 
@@ -79,10 +81,28 @@ export function Signup() {
           <div className="signup-or-line"></div>
         </div>
         <form className="signup-form flex-direction-column" onSubmit={onSignUp}>
-          <Input type="email" placeholder="Email" name="email" onChange={onChange} />
-          <Input type="string" placeholder="Full Name" name="name" onChange={onChange} />
-          <Input type="string" placeholder="Username" name="username" onChange={onChange} />
-          <Input type="password" placeholder="Password" name="password" onChange={onChange} />
+          <InputField type="email" placeholder="Email" name="email" onChange={onChange} value={userCredentials.email} />
+          <InputField
+            type="string"
+            placeholder="Full Name"
+            name="name"
+            onChange={onChange}
+            value={userCredentials.name}
+          />
+          <InputField
+            type="string"
+            placeholder="Username"
+            name="username"
+            onChange={onChange}
+            value={userCredentials.username}
+          />
+          <InputField
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={onChange}
+            value={userCredentials.password}
+          />
           <button type="submit" className="submit-button" name="Sign up" value="Sign up" disabled={!canSignUp}>
             Sign up
           </button>

@@ -1,20 +1,23 @@
-import { Link, useNavigate } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
+import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'services';
 
-import './AccountOptions.css';
+import { ReactComponent as IconProfile } from 'assets/icons/profile.svg';
+import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem.svg';
 import { ReactComponent as IconSaved } from 'assets/icons/saved.svg';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
-import { ReactComponent as IconProfile } from 'assets/icons/profile.svg';
 import { ReactComponent as IconSwitchAccount } from 'assets/icons/switch-accounts.svg';
-import { ReactComponent as IconReportProblem } from 'assets/icons/report-problem.svg';
+import { selectUsername, setAuthState, useAppDispatch, useAppSelector } from 'store';
+import './AccountOptions.css';
 
-export default function AccountOptions() {
+export function AccountOptions() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onLogOut = async () => {
     try {
       await logOut();
+      dispatch(setAuthState({ id: '', token: '', username: '' }));
       navigate('/login');
     } catch (err) {
       if (err instanceof FirebaseError) {
@@ -22,12 +25,12 @@ export default function AccountOptions() {
       }
     }
   };
-
+  const username = useAppSelector(selectUsername);
   return (
     <div className="navbar-dropdown flex-direction-column">
       <ul className="dropdown-list">
         <li className="dropdown-list-item">
-          <Link className="list-link flex-box" to="/profile">
+          <Link className="list-link flex-box" to={'/' + username}>
             <div className="icon-div">
               <IconProfile />
             </div>

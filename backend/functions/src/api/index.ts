@@ -1,7 +1,7 @@
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
 
-import { errorHandler, logger } from './../middleware';
+import { errorHandler, logger } from './middleware';
 import { profileRouter } from './resources/user-profile';
 
 import { functions } from '../config';
@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(logger);
 
-app.use('/user-profiles', profileRouter);
 app.use('/auth', authRouter);
+app.use('/user-profiles', profileRouter);
 
 app.use(errorHandler);
 

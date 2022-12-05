@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import './Login.css';
-import { logIn, signUpWithGoogle } from 'services';
-import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
 import { ReactComponent as GoogleIcon } from 'assets/icons/google-icon.svg';
+import { ReactComponent as InstagramIcon } from 'assets/icons/instagram-icon.svg';
+import { logIn, signUpWithGoogle } from 'services';
+import './Login.css';
 
-import { Input } from './Input';
+import { InputField } from 'components';
 
 export function Login() {
   const navigate = useNavigate();
@@ -55,8 +55,14 @@ export function Login() {
           <InstagramIcon />
         </div>
         <form className="login-form flex-direction-column" onSubmit={handleSubmit}>
-          <Input type="email" placeholder="Phone number, username, or email" name="email" onChange={onChange} />
-          <Input type="password" placeholder="Password" name="password" onChange={onChange} />
+          <InputField type="email" placeholder="Email" name="email" onChange={onChange} value={userCredentials.email} />
+          <InputField
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={onChange}
+            value={userCredentials.password}
+          />
           <button className="submit-button" name="Log in" value="Log in" disabled={!canLogin}>
             Log in
           </button>
@@ -68,7 +74,7 @@ export function Login() {
           <div className="login-or-line"></div>
         </div>
         <button className="login-button-google" onClick={handleGoogleLogin}>
-          <span className='google-icon'>
+          <span className="google-icon">
             <GoogleIcon />
             Login with Google
           </span>

@@ -6,7 +6,7 @@ interface EditPhotoProps {
   setShowEditPhotoModal: (show: boolean) => void;
 }
 
-export default function EditPhoto({ profilePic, setShowEditPhotoModal }: EditPhotoProps) {
+export function EditPhoto({ profilePic, setShowEditPhotoModal }: EditPhotoProps) {
   const [profilePicture, setProfilePicture] = useState(profilePic);
   return (
     <div className="edit-photo-background">

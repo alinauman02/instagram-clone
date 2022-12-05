@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Navbar.css';
 import { ReactComponent as IconAdd } from 'assets/icons/add.svg';
-import { ReactComponent as IconSuggestions } from 'assets/icons/suggestions.svg';
-import { ReactComponent as IconHome } from 'assets/icons/home.svg';
 import { ReactComponent as IconFavorites } from 'assets/icons/favorites.svg';
+import { ReactComponent as IconHome } from 'assets/icons/home.svg';
 import { ReactComponent as IconMessenger } from 'assets/icons/messenger.svg';
-import AccountOptions from './AccountOptions';
+import { ReactComponent as IconSuggestions } from 'assets/icons/suggestions.svg';
+import { AccountOptions } from 'components';
+import './Navbar.css';
 
 interface NavbarProps {
   onCreatePostClick: () => void;
