@@ -6,6 +6,7 @@ import { profileRouter } from './resources/user-profile';
 
 import { functions } from '../config';
 import { authRouter } from './resources/auth/auth.router';
+import { followRouter } from './resources/follow';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(logger);
 
 app.use('/auth', authRouter);
 app.use('/user-profiles', profileRouter);
+app.use('/follow', followRouter);
 
 app.use(errorHandler);
 
