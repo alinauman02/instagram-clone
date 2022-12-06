@@ -9,6 +9,13 @@ export interface PostProfile {
   profile: UserProfile;
 }
 
+export interface followAccount {
+  uid: string;
+  name: string;
+  username: string;
+  id:string;
+}
+
 // Define a service using a base URL and expected endpoints
 export const emptyApi = createApi({
   baseQuery: fetchBaseQuery({
