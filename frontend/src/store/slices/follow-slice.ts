@@ -28,8 +28,8 @@ export const followSlice = createSlice({
   },
 });
 
-export const selectFollowers = (state: RootState) => state.follow;
-export const selectFollowings = (state: RootState) => state.auth.token;
+export const selectFollowers = (state: RootState) => state.follow.followers;
+export const selectFollowings = (state: RootState) => state.follow.followings;
 
 export const { setFollowersState, setFollowStates, setFollowingsState } = followSlice.actions;
 export const followSliceReducer = followSlice.reducer;
