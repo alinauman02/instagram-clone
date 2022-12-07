@@ -1,11 +1,31 @@
+import { ProfileListsItem } from 'components';
+import { FollowProfile } from 'models/follow-profile';
 import './ProfileList.css';
 
-export function ProfileList() {
+interface ProfileListProps {
+  type: 'self' | 'others';
+  profileLists: FollowProfile[];
+  list: 'followings' | 'followers';
+}
+
+export function ProfileList({ profileLists, type, list }: ProfileListProps) {
   return (
     <div className="profile-list-background">
       <div className="profile-list">
-        <div className="profile-list-header">Followers</div>
-        <div>EJAZ HUSSAIN</div>
+        <>
+          <div className="profile-list-header">{list}</div>
+          {profileLists.map(({ name, username }) => (
+            <ProfileListsItem
+              key={username}
+              name={name}
+              description={username}
+              icon={''}
+              button="Remove"
+              type={type}
+              list={list}
+            />
+          ))}
+        </>
       </div>
     </div>
   );
