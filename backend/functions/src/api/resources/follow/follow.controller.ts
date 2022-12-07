@@ -31,7 +31,7 @@ export const followUserProfile: RequestHandler = async (req, res, next) => {
   try {
     const userProfile = plainToInstance(FollowRequestPlayLoad, req.body as FollowRequestPlayLoad);
     await validateOrReject(userProfile);
-    const profile = await followUserProfileService(req.params.id, userProfile);
+    const profile = await followUserProfileService(req.params.username, userProfile);
     res.send(profile);
   } catch (error) {
     next(error);
@@ -40,8 +40,8 @@ export const followUserProfile: RequestHandler = async (req, res, next) => {
 
 export const unFollowUserProfile: RequestHandler = async (req, res, next) => {
   try {
-    const uid = req.user?.uid ?? '';
-    const profile = await unFollowUserProfileService(req.params.id, uid);
+    const uid = req.user?.id?? '';
+    const profile = await unFollowUserProfileService(req.params.username, uid);
     res.send(profile);
   } catch (error) {
     next(error);
