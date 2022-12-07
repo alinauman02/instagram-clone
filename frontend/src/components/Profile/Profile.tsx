@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { useGetProfileByUsernameQuery } from 'apis';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
-import { CreatePost, Gallery, Header } from 'components';
+import { CreatePost, Gallery, Header, ProfileList } from 'components';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectUsername, useAppSelector } from 'store';
+import { selectUsername, useAppDispatch, useAppSelector } from 'store';
+import { setFollowStates } from 'store/slices/follow-slice';
 import './Profile.css';
 
 const { posts, followers, following } = {
@@ -17,6 +18,7 @@ const { posts, followers, following } = {
 export function Profile() {
   const navigate = useNavigate();
   const { username } = useParams();
+  const dispatch = useAppDispatch();
 
   const currentUsername: string = useAppSelector(selectUsername);
 
@@ -24,11 +26,26 @@ export function Profile() {
 
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
 
+  const [showFollowerListModal, setShowFollowerListModal] = useState(false);
+
+  const [showFollowingListModal, setShowFollowingListModal] = useState(false);
+
+  if (currentUsername === username) {
+    dispatch(setFollowStates({ followers: profile?.followers ?? [], followings: profile?.followings ?? [] }));
+  }
+
+  const onCheckFollowers = () => {
+    setShowFollowerListModal(true);
+  };
+
+  const onCheckFollowings = () => {
+    setShowFollowingListModal(true);
+  };
+  console.log(profile);
   return (
     <div className="app-body">
       <Header onCreatePostClick={() => setShowCreatePostModal(true)} />
       {showCreatePostModal && <CreatePost setCreatePostBoxVisibility={setShowCreatePostModal} />}
-
       <div className="profile">
         <header className="profile-header flex-box">
           <img className="profile-pic" src={ProfilePic} alt="profile"></img>
@@ -50,13 +67,18 @@ export function Profile() {
               )}
             </div>
             <div className="profile-info">
-              <span className="counts">{posts} posts</span>{' '}
+              <span className="counts">{posts} posts</span>
               <span className="counts">
                 {followers}
-                <button className="followers-button"> followers</button>
+                <button className="followers-button" onClick={onCheckFollowers}>
+                  followers
+                </button>
               </span>
               <span className="counts">
-                {following} <button className="following-button"> following</button>
+                {following}
+                <button className="following-button" onClick={onCheckFollowings}>
+                  following
+                </button>
               </span>
             </div>
             <div className="profile-bio">
@@ -67,6 +89,20 @@ export function Profile() {
         </header>
         <Gallery />
       </div>
+      {showFollowerListModal && profile && (
+        <ProfileList
+          profileLists={profile?.followers ?? []}
+          list="followers"
+          type={currentUsername === username ? 'self' : 'others'}
+        />
+      )}
+      {showFollowingListModal && profile && (
+        <ProfileList
+          profileLists={profile?.followings ?? []}
+          list="followings"
+          type={currentUsername === username ? 'self' : 'others'}
+        />
+      )}
     </div>
   );
 }
