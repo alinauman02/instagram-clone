@@ -18,6 +18,6 @@ export function followUserProfileService(uid: string, userProfile: FollowRequest
   return followUserProfileDocument(uid, userProfile);
 }
 
-export function unFollowUserProfileService(uid: string, username: string) {
-  return unFollowUserProfileDocument(uid, username);
+export function unFollowUserProfileService(username: string, uid: string) {
+  return unFollowUserProfileDocument(username, uid);
 }
