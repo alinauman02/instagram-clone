@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
 import { useGetProfileByUsernameQuery } from 'apis';
+import { useFollowUserProfileMutation } from 'apis/follow.api';
 import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header, ProfileList } from 'components';
+import { FollowProfile } from 'models/follow-profile';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectUsername, useAppSelector } from 'store';
 import './Profile.css';
@@ -25,6 +27,14 @@ export function Profile() {
   const [showFollowerListModal, setShowFollowerListModal] = useState(false);
 
   const [showFollowingListModal, setShowFollowingListModal] = useState(false);
+
+  const [FollowProfile] = useFollowUserProfileMutation();
+
+  let checkFollowings = false;
+  if (profile?.followers) {
+    const temp: FollowProfile[] = profile?.followers;
+    for (let i = 0; i < temp.length; i++) if (temp[i].username === currentUsername) checkFollowings = true;
+  }
 
   const onCheckFollowers = () => {
     setShowFollowerListModal(true);
@@ -57,9 +67,18 @@ export function Profile() {
                 </>
               ) : (
                 <>
-                  <button className="follow-profile-button" onClick={() => navigate('/settings/edit-profile')}>
-                    Edit Profile
-                  </button>
+                  {checkFollowings ? (
+                    <button className="follow-profile-button">Following</button>
+                  ) : (
+                    <button
+                      className="follow-profile-button"
+                      onClick={async () => {
+                        await FollowProfile(username ?? '');
+                      }}
+                    >
+                      Follow
+                    </button>
+                  )}
                 </>
               )}
             </div>

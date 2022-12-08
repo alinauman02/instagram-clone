@@ -19,13 +19,20 @@ const followersAPi = apiWithTag.injectEndpoints({
     followUserProfile: builder.mutation<UserProfile, string>({
       query: username => ({
         url: `/follow/follow-user-profile/${username}`,
-        method: 'PATCH',
+        method: 'POST',
       }),
       invalidatesTags: [ApiTag.PROFILE],
     }),
     unFollowUserProfile: builder.mutation<UserProfile, string>({
       query: username => ({
         url: `/follow/unfollow-user-profile/${username}`,
+        method: 'PATCH',
+      }),
+      invalidatesTags: [ApiTag.PROFILE],
+    }),
+    removeFollowUserProfile: builder.mutation<UserProfile, string>({
+      query: username => ({
+        url: `/follow/removefollow-user-profile/${username}`,
         method: 'PATCH',
       }),
       invalidatesTags: [ApiTag.PROFILE],
@@ -39,4 +46,5 @@ export const {
   useGetFollowingsQuery,
   useUnFollowUserProfileMutation,
   useFollowUserProfileMutation,
+  useRemoveFollowUserProfileMutation,
 } = followersAPi;
