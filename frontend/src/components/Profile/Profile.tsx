@@ -68,10 +68,10 @@ export function Profile() {
               ) : (
                 <>
                   {checkFollowings ? (
-                    <button className="follow-profile-button">Following</button>
+                    <button className="follow-profile-button-following">Following</button>
                   ) : (
                     <button
-                      className="follow-profile-button"
+                      className="follow-profile-button-follow"
                       onClick={async () => {
                         await FollowProfile(username ?? '');
                       }}

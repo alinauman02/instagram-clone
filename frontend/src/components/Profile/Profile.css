@@ -76,3 +76,19 @@
 .edit-profile-button:hover {
   cursor: pointer;
 }
+
+.follow-profile-button-following {
+  border: none;
+  text: bold;
+  color: black;
+}
+
+.follow-profile-button-follow {
+  background-color: rgb(9, 135, 245);
+  padding: 0.8em 0.5em;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  color: white;
+}
