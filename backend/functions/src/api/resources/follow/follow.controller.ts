@@ -1,11 +1,9 @@
-import { plainToInstance } from 'class-transformer';
-import { validateOrReject } from 'class-validator';
 import { RequestHandler } from 'express';
-import { FollowRequestPlayLoad } from './follow.model';
 import {
   followUserProfileService,
   getFOllowedByUserProfilesService,
   getFollowingUserProfilesService,
+  removeFollowUserProfileService,
   unFollowUserProfileService,
 } from './follow.service';
 
@@ -29,9 +27,9 @@ export const getFollowingUserProfiles: RequestHandler = async (req, res, next) =
 
 export const followUserProfile: RequestHandler = async (req, res, next) => {
   try {
-    const userProfile = plainToInstance(FollowRequestPlayLoad, req.body as FollowRequestPlayLoad);
-    await validateOrReject(userProfile);
-    const profile = await followUserProfileService(req.params.username, userProfile);
+    const uid = req.user?.uid ?? '';
+    console.log(uid);
+    const profile = await followUserProfileService(req.params.username, uid);
     res.send(profile);
   } catch (error) {
     next(error);
@@ -40,8 +38,18 @@ export const followUserProfile: RequestHandler = async (req, res, next) => {
 
 export const unFollowUserProfile: RequestHandler = async (req, res, next) => {
   try {
-    const uid = req.user?.id?? '';
+    const uid = req.user?.uid ?? '';
     const profile = await unFollowUserProfileService(req.params.username, uid);
+    res.send(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const removeFollowUserProfile: RequestHandler = async (req, res, next) => {
+  try {
+    const uid = req.user?.uid ?? '';
+    const profile = await removeFollowUserProfileService(req.params.username, uid);
     res.send(profile);
   } catch (error) {
     next(error);
