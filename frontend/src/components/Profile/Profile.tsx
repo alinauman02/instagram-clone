@@ -5,20 +5,16 @@ import { ReactComponent as IconSettings } from 'assets/icons/settings.svg';
 import ProfilePic from 'assets/images/profile.jpeg';
 import { CreatePost, Gallery, Header, ProfileList } from 'components';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectUsername, useAppDispatch, useAppSelector } from 'store';
-import { setFollowStates } from 'store/slices/follow-slice';
+import { selectUsername, useAppSelector } from 'store';
 import './Profile.css';
 
-const { posts, followers, following } = {
-  followers: 235,
+const { posts } = {
   posts: 21,
-  following: 352,
 };
 
 export function Profile() {
   const navigate = useNavigate();
   const { username } = useParams();
-  const dispatch = useAppDispatch();
 
   const currentUsername: string = useAppSelector(selectUsername);
 
@@ -30,10 +26,6 @@ export function Profile() {
 
   const [showFollowingListModal, setShowFollowingListModal] = useState(false);
 
-  if (currentUsername === username) {
-    dispatch(setFollowStates({ followers: profile?.followers ?? [], followings: profile?.followings ?? [] }));
-  }
-
   const onCheckFollowers = () => {
     setShowFollowerListModal(true);
   };
@@ -41,7 +33,6 @@ export function Profile() {
   const onCheckFollowings = () => {
     setShowFollowingListModal(true);
   };
-  console.log(profile);
   return (
     <div className="app-body">
       <Header onCreatePostClick={() => setShowCreatePostModal(true)} />
@@ -53,7 +44,7 @@ export function Profile() {
           <div className="bio">
             <div className="flex-box">
               <div className="user-name">{profile?.username}</div>
-              {currentUsername === username && (
+              {currentUsername === username ? (
                 <>
                   <button className="edit-profile-button" onClick={() => navigate('/settings/edit-profile')}>
                     Edit Profile
@@ -64,18 +55,24 @@ export function Profile() {
                     </button>
                   </div>
                 </>
+              ) : (
+                <>
+                  <button className="follow-profile-button" onClick={() => navigate('/settings/edit-profile')}>
+                    Edit Profile
+                  </button>
+                </>
               )}
             </div>
             <div className="profile-info">
               <span className="counts">{posts} posts</span>
               <span className="counts">
-                {followers}
+                {profile?.followers?.length ?? 0}
                 <button className="followers-button" onClick={onCheckFollowers}>
                   followers
                 </button>
               </span>
               <span className="counts">
-                {following}
+                {profile?.followings?.length ?? 0}
                 <button className="following-button" onClick={onCheckFollowings}>
                   following
                 </button>
@@ -89,14 +86,14 @@ export function Profile() {
         </header>
         <Gallery />
       </div>
-      {showFollowerListModal && profile && (
+      {showFollowerListModal && profile?.followers && (
         <ProfileList
           profileLists={profile?.followers ?? []}
           list="followers"
           type={currentUsername === username ? 'self' : 'others'}
         />
       )}
-      {showFollowingListModal && profile && (
+      {showFollowingListModal && profile?.followings && (
         <ProfileList
           profileLists={profile?.followings ?? []}
           list="followings"

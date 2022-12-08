@@ -1,26 +1,29 @@
+import { useGetProfileByUsernameQuery } from 'apis';
 import { useFollowUserProfileMutation, useUnFollowUserProfileMutation } from 'apis/follow.api';
-import { useAppSelector } from 'store';
-import { selectFollowers } from 'store/slices/follow-slice';
+import { useState } from 'react';
+import { selectUsername, useAppSelector } from 'store';
 import './ProfileListsItem.css';
 
 interface PorfileListItemProps {
   name: string;
-  description: string;
-  icon: string;
+  username: string;
+  src: string;
   type: 'self' | 'others';
   button: string;
   list: 'followers' | 'followings';
   OnClick?: () => void;
 }
 
-export function ProfileListsItem({ name, description, icon, type, list }: PorfileListItemProps) {
-  const followers = useAppSelector(selectFollowers);
+export function ProfileListsItem({ name, username, src: icon, type, list }: PorfileListItemProps) {
+  const currentUsername: string = useAppSelector(selectUsername);
+  const { data: profile } = useGetProfileByUsernameQuery(currentUsername);
   const [FollowProfile] = useFollowUserProfileMutation();
   const [unFollowProfile] = useUnFollowUserProfileMutation();
+  const [change, setChange] = useState('');
 
   let checkFollowings = false;
-  followers.forEach(data => {
-    if (data.name === name && description === data.username) checkFollowings = true;
+  profile?.followers?.forEach(data => {
+    if (username === data.username) checkFollowings = true;
   });
   let button = '';
   if (list === 'followers') {
@@ -39,11 +42,12 @@ export function ProfileListsItem({ name, description, icon, type, list }: Porfil
 
   const onClickButton = async () => {
     if (button === 'follow') {
-      await FollowProfile(description);
+      await FollowProfile(username);
+      setChange('1');
       button = 'followings';
     }
     if (button === 'unfollow') {
-      await unFollowProfile(description);
+      await unFollowProfile(username);
       button = 'followings';
     }
   };
@@ -53,7 +57,7 @@ export function ProfileListsItem({ name, description, icon, type, list }: Porfil
       <img className="profile-icon" src={icon} alt="kjsaf"></img>
       <div>
         <h3>{name}</h3>
-        <span>{description}</span>
+        <span>{username}</span>
       </div>
       {type === 'others'}
       <button className="profile-item-button" onClick={onClickButton}>

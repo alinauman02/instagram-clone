@@ -18,8 +18,8 @@ export function ProfileList({ profileLists, type, list }: ProfileListProps) {
             <ProfileListsItem
               key={username}
               name={name}
-              description={username}
-              icon={''}
+              username={username}
+              src={''}
               button="Remove"
               type={type}
               list={list}
