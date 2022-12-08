@@ -2,6 +2,7 @@ import {
   followUserProfileDocument,
   getFOllowedByUserProfilesDocument,
   getFollowingUserProfilesDocument,
+  removeFollowUserProfileDocument,
   unFollowUserProfileDocument,
 } from '.';
 
@@ -22,5 +23,5 @@ export function unFollowUserProfileService(username: string, uid: string) {
 }
 
 export function removeFollowUserProfileService(username: string, uid: string) {
-  return unFollowUserProfileDocument(username, uid);
+  return removeFollowUserProfileDocument(username, uid);
 }

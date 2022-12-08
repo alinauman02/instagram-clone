@@ -1,5 +1,9 @@
 import { useGetProfileByUsernameQuery } from 'apis';
-import { useFollowUserProfileMutation, useUnFollowUserProfileMutation } from 'apis/follow.api';
+import {
+  useFollowUserProfileMutation,
+  useRemoveFollowUserProfileMutation,
+  useUnFollowUserProfileMutation,
+} from 'apis/follow.api';
 import { FollowProfile } from 'models/follow-profile';
 import { selectUsername, useAppSelector } from 'store';
 import './ProfileListsItem.css';
@@ -19,7 +23,7 @@ export function ProfileListsItem({ name, username, src: icon, type, list }: Porf
   const { data: profile } = useGetProfileByUsernameQuery(currentUsername);
   const [FollowProfile] = useFollowUserProfileMutation();
   const [unFollowProfile] = useUnFollowUserProfileMutation();
-  const [removeFollowProfile] = useUnFollowUserProfileMutation();
+  const [removeFollowProfile] = useRemoveFollowUserProfileMutation();
 
   let checkFollowings = false;
   if (profile?.followers) {
@@ -43,7 +47,7 @@ export function ProfileListsItem({ name, username, src: icon, type, list }: Porf
 
   const onClickButton = async () => {
     if (button === 'follow') {
-      await FollowProfile(username)
+      await FollowProfile(username);
       button = 'followings';
     }
     if (button === 'unfollow') {
@@ -51,7 +55,7 @@ export function ProfileListsItem({ name, username, src: icon, type, list }: Porf
       button = 'followings';
     }
     if (button === 'remove') {
-      await removeFollowProfile(username);
+      console.log(await removeFollowProfile(username));
     }
   };
 
