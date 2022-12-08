@@ -11,4 +11,6 @@ export interface UserProfile extends Metadata {
   gender: Gender;
   name: string;
   bio: string;
+  followers?: [];
+  followings?: [];
 }

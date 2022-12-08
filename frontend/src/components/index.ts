@@ -21,3 +21,5 @@ export * from './ui/Header/Header';
 export * from './ui/Header/Navbar/AccountOptions/AccountOptions';
 export * from './ui/Header/Navbar/Navbar';
 export * from './ui/Header/Search/Search';
+export * from './ui/ProfileList/ProfileList';
+export * from './ui/ProfileList/ProfileListsItem/ProfileListsItem';
