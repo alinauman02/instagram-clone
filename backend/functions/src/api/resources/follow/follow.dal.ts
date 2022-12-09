@@ -2,20 +2,6 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { firestore } from '../../../config';
 import { FirestoreCollection } from '../../../constants';
 
-export const getFOllowedByUserProfilesDocument = async (username: string) => {
-  const ref = firestore.collection(FirestoreCollection.USER_PROFILES).where('username', '==', username);
-  const snapShot = await ref.limit(1).get();
-  const data = snapShot.docs[0].data();
-  return data ? data.followers : [];
-};
-
-export const getFollowingUserProfilesDocument = async (username: string) => {
-  const ref = firestore.collection(FirestoreCollection.USER_PROFILES).where('username', '==', username);
-  const snapShot = await ref.limit(1).get();
-  const data = snapShot.docs[0].data();
-  return data ? data.followings : [];
-};
-
 export const followUserProfileDocument = async (username: string, uid: string) => {
   const ref = firestore.collection(FirestoreCollection.USER_PROFILES).doc(uid);
   const profile = (await ref.get()).data();

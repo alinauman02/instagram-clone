@@ -1,29 +1,5 @@
 import { RequestHandler } from 'express';
-import {
-  followUserProfileService,
-  getFOllowedByUserProfilesService,
-  getFollowingUserProfilesService,
-  removeFollowUserProfileService,
-  unFollowUserProfileService,
-} from './follow.service';
-
-export const getFOllowedByUserProfiles: RequestHandler = async (req, res, next) => {
-  try {
-    const profile = await getFOllowedByUserProfilesService(req.params.username);
-    res.send(profile);
-  } catch (error) {
-    next(error);
-  }
-};
-
-export const getFollowingUserProfiles: RequestHandler = async (req, res, next) => {
-  try {
-    const profile = await getFollowingUserProfilesService(req.params.username);
-    res.send(profile);
-  } catch (error) {
-    next(error);
-  }
-};
+import { followUserProfileService, removeFollowUserProfileService, unFollowUserProfileService } from './follow.service';
 
 export const followUserProfile: RequestHandler = async (req, res, next) => {
   try {

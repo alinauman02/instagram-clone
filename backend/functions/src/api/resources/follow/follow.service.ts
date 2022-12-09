@@ -1,18 +1,4 @@
-import {
-  followUserProfileDocument,
-  getFOllowedByUserProfilesDocument,
-  getFollowingUserProfilesDocument,
-  removeFollowUserProfileDocument,
-  unFollowUserProfileDocument,
-} from '.';
-
-export function getFOllowedByUserProfilesService(username: string) {
-  return getFOllowedByUserProfilesDocument(username);
-}
-
-export function getFollowingUserProfilesService(username: string) {
-  return getFollowingUserProfilesDocument(username);
-}
+import { followUserProfileDocument, removeFollowUserProfileDocument, unFollowUserProfileDocument } from '.';
 
 export function followUserProfileService(username: string, uid: string) {
   return followUserProfileDocument(username, uid);
